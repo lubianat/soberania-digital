@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tiago.bio.br/soberania-digital/sitemap.xml

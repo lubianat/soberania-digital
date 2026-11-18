@@ -1,5 +1,6 @@
 /* Guarda o guia no aparelho para abrir sem internet. Não envia nem recebe dados de ninguém. */
-const CACHE = 'soberania-v27';
+const CACHE = 'soberania-v28';
+
 const CORE = ['./', './index.html', './dados.yaml', './vendor/js-yaml.min.js', './manifest.webmanifest', './icon-192.png', './icon-512.png',
   './fonts/raleway.css', './fa/css/all.min.css', './fa/webfonts/fa-solid-900.woff2', './fa/webfonts/fa-brands-400.woff2', './fa/webfonts/fa-regular-400.woff2'];
 

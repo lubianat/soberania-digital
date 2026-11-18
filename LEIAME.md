@@ -35,3 +35,5 @@ Para testar no computador, abra por um servidor local (o navegador não lê
     python3 -m http.server -d soberania-digital
 
 e acesse http://localhost:8000
+
+Depois de editar o `dados.yaml`, rode `node build.js`: ele copia a lista para dentro do `index.html` (para buscadores e prévias de links).
