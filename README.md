@@ -36,4 +36,8 @@ Para testar no computador, abra por um servidor local (o navegador não lê
 
 e acesse http://localhost:8000
 
-Depois de editar o `dados.yaml`, rode `node build.js`: ele copia a lista para dentro do `index.html` (para buscadores e prévias de links).
+Ao publicar, o GitHub Actions roda `node build.js`, que copia a lista do `dados.yaml` para dentro do `index.html` (para buscadores e prévias de links). Não precisa rodar à mão.
+
+## Sobre o GitHub Actions
+
+Hoje o site é publicado pelo GitHub Pages, com o GitHub Actions. O GitHub é da Microsoft, uma big tech, e isso contradiz a proposta do guia. É uma dependência digital da qual o autor ainda não conseguiu sair, por praticidade e por costume. O site foi feito para não depender dela: são só arquivos estáticos, e o `build.js` roda em qualquer computador com Node. Dá para migrar para o Codeberg (com Forgejo Actions ou Woodpecker CI) ou para uma hospedagem brasileira sem mudar o código. A migração está nos planos. Sugestões e ajuda são bem-vindas.
