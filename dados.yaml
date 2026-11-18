@@ -578,7 +578,7 @@ areas:
     ponto_forte: Sem dono e sem anúncios
     ponto_fraco: Pouca gente e caindo
     site: https://joinmastodon.org
-    saiba_antes: 'Não tem algoritmo: a linha do tempo só mostra quem você segue. No começo parece vazio. Siga hashtags e pessoas da sua área. Seus amigos do Instagram provavelmente não estão lá. No botão Servidores, veja servidores brasileiros.'
+    saiba_antes: 'Não tem algoritmo: a linha do tempo só mostra quem você segue. No começo parece vazio. Siga hashtags e pessoas da sua área. Seus amigos do Instagram provavelmente não estão lá. Para começar, o guia da associação brasileira Alquimídia (alquimidia.org/fediverso) tem tutoriais e dicas de servidores. No botão Servidores, veja servidores brasileiros.'
     perfil:
       nivel: 2
       aparelhos: aid
@@ -589,6 +589,10 @@ areas:
       ios: 1571998974
     wikipedia: Mastodon (software)
     lista:
+    - nome: Alquimídia (guia do fediverso)
+      url: https://alquimidia.org/fediverso/
+      nota: Tutoriais e dicas de instâncias, de uma associação brasileira
+
     - nome: ursal.zone
       url: https://ursal.zone
       nota: Ativismo progressista latino-americano · o mais ativo
