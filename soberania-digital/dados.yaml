@@ -1,0 +1,2610 @@
+# Soberania Digital — lista de alternativas
+#
+# Edite este arquivo à mão e recarregue a página. Formato YAML: o recuo (espaços) importa.
+#
+# escolhas: as 10 escolhas do guia, na ordem (nome igual ao da opção + frase curta).
+#
+# Cada área:
+#   area, no_lugar_de, icone (nome do Font Awesome), resumo
+#   situacao: troca (dá para trocar) | parte (em parte) | sem (sem opção)
+#   opcoes: lista de alternativas
+#
+# Cada opção:
+#   nome
+#   tipos: SL software livre · NP sem fins lucrativos · CO cooperativa · EB empresa brasileira
+#          PP setor público · LA América Latina · EX estrangeira
+#   maturidade, qualidade: 1 a 5
+#   adocao: 1 a 5 no Brasil (br), América Latina (al), EUA (eua) e Europa (eu)
+#   ponto_forte, ponto_fraco: uma frase cada
+#   aviso: opcional (ex.: "Novo", "Big tech", "Bem público digital")
+#   site: endereço da própria plataforma (sem link é melhor que link errado)
+#   saiba_antes: o que esperar, para evitar frustração
+#   perfil:
+#     nivel: 1 só trocar de app · 2 mexer em configurações · 3 instalar sistema e servidor
+#     aparelhos: letras a (Android), i (iPhone), d (computador)
+#     gratis: true/false · privacidade: 0 a 2
+#     opcionais: so_profissional, conta_como_brasileiro, big_tech, fora_do_perfil (true)
+#   app: android (pacote) e ios (número) — só o app exato
+#   wikipedia: título do verbete em português
+#   lista: botão "Sites" com vários endereços (nome, url, nota, cadastro)
+#   ajuste_nota: troca um fator da nota (soberania, software_livre, social, uso)
+
+escolhas:
+- nome: Pix (Banco Central)
+  frase: Pagamento público e grátis que já venceu as big techs no Brasil.
+- nome: Firefox
+  frase: Troca total do Chrome, em 5 minutos.
+- nome: Signal
+  frase: Mensagens seguras, sem fins lucrativos. Comece com a família.
+- nome: Wikipédia
+  frase: A maior obra coletiva da internet. Doe ou edite.
+- nome: CoMaps
+  frase: Mapa livre que funciona até sem internet.
+- nome: MEC Livros
+  frase: Milhares de livros grátis, com conta gov.br.
+- nome: consumidor.gov.br
+  frase: Reclamação com resposta obrigatória da empresa.
+- nome: Brasil Participativo
+  frase: Opine em políticas públicas sem passar por rede social.
+- nome: Itaú Cultural Play
+  frase: Cinema brasileiro de graça, sem assinatura.
+- nome: Mapa da Cultura
+  frase: Agenda de cultura perto de você, fora das redes.
+areas:
+- area: Vídeo sob demanda
+  no_lugar_de: Netflix
+  icone: fa-film
+  situacao: troca
+  resumo: Para ver filmes e séries, sim. Só os títulos exclusivos da Netflix ficam de fora.
+  nota: Tela Brasil, Itaú Cultural Play, Sesc Digital e as TVs públicas são grátis.
+  opcoes:
+  - nome: Globoplay
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 5, al: 2, eua: 1, eu: 1}
+    ponto_forte: O maior do Brasil
+    ponto_fraco: Pago e com anúncios
+    site: https://globoplay.globo.com
+    saiba_antes: O catálogo é forte em novelas, séries e futebol brasileiros. Filmes e séries de Hollywood são bem menos que na Netflix. Sem assinar, só tem a TV Globo ao vivo.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: false
+      privacidade: 0
+    app:
+      android: com.globo.globotv
+    wikipedia: Globoplay
+    ajuste_nota:
+      soberania: 40
+  - nome: Tela Brasil
+    tipos: [PP]
+    maturidade: 2
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Grátis e sem anúncios
+    ponto_fraco: Pede conta gov.br; acervo pequeno
+    site: https://telabrasil.cultura.gov.br
+    saiba_antes: Só tem cinema e séries brasileiros, cerca de 500 títulos. Precisa da conta gov.br. Não espere lançamentos de Hollywood.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Belas Artes à La Carte
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Clássicos e filmes de arte, barato
+    ponto_fraco: Catálogo pequeno; app fraco
+    site: https://www.belasartesalacarte.com.br
+    saiba_antes: É pago e focado em clássicos e filmes de arte. Quem busca séries ou blockbusters vai se frustrar. O app é mais simples que o da Netflix.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: false
+      privacidade: 0
+  - nome: Itaú Cultural Play
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 5
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Só cinema brasileiro, grátis e com ótima curadoria
+    ponto_fraco: Pouca gente conhece
+    site: https://www.itauculturalplay.com.br
+    saiba_antes: Grátis e só com cinema brasileiro, com ótima curadoria. Não tem séries estrangeiras nem lançamentos. Funciona bem no navegador; na TV depende do modelo.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Sesc Digital
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Filmes, shows, teatro e cursos de graça
+    ponto_fraco: Os filmes ficam por tempo limitado
+    site: https://sesc.digital
+    saiba_antes: Grátis, mas os filmes ficam disponíveis por tempo limitado. Vale como programação cultural, não como catálogo para maratonar.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Spcine Play
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Cinema paulista grátis, da Prefeitura de São Paulo
+    ponto_fraco: Acervo menor
+    site: https://www.spcineplay.com.br
+    saiba_antes: Grátis e com cinema paulista. O acervo é pequeno e não tem app para TV em todos os modelos.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Cine Humberto Mauro Mais
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Clássicos e filmes raros, restaurados, do governo de Minas
+    ponto_fraco: Acervo pequeno
+    site: https://www.cinehumbertomauromais.com
+    saiba_antes: 'Grátis, com clássicos e filmes raros. É para cinéfilo: não há séries nem lançamentos.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Libreflix
+    tipos: [NP, SL]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Filmes independentes com licença livre
+    ponto_fraco: Acervo pequeno e simples
+    site: https://libreflix.org
+    saiba_antes: Grátis e só com filmes de licença livre. O acervo é pequeno e quase todo independente.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+      conta_como_brasileiro: true
+  - nome: Ubuplay
+    tipos: [PP]
+    maturidade: 2
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Cinema de realizadores negros, da UFF
+    ponto_fraco: Cerca de 100 obras
+    site: https://www.ubuplay.com
+    saiba_antes: Grátis, com cerca de 100 obras de realizadores negros. É um acervo de nicho, não um catálogo geral.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: TV Brasil Play
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: 'Grátis: programação da TV pública'
+    ponto_fraco: App e acervo modestos
+    site: https://www.gov.br/pt-br/servicos/acessar-gratuitamente-programas-da-tv-brasil-via-aplicativo-ebc-play
+    saiba_antes: Grátis, com a programação da TV pública. Bom para jornalismo, infantil e documentários. O app é simples.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      ios: 1423349477
+  - nome: Cultura Play
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Grátis, com o acervo da TV Cultura
+    ponto_fraco: Catálogo limitado
+    site: https://culturaplay.tvcultura.com.br
+    saiba_antes: Grátis, com o acervo da TV Cultura. Ótimo para infantil e programas clássicos, como Castelo Rá-Tim-Bum. Pouca coisa nova.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+- area: Vídeo e criadores
+  no_lugar_de: YouTube
+  icone: fa-circle-play
+  situacao: sem
+  resumo: Para TV ao vivo e aulas, há opções. Para criadores e a maior parte do conteúdo, nada substitui o YouTube.
+  opcoes:
+  - nome: PeerTube
+    tipos: [SL, NP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Sem anúncios e sem dono
+    ponto_fraco: Pouco conteúdo
+    site: https://joinpeertube.org
+    saiba_antes: 'Não espere encontrar seus canais favoritos: quase nenhum criador grande está lá. Bom para conteúdo técnico e de projetos livres. Para assistir, não precisa de conta.'
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    wikipedia: PeerTube
+  - nome: Eduplay (RNP)
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Mais de 90 mil vídeos de universidades
+    ponto_fraco: Só instituições publicam
+    site: https://eduplay.rnp.br
+    saiba_antes: São aulas, palestras e eventos de universidades. Não é para entretenimento, e só instituições publicam.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Apps de TV aberta (Globoplay grátis, +SBT, RecordPlus, Bandplay)
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: TV ao vivo de graça
+    ponto_fraco: Não é para quem cria vídeo
+    saiba_antes: Servem para ver a TV ao vivo e programas da emissora. Não substituem o YouTube para criadores, tutoriais ou música. Todos têm anúncios.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    lista:
+    - nome: Globoplay
+      url: https://globoplay.globo.com
+      nota: TV Globo ao vivo
+    - nome: +SBT
+      url: https://mais.sbt.com.br
+      nota: SBT ao vivo e programas antigos
+    - nome: RecordPlus
+      url: https://www.recordplus.com
+      nota: Record ao vivo e novelas
+    - nome: Bandplay
+      url: https://bandplay.com
+      nota: Band ao vivo e esportes
+- area: Música e podcasts
+  no_lugar_de: Spotify
+  icone: fa-headphones
+  situacao: parte
+  resumo: Para podcast, troca total com o AntennaPod. Para música, há ótimas rádios públicas e universitárias de música brasileira, mas ninguém tem o catálogo das gravadoras para você escolher o que ouvir.
+  opcoes:
+  - nome: AntennaPod
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 2, eu: 2}
+    ponto_forte: Podcasts sem conta nem rastreio
+    ponto_fraco: Só Android; não toca música
+    site: https://antennapod.org
+    saiba_antes: Toca qualquer podcast aberto, sem conta. Não toca música, e os podcasts exclusivos do Spotify não aparecem. Só para Android.
+    perfil:
+      nivel: 1
+      aparelhos: a
+      gratis: true
+      privacidade: 2
+    app:
+      android: de.danoeh.antennapod
+  - nome: Palco MP3
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Muita música independente
+    ponto_fraco: Sem as grandes gravadoras
+    site: https://www.palcomp3.com.br
+    saiba_antes: Tem muita música independente e regional. Não tem os grandes artistas das gravadoras, então não serve como única fonte de música.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    app:
+      android: com.studiosol.palcomp3
+  - nome: Sua Música
+    tipos: [EB]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Forte em forró e arrocha
+    ponto_fraco: Catálogo de nicho
+    site: https://suamusica.com.br
+    saiba_antes: Forte em forró, arrocha e piseiro, muitas vezes com gravações ao vivo. Fora desses estilos, o catálogo é fraco.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+  - nome: Rádios EBC
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Rádios públicas ao vivo, como MEC e Nacional
+    ponto_fraco: Só rádio; nada sob demanda
+    saiba_antes: São rádios públicas ao vivo, como MEC e Nacional. Não dá para escolher a música nem montar playlist.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 1
+    app:
+      ios: 1309245394
+    lista:
+    - nome: Rádio MEC
+      url: https://radiomec.ebc.com.br
+      nota: Música clássica e brasileira
+    - nome: Rádio Nacional
+      url: https://radionacional.ebc.com.br
+      nota: Notícias, esporte e música
+  - nome: Rádio Batuta (IMS)
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Web rádios de música brasileira do Instituto Moreira Salles, sem anúncios
+    ponto_fraco: Pouco conhecida; sem app
+    site: https://radiobatuta.ims.com.br
+    saiba_antes: Tem várias rádios temáticas de música brasileira, de graça e sem anúncios. Ouça pelo navegador; não há app.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+      conta_como_brasileiro: true
+  - nome: Cultura Brasil
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Rádio pública paulista dedicada à música brasileira
+    ponto_fraco: Programação fixa; não dá para escolher a música
+    site: https://culturabrasil.cmais.com.br
+    saiba_antes: É da Fundação Padre Anchieta, a mesma da TV Cultura. Toca MPB, samba, choro e instrumental, sem anúncios comerciais. Como toda rádio, não dá para escolher a música.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Rádios universitárias e estaduais
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Rádio USP, UFMG Educativa, Inconfidência e outras, com muita música brasileira
+    ponto_fraco: Cada uma tem seu site e sua programação
+    saiba_antes: Mantidas por universidades e governos, tocam muita música brasileira fora das paradas e quase não têm anúncios. Em Sites, veja onde ouvir cada uma ao vivo.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    lista:
+    - nome: Rádio USP
+      url: https://jornal.usp.br/radio-usp/
+      nota: FM 93,7 em São Paulo e 107,9 em Ribeirão Preto
+    - nome: UFMG Educativa
+      url: https://ufmg.br
+      nota: Rádio da UFMG; o ao vivo fica no portal da universidade
+    - nome: Rádio Inconfidência
+      url: https://www.inconfidencia.com.br
+      nota: Rádio pública de Minas Gerais, FM 100,9
+    - nome: Rádio Senado
+      url: https://www12.senado.leg.br/radio
+      nota: Notícias e programas de música brasileira, como Nas Cordas da Viola
+- area: Mensagens
+  no_lugar_de: WhatsApp
+  icone: fa-comments
+  situacao: troca
+  resumo: O Signal faz tudo o que o WhatsApp faz. O difícil é levar os contatos junto.
+  nota: Para quem vem do WhatsApp, o Signal é o mais fácil.
+  opcoes:
+  - nome: Signal
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 2, al: 2, eua: 2, eu: 3}
+    ponto_forte: O mais seguro; quase não guarda dados
+    ponto_fraco: Pouca gente usa no Brasil
+    site: https://signal.org
+    saiba_antes: 'Funciona como o WhatsApp: grupos, áudio, chamada de vídeo e figurinhas. O problema é que pouca gente usa. Comece criando um grupo com quem você mais conversa e mantenha o WhatsApp enquanto isso.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: org.thoughtcrime.securesms
+      ios: 874139669
+    wikipedia: Signal (software)
+  - nome: Matrix / Element
+    tipos: [SL, NP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 3}
+    ponto_forte: Dá para ter servidor próprio
+    ponto_fraco: Difícil para iniciantes
+    site: https://element.io
+    saiba_antes: Mais parecido com Slack ou Discord do que com o WhatsApp. A primeira configuração confunde, e quase ninguém da família vai estar lá.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: im.vector.app
+      ios: 1083446067
+    lista:
+    - nome: Element
+      url: https://element.io
+      nota: O app mais usado
+    - nome: Matrix
+      url: https://matrix.org
+      nota: O protocolo, com lista de servidores
+  - nome: Delta Chat
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Mensageiro livre que usa o e-mail, sem número de telefone
+    ponto_fraco: Pouca gente usa
+    site: https://delta.chat
+    saiba_antes: Usa o e-mail por baixo, então qualquer pessoa recebe as mensagens. Mas é mais lento e simples que o WhatsApp, e chamadas de vídeo são limitadas.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: chat.delta
+      ios: 1459523234
+- area: Mapas
+  no_lugar_de: Google Maps
+  icone: fa-map-location-dot
+  situacao: parte
+  resumo: Para navegar, mesmo sem internet, sim. Faltam trânsito em tempo real, ônibus e avaliações de lugares.
+  opcoes:
+  - nome: CoMaps
+    tipos: [SL, NP]
+    maturidade: 3
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Funciona sem internet e usa o mapa aberto do OpenStreetMap
+    ponto_fraco: Não mostra trânsito
+    site: https://www.comaps.app
+    saiba_antes: Bom para andar a pé, de carro ou de bicicleta, mesmo sem internet. Não tem trânsito em tempo real, horário de ônibus nem avaliações de restaurantes. Muita gente mantém o Google Maps só para isso.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 2
+- area: Navegador
+  no_lugar_de: Chrome
+  icone: fa-globe
+  situacao: troca
+  resumo: Troca total. O Firefox faz tudo o que o Chrome faz.
+  opcoes:
+  - nome: Firefox
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 2, al: 2, eua: 2, eu: 3}
+    ponto_forte: O único grande que não é do Google
+    ponto_fraco: Vive do dinheiro do Google
+    site: https://www.mozilla.org/firefox/
+    saiba_antes: Faz tudo o que o Chrome faz e importa senhas e favoritos. Raramente, um site de banco ou de governo funciona melhor no Chrome; tenha o Chrome instalado para esses casos.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: org.mozilla.firefox
+      ios: 989804926
+    wikipedia: Mozilla Firefox
+  - nome: LibreWolf / Tor Browser
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Privacidade máxima
+    ponto_fraco: Alguns sites quebram
+    site: https://www.torproject.org
+    saiba_antes: Bloqueiam muita coisa por padrão, então alguns sites quebram ou pedem verificação o tempo todo. O Tor é bem mais lento. Não é para o dia a dia de todo mundo.
+    perfil:
+      nivel: 3
+      aparelhos: ad
+      gratis: true
+      privacidade: 2
+    app:
+      android: org.torproject.torbrowser
+    wikipedia: Tor (rede de anonimato)
+    lista:
+    - nome: LibreWolf
+      url: https://librewolf.net
+      nota: Firefox com mais privacidade
+    - nome: Tor Browser
+      url: https://www.torproject.org
+      nota: Navegação anônima
+  - nome: Firefox Focus
+    tipos: [SL, NP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Navegador de celular que apaga tudo ao fechar
+    ponto_fraco: Só para celular; simples demais para o dia a dia
+    site: https://www.mozilla.org/firefox/browsers/mobile/focus/
+    saiba_antes: 'Apaga tudo ao fechar: você não fica logado em nada. Ótimo para buscas rápidas, ruim como navegador principal.'
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 2
+    app:
+      android: org.mozilla.focus
+      ios: 1055677337
+    wikipedia: Firefox Focus
+- area: Redes sociais
+  no_lugar_de: Instagram, Facebook, X
+  icone: fa-users
+  situacao: parte
+  resumo: No lugar do X, Bluesky e Mastodon funcionam. Para Instagram e Facebook, não há para onde levar seus contatos.
+  opcoes:
+  - nome: Mastodon / fediverso
+    tipos: [SL, NP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Sem dono e sem anúncios
+    ponto_fraco: Pouca gente e caindo
+    site: https://joinmastodon.org
+    saiba_antes: 'Não tem algoritmo: a linha do tempo só mostra quem você segue. No começo parece vazio. Siga hashtags e pessoas da sua área. Seus amigos do Instagram provavelmente não estão lá. No botão Servidores, veja servidores brasileiros.'
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: org.joinmastodon.android
+      ios: 1571998974
+    wikipedia: Mastodon (software)
+    lista:
+    - nome: ursal.zone
+      url: https://ursal.zone
+      nota: Ativismo progressista latino-americano · o mais ativo
+      cadastro: Com aprovação
+    - nome: bolha.us
+      url: https://bolha.us
+      nota: Comunidade de tecnologia
+      cadastro: Aberto
+    - nome: mastodon.com.br
+      url: https://mastodon.com.br
+      nota: Geral
+    - nome: bolha.one
+      url: https://bolha.one
+      nota: Geral, sem tema
+      cadastro: Fechado
+    - nome: masto.donte.com.br
+      url: https://masto.donte.com.br
+      nota: Geral, um dos mais antigos
+      cadastro: Fechado
+    - nome: colorid.es
+      url: https://colorid.es
+      nota: Pessoas LGBTQIA+
+      cadastro: Com aprovação
+    - nome: ayom.media
+      url: https://ayom.media
+      nota: Pessoas afro-ameríndias e esquerda radical
+      cadastro: Com aprovação
+  - nome: Bluesky
+    tipos: [EX]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 3, eu: 2}
+    ponto_forte: A alternativa ao X, sem ligação com Musk; virou o destino de quem saiu de lá
+    ponto_fraco: Empresa americana; perdendo usuários
+    site: https://bsky.app
+    saiba_antes: É o mais parecido com o antigo Twitter e tem muito brasileiro. Mas é uma empresa americana e não substitui Instagram nem Facebook.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    app:
+      android: xyz.blueskyweb.app
+      ios: 6444370199
+    wikipedia: Bluesky
+    ajuste_nota:
+      software_livre: 4
+  - nome: Pixelfed
+    tipos: [SL]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Instagram sem anúncios
+    ponto_fraco: Quase ninguém usa
+    site: https://pixelfed.org
+    saiba_antes: Parece o Instagram, mas tem pouquíssima gente. Não tem Stories nem Reels como no Instagram.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Blog pessoal
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 3, eu: 3}
+    ponto_forte: Seu canto na internet, sem algoritmo e sem dono
+    ponto_fraco: Leitores precisam vir até você
+    saiba_antes: 'É a internet de antes das redes: você publica no seu endereço e ninguém apaga, impulsiona ou esconde seu texto. Dá para começar grátis e levar tudo junto se trocar de serviço. Quem quiser acompanhar assina por RSS ou e-mail.'
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    lista:
+    - nome: WordPress
+      url: https://br.wordpress.org
+      nota: Software livre; instale numa hospedagem brasileira
+    - nome: WriteFreely
+      url: https://writefreely.org
+      nota: Blog livre e simples, conectado ao Mastodon
+- area: Videoconferência
+  no_lugar_de: Zoom, Meet, Teams
+  icone: fa-video
+  situacao: parte
+  resumo: Para chamadas pequenas, o Jitsi resolve. Reuniões grandes ainda pedem Zoom ou Meet. A ConferênciaWeb só atende universidades.
+  opcoes:
+  - nome: ConferênciaWeb (RNP)
+    tipos: [PP, SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Grátis para universidades
+    ponto_fraco: Só para quem é da RNP
+    site: https://conferenciaweb.rnp.br
+    saiba_antes: 'Só funciona para quem é de universidade ou instituto ligado à RNP. Feito para aula: tem quadro e gravação, mas é menos fluido que o Zoom.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      so_profissional: true
+  - nome: Mconf
+    tipos: [EB, SL]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Brasileira; usada até na Justiça
+    ponto_fraco: Pouco conhecida
+    site: https://elos.vc
+    saiba_antes: Em geral você só usa quando uma instituição manda o link. Não é para criar reuniões por conta própria.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+      so_profissional: true
+  - nome: Jitsi Meet
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 2, eu: 3}
+    ponto_forte: Não precisa de conta
+    ponto_fraco: Trava com muita gente na sala
+    site: https://meet.jit.si
+    saiba_antes: Bom para chamadas de até umas 10 pessoas, sem conta. Com muita gente, o servidor público pode travar. Não tem a integração com agenda que o Meet tem.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: org.jitsi.meet
+      ios: 1165103905
+    wikipedia: Jitsi
+  - nome: BigBlueButton
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 2, eua: 1, eu: 2}
+    ponto_forte: Livre e feito para aula; é a base da ConferênciaWeb e do Mconf
+    ponto_fraco: Precisa de servidor próprio
+    site: https://bigbluebutton.org
+    saiba_antes: Feito para aula, com quadro, enquetes e gravação. Para reuniões rápidas é pesado demais, e precisa de servidor.
+    perfil:
+      nivel: 3
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+      so_profissional: true
+- area: E-mail
+  no_lugar_de: Gmail, Outlook
+  icone: fa-envelope
+  situacao: troca
+  resumo: Troca total. O trabalho é avisar todo mundo do endereço novo.
+  nota: O Thunderbird lê e-mail de qualquer provedor, inclusive os brasileiros.
+  opcoes:
+  - nome: Provedores BR (Locaweb, UOL)
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Dados ficam no Brasil
+    ponto_fraco: Mais simples que o Gmail
+    site: https://www.locaweb.com.br
+    saiba_antes: O e-mail funciona, mas a busca, o filtro de spam e o app são piores que os do Gmail. O trabalho maior é avisar todo mundo do endereço novo.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: false
+      privacidade: 1
+      so_profissional: true
+    lista:
+    - nome: Locaweb
+      url: https://www.locaweb.com.br
+      nota: E-mail com domínio próprio
+    - nome: UOL Mail
+      url: https://email.uol.com.br
+      nota: E-mail pessoal
+  - nome: Proton / Tuta
+    tipos: [EX]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 2, eu: 3}
+    ponto_forte: E-mail com criptografia
+    ponto_fraco: Europeus; plano grátis curto
+    site: https://proton.me
+    saiba_antes: O plano grátis tem pouco espaço e não funciona em outros apps de e-mail. A busca dentro das mensagens é mais limitada por causa da criptografia.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: ch.protonmail.android
+      ios: 979659905
+    wikipedia: Proton Mail
+    lista:
+    - nome: Proton Mail
+      url: https://proton.me/mail
+      nota: Suíça
+    - nome: Tuta
+      url: https://tuta.com
+      nota: Alemanha
+    ajuste_nota:
+      soberania: 8
+      software_livre: 6
+  - nome: Thunderbird
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 2, eu: 3}
+    ponto_forte: Programa de e-mail livre que junta várias contas
+    ponto_fraco: Não muda onde o e-mail fica guardado
+    site: https://www.thunderbird.net
+    saiba_antes: 'É só o programa para ler e-mail: o e-mail continua guardado no provedor de antes. Bom para juntar várias contas, mas não muda quem guarda seus dados.'
+    perfil:
+      nivel: 1
+      aparelhos: ad
+      gratis: true
+      privacidade: 1
+    app:
+      android: net.thunderbird.android
+    wikipedia: Mozilla Thunderbird
+- area: Arquivos e escritório
+  no_lugar_de: Google Drive, Docs, Microsoft 365
+  icone: fa-file-lines
+  situacao: parte
+  resumo: Para documentos no computador, o LibreOffice resolve. Editar junto, em tempo real, exige um Nextcloud mantido por alguém.
+  opcoes:
+  - nome: LibreOffice
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 1, al: 2, eua: 1, eu: 3}
+    ponto_forte: Grátis e funciona sem internet
+    ponto_fraco: Pouco usado no Brasil; ruim para editar a várias mãos
+    site: https://pt-br.libreoffice.org
+    saiba_antes: Abre arquivos do Word e do Excel, mas a formatação pode mudar um pouco. Não tem edição em tempo real com outras pessoas. Para enviar, prefira PDF.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: true
+      privacidade: 1
+    wikipedia: LibreOffice
+  - nome: Nextcloud + Collabora / ONLYOFFICE
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 3}
+    ponto_forte: Seu próprio Drive
+    ponto_fraco: Alguém precisa cuidar do servidor
+    site: https://nextcloud.com
+    saiba_antes: Substitui o Google Drive e o Docs, mas alguém precisa instalar e cuidar do servidor. Sozinho, sem ajuda técnica, é difícil.
+    perfil:
+      nivel: 3
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: com.nextcloud.client
+    wikipedia: Nextcloud
+    lista:
+    - nome: Nextcloud
+      url: https://nextcloud.com
+      nota: Arquivos, agenda e contatos
+    - nome: Collabora Online
+      url: https://www.collaboraonline.com
+      nota: Editor de documentos, feito a partir do LibreOffice
+    - nome: ONLYOFFICE
+      url: https://www.onlyoffice.com
+      nota: Editor parecido com Word e Excel
+  - nome: CryptPad
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Documentos colaborativos com criptografia, sem cadastro
+    ponto_fraco: Menos recursos que o Google Docs
+    site: https://cryptpad.org
+    saiba_antes: Bom para documentos simples feitos a várias mãos. Para planilhas e textos grandes, é mais lento e tem menos recursos que o Google Docs.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+- area: Criação e design
+  no_lugar_de: Adobe, Canva
+  icone: fa-palette
+  situacao: parte
+  resumo: Blender e OBS são padrão de mercado. GIMP e Inkscape fazem o básico, mas não substituem Photoshop e Illustrator no trabalho profissional. Para o Canva não há equivalente.
+  opcoes:
+  - nome: Blender
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 3, al: 3, eua: 4, eu: 4}
+    ponto_forte: Referência mundial em 3D e animação
+    ponto_fraco: Difícil de aprender
+    site: https://www.blender.org
+    saiba_antes: 'É padrão profissional em 3D e animação. Mas a curva de aprendizado é longa: reserve algumas horas para os primeiros tutoriais.'
+    perfil:
+      nivel: 3
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    wikipedia: Blender
+  - nome: OBS Studio
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 4, al: 4, eua: 4, eu: 4}
+    ponto_forte: Padrão para gravar a tela e fazer live
+    ponto_fraco: Configuração inicial confusa
+    site: https://obsproject.com
+    saiba_antes: É o padrão para gravar a tela e fazer live. A primeira configuração assusta, mas depois é simples.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    wikipedia: OBS Studio
+  - nome: Inkscape
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 2, eu: 2}
+    ponto_forte: Desenho vetorial, no lugar do Illustrator
+    ponto_fraco: Lento com arquivos grandes
+    site: https://inkscape.org
+    saiba_antes: Faz desenho vetorial e abre SVG e PDF. Arquivos do Illustrator podem abrir com erros, e com arquivos grandes fica lento.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    wikipedia: Inkscape
+  - nome: GIMP
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 2, al: 2, eua: 2, eu: 2}
+    ponto_forte: Edita foto de graça, no lugar do Photoshop
+    ponto_fraco: Estranho para quem vem do Photoshop
+    site: https://www.gimp.org
+    saiba_antes: Faz o básico de edição de foto. Os atalhos e o jeito de trabalhar são bem diferentes do Photoshop, e faltam alguns recursos profissionais.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    wikipedia: GIMP
+- area: Busca
+  no_lugar_de: Google Search
+  icone: fa-magnifying-glass
+  situacao: troca
+  resumo: Para buscar, troca total. Os resultados em português são um pouco piores, e nenhuma opção é brasileira.
+  opcoes:
+  - nome: DuckDuckGo
+    tipos: [EX]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 2, eu: 2}
+    ponto_forte: Não rastreia
+    ponto_fraco: Usa resultados do Bing
+    site: https://duckduckgo.com
+    saiba_antes: Funciona para o dia a dia. Os resultados locais, como restaurantes perto de você, são piores. Se algo não aparecer, digite !g antes da busca para ir ao Google.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: com.duckduckgo.mobile.android
+      ios: 663592361
+    wikipedia: DuckDuckGo
+  - nome: Ecosia / Qwant
+    tipos: [EX]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Europeus
+    ponto_fraco: Fracos em português
+    site: https://www.ecosia.org
+    saiba_antes: Os resultados em português são mais fracos que os do Google, sobretudo para buscas locais.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: com.ecosia.android
+    wikipedia: Ecosia
+    lista:
+    - nome: Ecosia
+      url: https://www.ecosia.org
+      nota: Alemanha; usa o lucro para plantar árvores
+    - nome: Qwant
+      url: https://www.qwant.com
+      nota: França
+    ajuste_nota:
+      social: 12
+  - nome: Wikipédia
+    tipos: [NP, SL]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 5, al: 5, eua: 5, eu: 5}
+    ponto_forte: Resolve boa parte das buscas por informação
+    ponto_fraco: Não acha sites, lojas ou notícias
+    site: https://pt.wikipedia.org
+    saiba_antes: Resolve perguntas de conhecimento geral. Não acha lojas, notícias do dia nem endereços.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: org.wikipedia
+      ios: 324715238
+    wikipedia: Wikipédia
+  - nome: SearXNG
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Buscador livre que junta resultados sem rastrear
+    ponto_fraco: Depende de servidores voluntários
+    site: https://docs.searxng.org
+    saiba_antes: Junta resultados de vários buscadores sem rastrear. Os servidores públicos às vezes ficam lentos ou fora do ar; tenha um segundo servidor anotado.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+- area: Imagens e acervos
+  no_lugar_de: Google Imagens, bancos de imagem pagos
+  icone: fa-images
+  situacao: parte
+  resumo: Para fotos, mapas antigos e ilustrações livres, dá para trocar. Para achar qualquer imagem recente, o Google Imagens ainda vence.
+  opcoes:
+  - nome: Wikimedia Commons
+    tipos: [NP, SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 3, eua: 4, eu: 4}
+    ponto_forte: Mais de 50 milhões de imagens, vídeos e sons livres
+    ponto_fraco: Busca fraca; poucas fotos recentes de produtos e notícias
+    site: https://commons.wikimedia.org
+    saiba_antes: 'Cada imagem tem sua licença: em geral, pode usar dando crédito ao autor. A busca é pior que a do Google Imagens; tente também em inglês.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+  - nome: Brasiliana Fotográfica
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Fotos históricas do Brasil, dos séculos 19 e 20
+    ponto_fraco: Só acervo histórico
+    site: https://brasilianafotografica.bn.gov.br
+    saiba_antes: Reúne fotos do Brasil do século 19 e do começo do 20, de vários acervos. Não serve para imagens atuais.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Brasiliana Museus
+    tipos: [PP, SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Acervos de museus públicos, em software livre brasileiro
+    ponto_fraco: Acervo ainda desigual entre museus
+    site: https://brasiliana.museus.gov.br
+    saiba_antes: É do Ibram e reúne acervos de museus públicos, com curadorias temáticas. Ainda tem bem menos itens que o Google Arts & Culture.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+- area: Sistemas e lojas de apps
+  no_lugar_de: Android, iOS, Windows, Google Play
+  icone: fa-mobile-screen
+  situacao: parte
+  resumo: No computador, o Linux troca o Windows para a maioria dos usos. No celular, não há saída fácil.
+  opcoes:
+  - nome: Linux desktop (Ubuntu, Fedora, Debian, BigLinux)
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 2, eu: 2}
+    ponto_forte: Grátis; roda em PC velho
+    ponto_fraco: Alguns jogos e programas não rodam
+    site: https://ubuntu.com
+    saiba_antes: Navegador, LibreOffice e a maioria das tarefas funcionam bem, inclusive o programa do Imposto de Renda. Alguns jogos e os programas da Adobe não rodam. Teste pelo pendrive antes de instalar.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    wikipedia: Linux
+    lista:
+    - nome: Ubuntu
+      url: https://ubuntu.com
+      nota: O mais usado; bom para começar
+    - nome: Fedora
+      url: https://fedoraproject.org
+      nota: Sempre atualizado
+    - nome: Debian
+      url: https://www.debian.org
+      nota: Estável e comunitário
+    - nome: BigLinux
+      url: https://www.biglinux.com.br
+      nota: Brasileiro
+  - nome: /e/OS, LineageOS, GrapheneOS
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Android sem Google
+    ponto_fraco: Difícil de instalar; banco pode não abrir
+    site: https://e.foundation
+    saiba_antes: Para instalar, é preciso apagar o celular e seguir um passo a passo técnico. Alguns apps de banco e o Google Pay podem não funcionar.
+    perfil:
+      nivel: 3
+      aparelhos: a
+      gratis: true
+      privacidade: 2
+    wikipedia: LineageOS
+    lista:
+    - nome: /e/OS
+      url: https://e.foundation
+      nota: Vende celulares já instalados
+    - nome: LineageOS
+      url: https://lineageos.org
+      nota: Funciona em muitos modelos
+    - nome: GrapheneOS
+      url: https://grapheneos.org
+      nota: Foco em segurança; só em celulares Pixel
+  - nome: F-Droid
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Só apps livres e checados
+    ponto_fraco: Poucos apps
+    site: https://f-droid.org
+    saiba_antes: Só tem apps livres. WhatsApp, apps de banco e a maioria dos jogos não estão lá.
+    perfil:
+      nivel: 2
+      aparelhos: a
+      gratis: true
+      privacidade: 2
+    wikipedia: F-Droid
+- area: Sites e código
+  no_lugar_de: GitHub, GoDaddy, hospedagem gringa
+  icone: fa-server
+  situacao: troca
+  resumo: Troca total. Domínio, hospedagem e Git têm opções completas.
+  nota: Com domínio próprio, dá para trocar de hospedagem sem mudar o endereço.
+  opcoes:
+  - nome: Registro.br
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 5, al: 1, eua: 1, eu: 1}
+    ponto_forte: Domínio .br por R$ 40 ao ano, com DNS grátis
+    ponto_fraco: Só vende domínios .br
+    site: https://registro.br
+    saiba_antes: Só registra domínios .br e exige CPF ou CNPJ. Para hospedar o site, você precisa contratar outro serviço.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Hospedagem brasileira (KingHost, Locaweb, Homehost)
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Site hospedado no Brasil a partir de uns R$ 8 por mês
+    ponto_fraco: Menos automação que o GitHub Pages
+    saiba_antes: Funciona bem para sites simples. Publicar a cada mudança é menos automático que no GitHub Pages, a menos que você configure isso.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+    lista:
+    - nome: KingHost
+      url: https://king.host
+      nota: Porto Alegre
+    - nome: Locaweb
+      url: https://www.locaweb.com.br
+      nota: São Paulo
+    - nome: Homehost
+      url: https://www.homehost.com.br
+      nota: Planos a partir de R$ 7,90
+  - nome: Codeberg
+    tipos: [NP, SL]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Git e páginas grátis, de uma associação sem fins lucrativos
+    ponto_fraco: Alemão; o Pages antigo sai do ar no fim de 2026
+    site: https://codeberg.org
+    saiba_antes: 'Funciona como o GitHub, mas tem muito menos gente: menos estrelas, menos contribuições de fora. Muitos mantêm uma cópia no GitHub.'
+    perfil:
+      nivel: 3
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+- area: Nuvem
+  no_lugar_de: AWS, Azure, Google Cloud
+  icone: fa-cloud
+  situacao: parte
+  resumo: Para o básico, a Magalu Cloud atende. Faltam os serviços avançados da AWS, Azure e Google.
+  nota: Esta área é para empresas e governo. Para uso pessoal, veja E-mail e Arquivos.
+  opcoes:
+  - nome: Nuvem de Governo (Serpro / Dataprev)
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Dados do governo ficam no país
+    ponto_fraco: Roda tecnologia de AWS, Google e Oracle
+    saiba_antes: Só atende órgãos públicos. Por dentro, ainda usa tecnologia de empresas estrangeiras.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+      so_profissional: true
+    lista:
+    - nome: Serpro
+      url: https://www.serpro.gov.br
+      nota: Empresa de tecnologia do governo federal
+    - nome: Dataprev
+      url: https://www.dataprev.gov.br
+      nota: Dados da Previdência e do INSS
+    ajuste_nota:
+      soberania: 24
+  - nome: Magalu Cloud
+    tipos: [EB]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Nuvem brasileira de verdade, com dados e empresa daqui
+    ponto_fraco: Bem menor que AWS e Google
+    site: https://magalu.cloud
+    saiba_antes: 'Tem o básico: máquinas virtuais, armazenamento e banco de dados. Faltam muitos serviços prontos da AWS, e a documentação é menor.'
+    perfil:
+      nivel: 3
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+      so_profissional: true
+- area: IA generativa
+  no_lugar_de: ChatGPT
+  icone: fa-robot
+  situacao: parte
+  resumo: Para conversar e escrever em português, a Maritaca resolve. Em tarefas difíceis, ainda fica atrás do ChatGPT.
+  opcoes:
+  - nome: Maritaca AI (Sabiá)
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Brasileira e muito boa em português
+    ponto_fraco: Atrás das gigantes em tarefas difíceis
+    site: https://www.maritaca.ai
+    saiba_antes: Escreve bem em português e entende o contexto brasileiro. Em programação, matemática e tarefas longas, fica atrás do ChatGPT.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: false
+      privacidade: 1
+  - nome: Soberano 1 (SoberanIA)
+    tipos: [PP]
+    maturidade: 2
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Treinado em português
+    ponto_fraco: Feito para governo; pouco testado
+    saiba_antes: Feito para o setor público. Não é um chat aberto para qualquer pessoa usar.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: true
+      privacidade: 1
+      so_profissional: true
+  - nome: Amazônia IA (WideLabs)
+    tipos: [EB]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Modelo brasileiro treinado em português
+    ponto_fraco: Foco em empresas; pouco testado por terceiros
+    saiba_antes: É vendida para empresas e governo. Não há um app simples para uso pessoal.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+      so_profissional: true
+  - nome: inference.coop
+    tipos: [CO]
+    maturidade: 2
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: 'Cooperativa: os membros decidem quais modelos abertos oferecer'
+    ponto_fraco: Paga, a partir de US$ 5 por mês; em inglês
+    site: https://inference.coop
+    saiba_antes: Os membros pagam a partir de US$ 5 por mês, com crédito para chat e API, e votam nos rumos da cooperativa. Só usa modelos de pesos abertos, que ficam atrás do ChatGPT em tarefas difíceis. O site é em inglês.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: false
+      privacidade: 2
+    ajuste_nota:
+      software_livre: 6
+- area: Mobilidade e delivery
+  no_lugar_de: Uber
+  icone: fa-car
+  situacao: parte
+  resumo: No delivery, há opções brasileiras. Carro por app fora do Uber só existe em algumas cidades.
+  nota: O iFood nasceu no Brasil, mas é controlado pela multinacional Prosus e funciona como big tech. aiqfome e Garupa são brasileiros e menores.
+  opcoes:
+  - nome: iFood
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 5, al: 2, eua: 1, eu: 1}
+    ponto_forte: Nasceu e opera no Brasil, com sede em Osasco (SP)
+    ponto_fraco: 'Funciona como big tech: é da multinacional Prosus, domina o mercado e controla entregadores por algoritmo'
+    aviso: Big tech
+    site: https://www.ifood.com.br
+    saiba_antes: 'É brasileiro, mas funciona como big tech: cobra taxas altas dos restaurantes e controla os entregadores por algoritmo. Pedir direto ao restaurante, por telefone ou WhatsApp, costuma sair mais barato para ele.'
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+      big_tech: true
+    app:
+      android: br.com.brainweb.ifood
+    wikipedia: IFood
+  - nome: Rappi
+    tipos: [LA]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 4, eua: 1, eu: 1}
+    ponto_forte: Latino-americana; concorre com o iFood
+    ponto_fraco: Bem menor que o iFood no Brasil
+    site: https://www.rappi.com.br
+    saiba_antes: Tem menos restaurantes que o iFood e não chega a muitas cidades.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+    app:
+      android: com.grability.rappi
+    wikipedia: Rappi
+  - nome: Taxi.Rio
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Sem taxa para o taxista
+    ponto_fraco: Só táxi e só em algumas cidades
+    site: https://www.iplan.rio/produtos/taxi-rio
+    saiba_antes: Só tem táxi, no Rio e em algumas cidades parceiras. Pode demorar mais que o Uber em horários de pico.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+  - nome: CoopFood (GO)
+    tipos: [CO]
+    maturidade: 1
+    qualidade: 1
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Taxa baixa; paga melhor o entregador
+    ponto_fraco: Novo e só em Goiás
+    aviso: Novo
+    saiba_antes: Por enquanto, só funciona em Goiás e tem poucos restaurantes.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+      conta_como_brasileiro: true
+  - nome: aiqfome
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Delivery brasileiro, forte no interior; é do Magalu
+    ponto_fraco: Pouco presente nas capitais
+    site: https://www.aiqfome.com
+    saiba_antes: Forte no interior, mas fraco nas capitais. Veja se a sua cidade é atendida antes de desinstalar o iFood.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+  - nome: Garupa
+    tipos: [EB]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Carro por app brasileiro, forte em cidades médias
+    ponto_fraco: Pouco presente nas capitais
+    site: https://www.garupa.co
+    saiba_antes: Funciona em cidades médias, principalmente no Sul. Nas capitais, pode não ter motorista por perto.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+    app:
+      android: co.garupa
+      ios: 1225619383
+- area: Plantas e bichos
+  no_lugar_de: Google Lens, Gemini
+  icone: fa-leaf
+  situacao: troca
+  resumo: 'Para plantas e animais, dá para trocar: iNaturalist e Pl@ntNet acertam bem e usam suas fotos para pesquisa científica. Para outros objetos, o Google Lens segue sem substituto.'
+  opcoes:
+  - nome: iNaturalist
+    tipos: [NP, SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 4, eu: 3}
+    ponto_forte: Identifica plantas, bichos e fungos, com ajuda de especialistas
+    ponto_fraco: Organização americana; as fotos ficam públicas
+    site: https://www.inaturalist.org
+    saiba_antes: Funciona melhor com foto nítida e de perto. A primeira sugestão vem na hora; a confirmação de especialistas pode levar dias. Suas observações ficam públicas, com o local aproximado.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: org.inaturalist.android
+      ios: 421397028
+  - nome: Pl@ntNet
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 2, eu: 4}
+    ponto_forte: Identifica plantas por foto, feito por institutos de pesquisa franceses
+    ponto_fraco: Só plantas
+    site: https://plantnet.org
+    saiba_antes: Só identifica plantas. Fotografe flor, folha ou fruto separadamente para acertar mais. Tem menos espécies brasileiras que europeias.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: org.plantnet
+      ios: 600547573
+    ajuste_nota:
+      soberania: 26
+      software_livre: 5
+- area: Previsão do tempo
+  no_lugar_de: Apple Clima, Google Tempo
+  icone: fa-cloud-sun
+  situacao: troca
+  resumo: Para a previsão do dia a dia, troca total. Os apps oficiais são mais simples e têm menos radar e mapas.
+  opcoes:
+  - nome: INMET
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Previsão oficial do instituto de meteorologia, com avisos
+    ponto_fraco: App simples, sem radar detalhado
+    site: https://portal.inmet.gov.br
+    saiba_antes: 'É a previsão oficial, com avisos de chuva forte. O app é simples: não tem radar animado nem previsão hora a hora tão detalhada quanto a do Google.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      ios: 1535795347
+  - nome: CPTEC/INPE
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Previsão e imagens de satélite do INPE
+    ponto_fraco: Visual técnico
+    site: https://www.cptec.inpe.br
+    saiba_antes: Tem previsões, mapas e imagens de satélite. O site é técnico, melhor para quem gosta de detalhe.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 1
+  - nome: Alertas da Defesa Civil
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Avisa de chuva forte e desastres no celular
+    ponto_fraco: Ainda não cobre todo o país
+    saiba_antes: Não precisa de app. Em parte do país, o alerta chega sozinho no celular. Para garantir, mande seu CEP por SMS para o número 40199.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 1
+  - nome: MetSul
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Meteorologia brasileira, forte no Sul
+    ponto_fraco: Foco no Sul; site com anúncios
+    site: https://metsul.com
+    saiba_antes: É forte na previsão do Sul do país e em fenômenos extremos. Para outras regiões, prefira o INMET.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+  - nome: Climatempo
+    tipos: [EX]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: O app de tempo mais usado no Brasil
+    ponto_fraco: Nasceu aqui, mas hoje é da norueguesa StormGeo
+    site: https://www.climatempo.com.br
+    saiba_antes: É o app de tempo mais usado no Brasil, mas desde 2024 pertence à norueguesa StormGeo, e a versão grátis tem anúncios.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+- area: Aparelhos
+  no_lugar_de: Apple, Samsung, Microsoft
+  icone: fa-laptop
+  situacao: sem
+  resumo: 'Não há aparelho brasileiro livre da dependência: chips e sistema vêm de fora. O que dá é comprar recondicionado, consertar e fazer durar.'
+  opcoes:
+  - nome: Positivo
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Computadores feitos no Brasil, com assistência no país todo
+    ponto_fraco: Peças e sistema vêm de fora
+    site: https://www.positivotecnologia.com.br
+    saiba_antes: Monta computadores no Brasil e tem assistência no país todo. Processador, peças e Windows vêm de fora. Dá para instalar Linux.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: false
+      privacidade: 1
+  - nome: Celular recondicionado
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Celular revisado e com garantia, bem mais barato que novo
+    ponto_fraco: A bateria nem sempre é nova
+    saiba_antes: É revisado e vendido com garantia, por bem menos que um novo. Confira o estado da bateria e o prazo de garantia antes de comprar.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: false
+      privacidade: 1
+- area: Eventos e agenda cultural
+  no_lugar_de: Instagram, Facebook Eventos
+  icone: fa-calendar-days
+  situacao: parte
+  resumo: Para achar eventos, há opções públicas e brasileiras. Mas quase todo produtor ainda divulga só no Instagram.
+  opcoes:
+  - nome: Mapa da Cultura
+    tipos: [PP, SL]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Agenda e cadastro cultural do governo, em software livre brasileiro
+    ponto_fraco: Muitos eventos não são cadastrados
+    site: https://mapa.cultura.gov.br
+    saiba_antes: 'Reúne eventos, espaços e artistas cadastrados por governos. Muita coisa local não aparece: veja também o mapa cultural do seu estado ou cidade.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Sympla
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: A maior plataforma brasileira de ingressos e eventos
+    ponto_fraco: Cobra taxa de quem vende ingresso
+    site: https://www.sympla.com.br
+    saiba_antes: Ótimo para achar e comprar ingresso. Quem vende paga taxa, e eventos de rua ou gratuitos às vezes não aparecem.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+  - nome: Mobilizon
+    tipos: [SL, NP]
+    maturidade: 3
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Eventos e grupos no fediverso, sem anúncios
+    ponto_fraco: Quase não tem eventos no Brasil
+    site: https://mobilizon.org
+    saiba_antes: Funciona como os eventos do Facebook, sem anúncios. Mas quase ninguém no Brasil publica lá ainda.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+- area: Serviços públicos digitais
+  no_lugar_de: DocuSign, carteiras digitais
+  icone: fa-id-card
+  situacao: troca
+  resumo: Para assinar documentos e levar documentos no celular, troca total e de graça com o gov.br.
+  opcoes:
+  - nome: Assinador gov.br
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Assina documentos com validade legal, de graça
+    ponto_fraco: Precisa de conta gov.br prata ou ouro
+    site: https://assinador.iti.br
+    saiba_antes: Assina PDFs com a mesma validade de uma assinatura no papel, para a maioria dos casos. Sua conta gov.br precisa ser nível prata ou ouro.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: App gov.br
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 5, al: 1, eua: 1, eu: 1}
+    ponto_forte: Centenas de serviços públicos e documentos no celular
+    ponto_fraco: Alguns documentos ficam em apps separados
+    site: https://www.gov.br
+    saiba_antes: Dá acesso a centenas de serviços. Alguns documentos ficam em apps separados, como a CNH e o título de eleitor.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 1
+  - nome: Meu SUS Digital
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Vacinas, exames e receitas do SUS no celular
+    ponto_fraco: Depende de cada cidade registrar os dados
+    site: https://meususdigital.saude.gov.br
+    saiba_antes: Mostra vacinas, exames e receitas registrados no SUS. O que aparece depende de cada cidade registrar os dados.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+- area: Financiamento coletivo
+  no_lugar_de: Patreon, Kickstarter, GoFundMe
+  icone: fa-hand-holding-heart
+  situacao: troca
+  resumo: 'Troca total: há plataformas brasileiras para apoio mensal, projetos e vaquinhas.'
+  opcoes:
+  - nome: Apoia.se
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Apoio mensal a criadores, como o Patreon
+    ponto_fraco: Taxa sobre cada apoio
+    site: https://apoia.se
+    saiba_antes: 'Funciona como o Patreon: os fãs apoiam todo mês. A plataforma cobra uma taxa sobre cada apoio.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+  - nome: Catarse
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Financiamento de projetos culturais e criativos
+    ponto_fraco: Taxa sobre o valor arrecadado
+    site: https://www.catarse.me
+    saiba_antes: Bom para projetos com prazo, como um livro ou um disco. Em geral, se não bater a meta, o dinheiro volta para quem apoiou.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+  - nome: Benfeitoria
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Projetos de impacto social e campanhas de ONGs
+    ponto_fraco: Menos conhecida
+    site: https://benfeitoria.com
+    saiba_antes: Focada em projetos de impacto social e ONGs. Tem menos visitantes que o Catarse.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+  - nome: Vakinha
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Vaquinhas para causas pessoais, como o GoFundMe
+    ponto_fraco: 'Alvo de golpes: confira quem pede'
+    site: https://www.vakinha.com.br
+    saiba_antes: Serve para causas pessoais, como tratamento de saúde. Antes de doar, confira se a pessoa que pede é quem diz ser.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+- area: Fotos
+  no_lugar_de: Google Fotos, iCloud
+  icone: fa-photo-film
+  situacao: troca
+  resumo: 'Dá para trocar: o Ente funciona como o Google Fotos, com 10 GB grátis e criptografia. Mais espaço é pago em dólar, e nenhuma opção é brasileira.'
+  opcoes:
+  - nome: Ente
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 2, eu: 2}
+    ponto_forte: Fotos com criptografia de ponta a ponta e 10 GB grátis
+    ponto_fraco: Mais espaço é pago em dólar
+    site: https://ente.com
+    saiba_antes: 'Funciona como o Google Fotos, mas só você vê suas fotos: elas são criptografadas no seu aparelho. São 10 GB grátis, desde que você use ao menos uma vez por ano. Mais espaço é pago em dólar, a partir de US$ 2,49 por mês.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: io.ente.photos
+  - nome: Immich
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 5
+    adocao: {br: 1, al: 1, eua: 2, eu: 2}
+    ponto_forte: Parecido com o Google Fotos, com busca por rosto e lugar
+    ponto_fraco: Precisa de servidor próprio
+    site: https://immich.app
+    saiba_antes: Faz quase tudo o que o Google Fotos faz, mas roda num servidor seu ou de alguém de confiança. Sem esse servidor, não funciona.
+    perfil:
+      nivel: 3
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+- area: Senhas e segurança
+  no_lugar_de: Google Senhas, Chaves do iCloud
+  icone: fa-key
+  situacao: troca
+  resumo: Troca total. Os gerenciadores livres guardam suas senhas e preenchem sozinhos.
+  opcoes:
+  - nome: Bitwarden
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 2, al: 2, eua: 3, eu: 3}
+    ponto_forte: Guarda e preenche senhas em todos os aparelhos, de graça
+    ponto_fraco: Empresa americana
+    site: https://bitwarden.com
+    saiba_antes: 'O plano grátis já serve para quase todo mundo. Crie uma senha mestra forte e anote em lugar seguro: se esquecer, ninguém recupera.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    app:
+      android: com.x8bit.bitwarden
+      ios: 1137397744
+  - nome: KeePassXC
+    tipos: [SL, NP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Senhas num arquivo só seu, sem nuvem
+    ponto_fraco: Para sincronizar, você mesmo organiza
+    site: https://keepassxc.org
+    saiba_antes: Guarda tudo num arquivo no seu computador, sem nuvem. Para usar no celular, é preciso copiar o arquivo e instalar outro app compatível.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+  - nome: Aegis
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Códigos de verificação em duas etapas, no lugar do Google Authenticator
+    ponto_fraco: Só para Android
+    site: https://getaegis.app
+    saiba_antes: 'Gera os códigos de seis dígitos das contas. Faça cópia de segurança: se perder o celular sem cópia, perde o acesso.'
+    perfil:
+      nivel: 1
+      aparelhos: a
+      gratis: true
+      privacidade: 2
+    app:
+      android: com.beemdevs.aegis
+  - nome: Cartilha de Segurança (CERT.br)
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Guia brasileiro contra golpes, em linguagem simples
+    ponto_fraco: É material educativo, não uma ferramenta
+    site: https://cartilha.cert.br
+    saiba_antes: É feita pelo NIC.br e atualizada com os golpes mais comuns. Vale mandar para a família.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+- area: Comunidade e cidadania
+  no_lugar_de: redes sociais e buscas no Google
+  icone: fa-people-group
+  situacao: troca
+  resumo: Para achar feiras, ONGs e voluntariado, reciclar e cobrar o poder público, há serviços públicos e sociais que funcionam bem.
+  opcoes:
+  - nome: Cataki
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Liga você a catadores perto de casa para levar recicláveis
+    ponto_fraco: Em algumas regiões há poucos catadores cadastrados
+    site: https://www.cataki.org
+    saiba_antes: Você combina a coleta e o valor direto com o catador pelo app. Funciona melhor em cidades grandes; perto de você pode não haver ninguém cadastrado ainda.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Mapa de Feiras Orgânicas
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Mais de 870 feiras orgânicas e agroecológicas no mapa
+    ponto_fraco: Não tem app
+    site: https://feirasorganicas.org.br
+    saiba_antes: É do Idec e mostra endereço, dias e horários das feiras. Antes de ir, confirme o horário com a própria feira, porque pode ter mudado.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Atados
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Vagas de voluntariado em ONGs perto de você
+    ponto_fraco: Mais vagas nas cidades grandes
+    site: https://www.atados.com.br
+    saiba_antes: Você escolhe uma causa e se inscreve na vaga. Há mais oportunidades nas cidades grandes.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Mapa das OSCs
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Mapa oficial de ONGs e associações de todo o país
+    ponto_fraco: Mais para consulta que para contato
+    site: https://mapaosc.ipea.gov.br
+    saiba_antes: É do Ipea e mostra ONGs e associações por cidade e por área. Os contatos nem sempre estão atualizados.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Fala.BR
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Reclamações, denúncias e pedidos de informação a órgãos federais
+    ponto_fraco: Só para órgãos que usam a plataforma
+    site: https://falabr.cgu.gov.br
+    saiba_antes: Entre com a conta gov.br. Também serve para pedir informações pela Lei de Acesso à Informação. Os órgãos têm prazo para responder.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Colab
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Manda pedidos à prefeitura, como buraco e iluminação
+    ponto_fraco: Só funciona nas cidades que usam
+    site: https://www.colab.com.br
+    saiba_antes: 'Fotografe o problema e envie: o pedido vai direto para a prefeitura. Veja antes se a sua cidade usa o Colab.'
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+  - nome: CVV
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Apoio emocional gratuito e anônimo, por voluntários
+    ponto_fraco: O chat não funciona 24 horas; não é terapia
+    site: https://cvv.org.br/chat/
+    saiba_antes: É gratuito, anônimo e feito por voluntários. O telefone 188 funciona 24 horas. Em risco imediato, ligue 192.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+      conta_como_brasileiro: true
+- area: Participação e transparência
+  no_lugar_de: Change.org, enquetes em redes
+  icone: fa-landmark
+  situacao: troca
+  resumo: 'Para opinar em políticas públicas, propor leis e fiscalizar gastos, há canais oficiais e gratuitos. A participação é consultiva: nem toda proposta vira decisão.'
+  opcoes:
+  - nome: Brasil Participativo
+    tipos: [PP, SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Consultas públicas e planos do governo federal, em software livre
+    ponto_fraco: Muitas consultas são técnicas
+    site: https://brasilparticipativo.presidencia.gov.br
+    saiba_antes: 'Precisa de conta gov.br. Muitas consultas são técnicas, e a participação é consultiva: o governo não é obrigado a seguir o resultado.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: e-Cidadania (Senado)
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Ideias com 20 mil apoios viram sugestão de lei no Senado
+    ponto_fraco: A maioria das ideias não chega à meta
+    site: https://www12.senado.leg.br/ecidadania
+    saiba_antes: Qualquer pessoa pode propor uma ideia. Se juntar 20 mil apoios em 4 meses, vira sugestão de lei. Em 2026, cinco ideias viraram projeto de lei. Precisa de conta gov.br.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Querido Diário
+    tipos: [NP, SL]
+    maturidade: 3
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Busca nos diários oficiais das prefeituras
+    ponto_fraco: Cobre cerca de 500 dos 5.570 municípios
+    aviso: Bem público digital
+    site: https://queridodiario.ok.org.br
+    saiba_antes: 'É da Open Knowledge Brasil e reconhecido como Bem Público Digital. Ainda cobre só parte dos municípios: confira se o seu está lá.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+      conta_como_brasileiro: true
+  - nome: Portal da Transparência
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Gastos, servidores e convênios do governo federal
+    ponto_fraco: Interface densa; só governo federal
+    site: https://portaldatransparencia.gov.br
+    saiba_antes: 'É a fonte oficial dos gastos federais. A interface é densa: comece pela busca por nome de empresa, órgão ou programa.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+- area: Direitos do consumidor
+  no_lugar_de: reclamar nas redes sociais
+  icone: fa-scale-balanced
+  situacao: troca
+  resumo: 'Para reclamar de empresas, troca total: o consumidor.gov.br é público e as empresas cadastradas são obrigadas a responder.'
+  opcoes:
+  - nome: consumidor.gov.br
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Reclamação direta à empresa, mediada pelo governo
+    ponto_fraco: Só para empresas cadastradas
+    site: https://www.consumidor.gov.br
+    saiba_antes: Funciona só com empresas cadastradas, que se comprometem a responder. A resposta nem sempre resolve; se não resolver, procure o Procon.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Reclame Aqui
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 5, al: 1, eua: 1, eu: 1}
+    ponto_forte: O site de reclamações mais conhecido do Brasil
+    ponto_fraco: Empresa privada que vende serviços às empresas reclamadas
+    site: https://www.reclameaqui.com.br
+    saiba_antes: É útil para ver a reputação de uma empresa antes de comprar. Mas é uma empresa privada que ganha dinheiro vendendo serviços às próprias empresas avaliadas, e a reclamação não tem valor oficial. Para cobrar de verdade, use o consumidor.gov.br ou o Procon.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    ajuste_nota:
+      social: 0
+- area: Trabalho e emprego
+  no_lugar_de: LinkedIn, Indeed
+  icone: fa-briefcase
+  situacao: parte
+  resumo: Para vagas presenciais e operacionais, o Sine ajuda. Para rede profissional e vagas de escritório, o LinkedIn segue sem substituto.
+  opcoes:
+  - nome: Carteira de Trabalho Digital
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Vagas do Sine perto de você, com aviso no celular
+    ponto_fraco: Vagas sobretudo presenciais e operacionais
+    site: https://www.gov.br/trabalho-e-emprego
+    saiba_antes: Desde 2025 o app mostra as vagas do Sine, que substituiu o antigo Sine Fácil. As vagas são em geral presenciais e operacionais.
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 1
+- area: Notícias
+  no_lugar_de: Google Notícias, feeds das redes
+  icone: fa-newspaper
+  situacao: troca
+  resumo: Dá para trocar o feed das redes por um leitor de notícias sem algoritmo e por veículos públicos e independentes.
+  opcoes:
+  - nome: Agência Brasil
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Notícias grátis, que qualquer um pode republicar com crédito
+    ponto_fraco: 'É estatal: vale ler também fontes independentes'
+    site: https://agenciabrasil.ebc.com.br
+    saiba_antes: É a agência pública de notícias, de graça e sem paywall. Como é estatal, combine com fontes independentes.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Agência Pública
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Jornalismo investigativo sem fins lucrativos, desde 2011
+    ponto_fraco: Não é noticiário do dia a dia
+    site: https://apublica.org
+    saiba_antes: Faz reportagens investigativas longas, com licença livre para republicar. Não é para acompanhar as notícias do dia.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Repórter Brasil
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Referência em trabalho escravo, cadeias produtivas e meio ambiente
+    ponto_fraco: Cobertura temática
+    site: https://reporterbrasil.org.br
+    saiba_antes: Não confundir com o telejornal da TV Brasil. É a referência em trabalho escravo e impacto socioambiental de empresas.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Ajor
+    tipos: [NP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Lista de cerca de 150 veículos digitais independentes, inclusive locais
+    ponto_fraco: É uma associação, não um veículo
+    site: https://ajor.org.br
+    saiba_antes: Use a lista de associadas para achar jornalismo independente da sua cidade ou região.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Leitores de RSS
+    tipos: [SL]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 2, eu: 2}
+    ponto_forte: Seu próprio feed de notícias, sem algoritmo e sem conta
+    ponto_fraco: É preciso montar a lista de sites
+    saiba_antes: Você adiciona os sites que quer seguir e vê tudo em ordem de publicação, sem algoritmo. Exige um pouco de configuração no começo.
+    perfil:
+      nivel: 2
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+    lista:
+    - nome: Feeder
+      url: https://f-droid.org/packages/com.nononsenseapps.feeder/
+      nota: Android
+    - nome: NetNewsWire
+      url: https://netnewswire.com
+      nota: iPhone e Mac
+- area: Acessibilidade
+  no_lugar_de: tradutores e leitores de tela pagos
+  icone: fa-universal-access
+  situacao: troca
+  resumo: Para Libras e leitura de tela, há opções públicas e livres de graça. Tradução automática não substitui intérprete humano.
+  opcoes:
+  - nome: VLibras
+    tipos: [PP, SL]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Traduz texto, áudio e sites para Libras com um avatar
+    ponto_fraco: Não substitui intérprete humano
+    site: https://www.vlibras.gov.br
+    saiba_antes: É do governo federal, em parceria com a UFPB. Tem app, extensão para navegador e é usado em muitos sites públicos. Precisa de internet.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+    app:
+      android: com.lavid.vlibrasdroid
+  - nome: NVDA
+    tipos: [NP, SL]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 2, al: 2, eua: 3, eu: 3}
+    ponto_forte: Leitor de tela gratuito, com voz em português
+    ponto_fraco: Só para Windows
+    site: https://www.nvaccess.org
+    saiba_antes: Só funciona no Windows. No celular, use o leitor de tela que já vem no aparelho.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+- area: Ciência
+  no_lugar_de: Google Acadêmico
+  icone: fa-flask
+  situacao: parte
+  resumo: Para achar artigos científicos, dá para trocar. O acervo pago da CAPES só abre com login de universidade, e a busca é menos ampla que a do Google Acadêmico.
+  opcoes:
+  - nome: Portal de Periódicos CAPES
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Mais de 45 mil revistas científicas com texto completo
+    ponto_fraco: O acervo pago exige vínculo com universidade
+    site: https://www.periodicos.capes.gov.br
+    saiba_antes: O conteúdo em acesso aberto é livre para todos. O acervo pago só abre com login de universidade ou instituto, pela CAFe.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: SciELO
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 3, eua: 1, eu: 1}
+    ponto_forte: Revistas científicas latino-americanas em acesso aberto
+    ponto_fraco: Menos revistas internacionais
+    site: https://www.scielo.org
+    saiba_antes: É a maior biblioteca de revistas científicas da América Latina, tudo em acesso aberto. Para revistas internacionais pagas, use o Portal CAPES.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+- area: Tradução
+  no_lugar_de: Google Tradutor, DeepL
+  icone: fa-language
+  situacao: parte
+  resumo: Para traduzir páginas, o Firefox faz isso no próprio aparelho, sem enviar o texto. Para voz, foto e textos longos com boa qualidade, Google Tradutor e DeepL ainda vencem.
+  opcoes:
+  - nome: Tradução do Firefox
+    tipos: [SL, NP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Traduz a página no próprio computador, sem mandar o texto para a nuvem
+    ponto_fraco: Menos idiomas; não traduz voz nem foto
+    site: https://support.mozilla.org/pt-BR/kb/traducao-pagina-inteira-firefox
+    saiba_antes: 'Já vem no Firefox para computador: quando abre um site em outra língua, aparece o botão de traduzir. Tem menos idiomas que o Google.'
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+- area: Transporte público
+  no_lugar_de: Google Maps, Moovit
+  icone: fa-bus
+  situacao: parte
+  resumo: Para ver o ônibus chegando em tempo real, o Cittamobi é brasileiro e cobre muitas cidades. Para planejar trajetos em qualquer lugar, o Google Maps ainda é mais completo.
+  opcoes:
+  - nome: Cittamobi
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Ônibus, metrô e barcas em tempo real, em muitas cidades brasileiras
+    ponto_fraco: Cobertura varia por cidade; tem anúncios
+    site: https://www.cittamobi.com.br
+    saiba_antes: 'É brasileiro e grátis, com anúncios. Funciona onde a empresa de ônibus manda os dados: confira se a sua cidade está no app.'
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+      conta_como_brasileiro: true
+    app:
+      ios: 875544889
+- area: Jogos
+  no_lugar_de: Steam, Epic Games
+  icone: fa-gamepad
+  situacao: parte
+  resumo: Para comprar jogos de PC pagando em reais, a Nuuvem é brasileira, mas muitos jogos são ativados na Steam. Para jogar de graça, há bons jogos livres.
+  opcoes:
+  - nome: Nuuvem
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 3, eua: 1, eu: 1}
+    ponto_forte: A maior loja de jogos digitais da América Latina, com preço em reais e Pix
+    ponto_fraco: Muitos jogos ainda são ativados na Steam
+    site: https://www.nuuvem.com
+    saiba_antes: 'Brasileira, com preço em reais, Pix e parcelamento. Mas muitos jogos de PC vêm como chave para ativar na Steam: você compra aqui, mas joga lá. Também vende créditos para PlayStation, Xbox e Nintendo.'
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: false
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Jogos livres
+    tipos: [SL]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 1, al: 1, eua: 1, eu: 2}
+    ponto_forte: Jogos completos e grátis, feitos pela comunidade
+    ponto_fraco: Visual mais simples que os grandes lançamentos
+    saiba_antes: São jogos completos, feitos por comunidades e livres para sempre. Rodam bem até em computador antigo e no Linux.
+    perfil:
+      nivel: 2
+      aparelhos: d
+      gratis: true
+      privacidade: 2
+    lista:
+    - nome: SuperTuxKart
+      url: https://supertuxkart.net
+      nota: Corrida de kart
+    - nome: 0 A.D.
+      url: https://play0ad.com
+      nota: Estratégia histórica
+    - nome: Luanti (antigo Minetest)
+      url: https://www.luanti.org
+      nota: Mundo de blocos, como o Minecraft
+- area: Pagamentos
+  no_lugar_de: Apple Pay, Visa, Mastercard
+  icone: fa-qrcode
+  situacao: troca
+  resumo: No Brasil, troca total com Pix e cartão Elo. Para comprar no exterior, ainda é preciso Visa ou Mastercard.
+  opcoes:
+  - nome: Pix (Banco Central)
+    tipos: [PP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 5, al: 2, eua: 1, eu: 1}
+    ponto_forte: Grátis e na hora
+    ponto_fraco: Muito usado em golpes
+    site: https://www.bcb.gov.br/estabilidadefinanceira/pix
+    saiba_antes: 'No cartão, até 5% do que você paga fica com bancos e bandeiras como Visa e Mastercard, que são americanas. No Pix não tem cashback, mas o dinheiro vai quase inteiro para quem vende. Já é o jeito mais usado de pagar no Brasil. Cuidado com golpes: confira o nome de quem recebe antes de confirmar.'
+    perfil:
+      nivel: 1
+      aparelhos: ai
+      gratis: true
+      privacidade: 0
+    wikipedia: Pix
+    ajuste_nota:
+      software_livre: 2
+  - nome: Elo
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Bandeira de cartão brasileira, no lugar de Visa e Mastercard
+    ponto_fraco: Pouco aceita fora do país
+    site: https://www.elo.com.br
+    saiba_antes: Aceito em quase todo o Brasil, mas pouco aceito fora. Para viajar ou comprar em site estrangeiro, tenha também um cartão Visa ou Mastercard.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+- area: Compras
+  no_lugar_de: Amazon, Shein, OLX
+  icone: fa-bag-shopping
+  situacao: troca
+  resumo: Troca total. Mercado Livre e Magalu vendem mais que a Amazon aqui. Para usados, Enjoei e Repassa são brasileiros.
+  opcoes:
+  - nome: Mercado Livre
+    tipos: [LA]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 5, al: 5, eua: 1, eu: 1}
+    ponto_forte: O maior da América Latina
+    ponto_fraco: Não é brasileiro; junta muitos dados
+    site: https://www.mercadolivre.com.br
+    saiba_antes: Tem quase tudo e entrega rápido nas capitais. Como na Amazon, confira a reputação do vendedor.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    app:
+      android: com.mercadolibre
+    wikipedia: Mercado Livre
+  - nome: Magalu
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: Brasileira, com lojas e marketplace grandes
+    ponto_fraco: Também junta muitos dados
+    site: https://www.magazineluiza.com.br
+    saiba_antes: Bom para eletrônicos e casa. No marketplace, confira quem é o vendedor de fato.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    wikipedia: Magazine Luiza
+  - nome: Estante Virtual
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Livros usados de sebos do país inteiro; é do Magalu
+    ponto_fraco: Só livros
+    site: https://www.estantevirtual.com.br
+    saiba_antes: Só livros, a maioria usados. O prazo e o frete mudam de um sebo para outro.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 0
+    wikipedia: Estante Virtual
+  - nome: Enjoei
+    tipos: [EB]
+    maturidade: 5
+    qualidade: 4
+    adocao: {br: 4, al: 1, eua: 1, eu: 1}
+    ponto_forte: 'Brechó online brasileiro: compra e venda de usados'
+    ponto_fraco: Taxa alta para quem vende
+    site: https://www.enjoei.com.br
+    saiba_antes: É brasileira e tem ações na bolsa, mas dá prejuízo. Vendedor paga comissão alta; o Elo7, de artesanato, que ela comprou, fechou em 2026.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+  - nome: Repassa
+    tipos: [EB]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: 'Brechó de roupas: eles fotografam e vendem por você'
+    ponto_fraco: Só roupa; é da Renner
+    site: https://www.repassa.com.br
+    saiba_antes: Você manda a sacola de roupas, eles avaliam, fotografam e vendem. Paga pouco por peça, mas dá zero trabalho. Pertence à Lojas Renner.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      conta_como_brasileiro: true
+- area: Educação
+  no_lugar_de: Google Classroom, Coursera
+  icone: fa-graduation-cap
+  situacao: parte
+  resumo: Escolas e universidades têm o Moodle, e há muitos cursos públicos de graça. Para o professor que quer algo simples como o Classroom, ainda falta.
+  opcoes:
+  - nome: Moodle
+    tipos: [SL, PP]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 4, al: 4, eua: 3, eu: 4}
+    ponto_forte: Padrão nas universidades
+    ponto_fraco: Visual velho
+    site: https://moodle.org
+    saiba_antes: É o que a escola ou a universidade instala. Para o aluno, o visual é antiquado, mas funciona. Não é algo que um professor sozinho monta fácil.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      so_profissional: true
+    app:
+      android: com.moodle.moodlemobile
+      ios: 633359593
+    wikipedia: Moodle
+  - nome: Escola Virtual.Gov
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Cursos grátis com certificado, do governo federal
+    ponto_fraco: Foco em gestão pública
+    site: https://www.escolavirtual.gov.br
+    saiba_antes: Cursos grátis com certificado, mas a maioria é sobre gestão pública. Não substitui o Coursera em tecnologia ou idiomas.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: AVAMEC
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Cursos grátis do MEC, com certificado
+    ponto_fraco: Foco em professores
+    site: https://avamec.mec.gov.br
+    saiba_antes: Os cursos são do MEC e de parceiros, com certificado. A maioria é para professores.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      so_profissional: true
+  - nome: eduCAPES
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Material didático aberto, de aulas a livros
+    ponto_fraco: Busca confusa
+    site: https://educapes.capes.gov.br
+    saiba_antes: Tem aulas, livros e vídeos abertos de universidades. A busca é confusa; use palavras bem específicas.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+      so_profissional: true
+  - nome: Khan Academy
+    tipos: [NP]
+    maturidade: 5
+    qualidade: 5
+    adocao: {br: 3, al: 3, eua: 4, eu: 4}
+    ponto_forte: Aulas grátis de matemática e ciências, em português
+    ponto_fraco: Organização americana; menos conteúdo em português
+    site: https://pt.khanacademy.org
+    saiba_antes: Ótimo para matemática e ciências, com exercícios. Parte do conteúdo ainda está só em inglês.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Univesp
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Aulas abertas da universidade virtual de São Paulo
+    ponto_fraco: Muitas aulas ficam no YouTube
+    site: https://univesp.br
+    saiba_antes: Aulas abertas de cursos de graduação. Muitas estão no YouTube.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+- area: Livros
+  no_lugar_de: Kindle, Google Play Livros
+  icone: fa-book
+  situacao: parte
+  resumo: Para clássicos e muitos livros brasileiros, dá para ler de graça. Lançamentos e best-sellers estrangeiros seguem só nas lojas.
+  opcoes:
+  - nome: MEC Livros
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 4
+    adocao: {br: 3, al: 1, eua: 1, eu: 1}
+    ponto_forte: Quase 27 mil livros grátis, com clássicos e autores atuais
+    ponto_fraco: Dois empréstimos por mês, de 14 dias
+    site: https://meclivros.mec.gov.br
+    saiba_antes: Precisa de conta gov.br. Cada pessoa pega até dois livros por mês, por 14 dias, com renovação. O app é só para Android; no iPhone, use o site.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Wikisource
+    tipos: [NP, SL]
+    maturidade: 5
+    qualidade: 3
+    adocao: {br: 2, al: 2, eua: 2, eu: 3}
+    ponto_forte: Clássicos em domínio público, para ler ou baixar
+    ponto_fraco: Só obras antigas
+    site: https://pt.wikisource.org
+    saiba_antes: Só tem obras em domínio público, como Machado de Assis e Eça de Queirós. Dá para ler no navegador ou baixar em EPUB para o leitor digital.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 2
+  - nome: Domínio Público (MEC)
+    tipos: [PP]
+    maturidade: 3
+    qualidade: 2
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Milhares de obras livres do governo federal
+    ponto_fraco: Site antigo e instável
+    site: http://www.dominiopublico.gov.br
+    saiba_antes: Portal antigo do MEC, com textos, imagens e áudios livres. É lento e às vezes sai do ar. Para livros atuais, use o MEC Livros.
+    perfil:
+      nivel: 1
+      aparelhos: d
+      gratis: true
+      privacidade: 1
+  - nome: BNDigital
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 3
+    adocao: {br: 2, al: 1, eua: 1, eu: 1}
+    ponto_forte: Mais de 2 milhões de documentos da Biblioteca Nacional
+    ponto_fraco: Mais para pesquisa que para leitura
+    site: https://bndigital.bn.gov.br
+    saiba_antes: São livros raros, jornais antigos, mapas e manuscritos digitalizados. Ótimo para pesquisa; para ler um romance, prefira o MEC Livros.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: Brasiliana USP
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 1, al: 1, eua: 1, eu: 1}
+    ponto_forte: Livros raros e históricos sobre o Brasil
+    ponto_fraco: Acervo histórico
+    site: https://digital.bbm.usp.br
+    saiba_antes: Livros raros e antigos sobre o Brasil, muitos em PDF. É acervo histórico, não de lançamentos.
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1
+  - nome: SciELO Livros
+    tipos: [PP]
+    maturidade: 4
+    qualidade: 4
+    adocao: {br: 2, al: 2, eua: 1, eu: 1}
+    ponto_forte: Mais de 300 livros acadêmicos em acesso aberto
+    ponto_fraco: Só livros acadêmicos
+    site: https://books.scielo.org
+    saiba_antes: 'Livros de editoras universitárias. Nem todos são grátis: procure os de acesso aberto.'
+    perfil:
+      nivel: 1
+      aparelhos: aid
+      gratis: true
+      privacidade: 1

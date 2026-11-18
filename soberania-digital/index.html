@@ -1,0 +1,1527 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soberania Digital</title>
+<meta name="description" content="Guia de alternativas nacionais, livres e públicas aos serviços das big techs.">
+<meta name="theme-color" content="#071D41">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="fonts/raleway.css">
+<link rel="stylesheet" href="fa/css/all.min.css">
+<style>
+:root{
+  --primary:#1351B4; --primary-dark:#0C326F; --primary-darker:#071D41; --primary-light:#DBE8FB; --on-primary:#fff;
+  --yellow:#FFCD07; --green:#168821; --green-light:#E3F5E1; --red:#E52207; --red-light:#FDE0DB;
+  --warn-bg:#FFF5C2; --warn-text:#8A6D00; --violet:#5D3FD3;
+  --bg:#F8F8F8; --surface:#FFFFFF; --text:#333333; --muted:#636363; --border:#CCCCCC; --line:#E6E6E6;
+  --shadow:0 1px 6px rgba(0,0,0,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --primary:#5992ED; --primary-dark:#C5D4EB; --primary-darker:#071D41; --primary-light:#1B2A47; --on-primary:#fff;
+    --green:#36A191; --green-light:#16302A; --red:#FF8D7B; --red-light:#3A1F1A; --warn-bg:#3A3210; --warn-text:#FFCD07; --violet:#A99BF0;
+    --bg:#0F1724; --surface:#17223A; --text:#E8EDF5; --muted:#A9B4C7; --border:#3A4A66; --line:#26344F;
+    --shadow:0 1px 6px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --primary:#5992ED; --primary-dark:#C5D4EB; --primary-darker:#071D41; --primary-light:#1B2A47; --on-primary:#fff;
+  --green:#36A191; --green-light:#16302A; --red:#FF8D7B; --red-light:#3A1F1A; --warn-bg:#3A3210; --warn-text:#FFCD07; --violet:#A99BF0;
+  --bg:#0F1724; --surface:#17223A; --text:#E8EDF5; --muted:#A9B4C7; --border:#3A4A66; --line:#26344F;
+  --shadow:0 1px 6px rgba(0,0,0,.5);
+}
+/* Alto contraste (padrão gov.br) */
+:root[data-contrast="1"]{
+  --primary:#FFE14D; --primary-dark:#FFE14D; --primary-darker:#000; --primary-light:#222; --on-primary:#000;
+  --green:#5CFF9D; --green-light:#0A2A17; --red:#FF8080; --red-light:#2A0A0A; --warn-bg:#2A2400; --warn-text:#FFE14D; --violet:#C9B8FF;
+  --bg:#000; --surface:#000; --text:#fff; --muted:#ddd; --border:#fff; --line:#777; --shadow:0 0 0 1px #fff;
+}
+[data-contrast="1"] .tag,[data-contrast="1"] .status,[data-contrast="1"] .fit,[data-contrast="1"] .flag,[data-contrast="1"] .nbadge{background:#000!important;color:#fff!important;border:1px solid #fff}
+[data-contrast="1"] a{color:#FFE14D}
+[data-contrast="1"] .mark{background:#000;border:2px solid #fff}
+[data-contrast="1"] .topbar,[data-contrast="1"] footer,[data-contrast="1"] .tray,[data-contrast="1"] .dlg-head{border-bottom:1px solid #fff}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Raleway,"Rawline",system-ui,sans-serif;font-size:16px;line-height:1.5;zoom:var(--zoom,1)}
+a{color:var(--primary)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.sr{position:absolute;left:-9999px}
+:focus-visible{outline:4px dashed #C2850C;outline-offset:2px}
+
+/* Barra superior */
+.topbar{background:var(--primary-darker);color:#fff;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:36px}
+.topbar b{color:var(--yellow);font-weight:700}
+.a11y{display:flex;gap:2px;align-items:center;flex:none}
+.tb{background:none;border:0;color:#fff;cursor:pointer;font:inherit;font-size:13px;font-weight:700;padding:6px 8px;border-radius:4px;display:inline-flex;gap:6px;align-items:center}
+.tb:hover{background:rgba(255,255,255,.12)}
+.tb[aria-pressed="true"]{background:var(--yellow);color:#071D41}
+
+/* Header */
+header.main{background:var(--surface);box-shadow:var(--shadow);position:sticky;top:0;z-index:10}
+.hdr{display:flex;align-items:center;gap:16px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);min-width:0}
+.mark{width:40px;height:40px;border-radius:8px;flex:none;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(135deg,#1351B4 0 50%,#168821 50% 100%);position:relative;font-size:18px}
+.mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;border-radius:50%;background:#FFCD07;border:2px solid var(--surface)}
+.brand-name{font-weight:800;font-size:20px;line-height:1.1}
+.brand-sub{font-size:13px;color:var(--muted)}
+.divider{width:1px;height:32px;background:var(--line)}
+.search{flex:1 1 260px;position:relative;margin-left:auto;max-width:420px}
+.search input{width:100%;height:40px;border:1px solid var(--border);border-radius:20px;padding:0 70px 0 16px;
+  font:inherit;font-size:15px;background:var(--surface);color:var(--text);font-style:italic}
+.search input:not(:placeholder-shown){font-style:normal}
+.search input:focus{outline:4px dashed #C2850C;outline-offset:2px;border-color:var(--primary)}
+.search i{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--primary)}
+.kbd{position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--border);border-radius:4px;padding:0 6px;line-height:18px}
+.mainnav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--line)}
+.mainnav::-webkit-scrollbar{display:none}
+.mainnav a{white-space:nowrap;text-decoration:none;color:var(--primary);font-weight:600;font-size:14px;padding:10px 12px;border-bottom:3px solid transparent;display:inline-flex;gap:6px;align-items:center}
+.mainnav a:hover{background:var(--primary-light);border-bottom-color:var(--primary)}
+.nbadge{background:var(--green);color:#fff;border-radius:100em;font-size:11px;padding:1px 7px;font-weight:700}
+.nbadge:empty{display:none}
+
+/* Breadcrumb */
+.crumb{font-size:14px;color:var(--muted);padding:16px 0 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.crumb a{text-decoration:none}
+
+/* Hero */
+.hero{padding:20px 0 12px}
+.hero h1{font-size:clamp(26px,5vw,38px);font-weight:500;margin:8px 0 8px;line-height:1.2}
+.hero h1 strong{font-weight:800;color:var(--primary)}
+.lead{font-size:17px;color:var(--muted);max-width:760px;margin:0}
+.ctas{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0 8px}
+.stat{background:var(--surface);border-radius:4px;box-shadow:var(--shadow);padding:16px;border:0;border-top:4px solid var(--primary);text-align:left;font:inherit;color:var(--text)}
+button.stat{cursor:pointer}
+button.stat:hover{background:var(--primary-light)}
+.stat.ok{border-top-color:var(--green)} .stat.warn{border-top-color:var(--yellow)} .stat.bad{border-top-color:var(--red)}
+.stat .n{font-size:32px;font-weight:800;line-height:1}
+.stat .l{font-size:14px;color:var(--muted);margin-top:4px}
+.quick{margin:20px 0 4px}
+.quick h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px;font-weight:700}
+
+/* Chips e botões */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--primary);color:var(--primary);background:var(--surface);
+  border-radius:100em;padding:6px 14px;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.chip:hover{background:var(--primary-light)}
+.chip[aria-pressed="true"]{background:var(--primary);color:var(--on-primary)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 20px;border-radius:100em;font:inherit;font-weight:600;font-size:15px;cursor:pointer;
+  border:1px solid var(--primary);background:var(--surface);color:var(--primary);text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--primary-light)}
+.btn.primary{background:var(--primary);color:var(--on-primary)}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.sm{height:36px;padding:0 14px;font-size:14px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.linkbtn{background:none;border:0;color:var(--primary);font:inherit;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;gap:6px;align-items:center;padding:4px}
+.linkbtn:hover{text-decoration:underline}
+
+/* Seções */
+.section{margin:40px 0;scroll-margin-top:130px}
+.section h2{font-size:24px;font-weight:700;margin:0 0 4px}
+.section h2::after{content:"";display:block;width:48px;height:4px;background:var(--yellow);margin-top:8px;border-radius:2px}
+.section .sub{color:var(--muted);margin:8px 0 16px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);box-shadow:var(--shadow);border-radius:4px;padding:20px}
+.card h3{margin:0 0 12px;font-size:17px;display:flex;align-items:center;gap:8px}
+.card ul,.card ol{margin:0;padding-left:20px}
+.card li{margin-bottom:6px;font-size:15px}
+.card.ok h3 i{color:var(--green)} .card.bad h3 i{color:var(--red)}
+.msg{display:flex;gap:14px;padding:16px 20px;border-radius:4px;margin-top:16px;background:var(--primary-light);border-left:4px solid var(--primary)}
+.msg.warn{background:var(--warn-bg);border-color:#C2850C}
+.msg i{font-size:20px;color:var(--primary);margin-top:2px}
+.msg.warn i{color:#C2850C}
+.msg p{margin:0 0 6px} .msg p:last-child{margin:0}
+.msg ul{margin:6px 0 0;padding-left:20px}
+.muted{color:var(--muted);font-size:14px}
+
+/* Quiz opcional */
+.optin{margin:4px 0 0;scroll-margin-top:130px}
+.optin-card{display:flex;align-items:center;gap:14px;padding:14px 16px;border-left:4px solid var(--primary);flex-wrap:wrap}
+.optin-card .big{font-size:22px;color:var(--primary)}
+.optin-card>div{flex:1;min-width:160px}
+.optin-card b{display:block}
+.optin-card span{color:var(--muted);font-size:14px}
+#perfil .res{margin-top:0}
+#panorama{margin-top:28px}
+/* Quiz */
+.quiz-q{border:0;margin:0 0 20px;padding:0;min-width:0}
+.quiz-q legend{font-weight:700;font-size:16px;margin-bottom:10px;padding:0;display:flex;gap:10px;align-items:center}
+.quiz-q legend{flex-wrap:wrap}
+.hint{flex-basis:100%;margin:-6px 0 0 36px;font-size:13px;font-weight:400;color:var(--muted)}
+.qn{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--primary);color:var(--on-primary);font-size:13px;flex:none}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.opt{position:relative;display:flex;flex-direction:column;gap:2px;border:1px solid var(--border);border-radius:4px;padding:10px 12px 10px 38px;
+  cursor:pointer;background:var(--surface);font-size:15px;font-weight:600}
+.opt small{font-weight:400;color:var(--muted);font-size:13px;line-height:1.35}
+.opt input{position:absolute;left:12px;top:13px;accent-color:var(--primary);width:16px;height:16px;margin:0}
+.opt:hover{border-color:var(--primary)}
+.opt:has(input:checked){border-color:var(--primary);background:var(--primary-light);box-shadow:inset 0 0 0 1px var(--primary)}
+.opt:has(input:focus-visible){outline:4px dashed #C2850C;outline-offset:2px}
+.rates{display:flex;flex-direction:column;gap:8px}
+.rate-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:4px;padding:8px 12px;background:var(--surface)}
+.rate-lbl{min-width:0}
+.rate-lbl b{display:block;font-size:15px}
+.rate-lbl small{color:var(--muted);font-size:12px}
+.rate{display:inline-flex;flex-direction:row-reverse;flex:none}
+.rate input{position:absolute;opacity:0;width:1px;height:1px}
+.rate label{font-size:24px;line-height:1;color:var(--line);cursor:pointer;padding:0 2px;transition:color .1s}
+.rate input:checked ~ label,.rate label:hover,.rate label:hover ~ label{color:#E52207}
+.rate input:focus-visible + label{outline:3px dashed #C2850C;outline-offset:2px}
+.pesos{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-size:13px;color:var(--muted)}
+.hearts{font-style:normal;color:#E52207;letter-spacing:1px}
+.hearts .off{color:var(--line)}
+.score.mine{border-style:double;border-width:4px}
+.quiz-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.quiz-err{color:var(--red);font-size:14px;font-weight:600}
+.res{margin-top:16px;border-top:4px solid var(--green)}
+.res-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.res h3{margin:2px 0 0;font-size:18px}
+.picks{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.card .picks li{margin:0}
+.pick{all:unset;box-sizing:border-box;width:100%;display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:4px;cursor:pointer}
+.pick:hover{border-color:var(--primary);background:var(--primary-light)}
+.pick:focus-visible{outline:4px dashed #C2850C;outline-offset:2px}
+.pick .seg-icon{width:34px;height:34px;font-size:14px}
+.pk-seg{display:block;font-size:12px;color:var(--muted)}
+.pk-name{display:block;font-weight:700}
+.pk-why{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.res-foot{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.res-note{font-size:14px;color:var(--muted);margin:0 0 12px}
+
+/* Panorama */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.semana{display:flex;gap:12px;align-items:center;margin:0 0 16px;border-left:4px solid #FFCD07;padding:12px 16px;cursor:pointer}
+.semana .big{color:var(--primary);font-size:28px}.semana small{display:block;color:var(--muted);font-weight:700;text-transform:uppercase;font-size:12px}
+.dica{border-left-color:#168821}.dica .big{color:#168821}.dica .btn{margin-left:auto;flex:none}
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.pick{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--surface);color:var(--text);border:0;border-left:4px solid #168821;box-shadow:var(--shadow);border-radius:4px;padding:12px;cursor:pointer;font:inherit;text-decoration:none}
+.pick b{color:var(--primary)}.pick span{color:var(--muted);font-size:14px}.pick em{font-style:normal;font-weight:700;font-size:13px;color:var(--muted)}
+.tile{text-align:left;background:var(--surface);border:0;border-left:4px solid var(--primary);box-shadow:var(--shadow);border-radius:4px;padding:12px;cursor:pointer;
+  font:inherit;color:var(--text);display:flex;flex-direction:column;gap:4px;min-height:120px}
+.tile.ok{border-left-color:var(--green)} .tile.warn{border-left-color:var(--yellow)} .tile.bad{border-left-color:var(--red)}
+.tile:hover{background:var(--primary-light)}
+.tile-top{display:flex;justify-content:space-between;align-items:center;color:var(--primary);font-size:18px}
+.tile-top .score{margin-left:auto}
+.tile-cov{color:var(--green)}
+.tile-ref{font-size:12px;color:var(--muted)}
+.tile-alt{font-weight:700;font-size:14px;line-height:1.3}
+.tile-st{font-size:12px;font-weight:700;margin-top:auto}
+.tile.ok .tile-st{color:var(--green)} .tile.warn .tile-st{color:var(--warn-text)} .tile.bad .tile-st{color:var(--red)}
+
+/* Filtros e barra de ferramentas */
+.filters{background:var(--surface);box-shadow:var(--shadow);border-radius:4px;padding:16px;margin:16px 0}
+.filters-row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;justify-content:space-between}
+.fgroup{display:flex;flex-direction:column;gap:8px}
+.fgroup[hidden]{display:none}
+.flabel{font-size:14px;font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.result-count{font-size:14px;color:var(--muted);margin:0}
+.segctl{display:inline-flex;border:1px solid var(--primary);border-radius:100em;overflow:hidden}
+.segctl button{background:var(--surface);color:var(--primary);border:0;font:inherit;font-weight:600;font-size:14px;padding:0 14px;height:34px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.segctl button[aria-pressed="true"]{background:var(--primary);color:var(--on-primary)}
+.select{height:36px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:0 10px}
+.btn[hidden]{display:none}
+
+/* Segmentos */
+.seg{background:var(--surface);box-shadow:var(--shadow);border-radius:4px;margin-bottom:12px;overflow:hidden;scroll-margin-top:130px}
+.seg-head{width:100%;display:flex;align-items:center;gap:14px;padding:16px;background:none;border:0;text-align:left;cursor:pointer;font:inherit;color:var(--text)}
+.seg-head:hover{background:var(--primary-light)}
+.seg-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--primary-light);color:var(--primary);font-size:18px;flex:none}
+.seg-title{flex:1;min-width:0}
+.seg-title h3{margin:0;font-size:18px;font-weight:700;line-height:1.25}
+.seg-title .ref{font-size:14px;color:var(--muted)}
+.seg-title .ref b{color:var(--text);font-weight:600}
+.cov{color:var(--green);font-size:18px;flex:none}
+.chev{color:var(--primary);transition:transform .2s;flex:none}
+.seg-head[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.seg-body{border-top:1px solid var(--line);padding:16px;background:var(--bg)}
+.seg-body[hidden]{display:none}
+.seg-foot{display:flex;justify-content:flex-end;margin-top:10px}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:100em;white-space:nowrap;flex:none}
+.status.ok{background:var(--green-light);color:var(--green)}
+.status.warn{background:var(--warn-bg);color:var(--warn-text)}
+.status.bad{background:var(--red-light);color:var(--red)}
+.verdict{margin:0 0 12px;font-size:15px;line-height:1.45;padding:10px 14px;border-radius:4px;background:var(--surface);border-left:4px solid var(--border)}
+.verdict.ok{border-left-color:var(--green)} .verdict.warn{border-left-color:var(--yellow)} .verdict.bad{border-left-color:var(--red)}
+.verdict b{color:var(--text)}
+.note{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border-left:4px solid var(--primary);padding:10px 14px;font-size:14px;margin-bottom:14px;border-radius:0 4px 4px 0}
+.note i{color:var(--primary);margin-top:3px}
+
+/* Cartões de alternativas */
+.alts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.alt{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.alt.dim{opacity:.5}
+.alt.dim:hover,.alt.dim:focus-within{opacity:1}
+.alt-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.alt-side{display:flex;gap:6px;align-items:center;flex:none}
+.score{flex:none;display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;font-weight:800;font-size:16px;border:3px solid var(--border);color:var(--muted);background:var(--surface)}
+.score.hi{border-color:var(--green);color:var(--green)} .score.mid{border-color:var(--yellow);color:var(--text)}
+.score.sm{width:34px;height:34px;font-size:13px;border-width:2px}
+.factors{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:12px;color:var(--muted)}
+.factor span{display:flex;justify-content:space-between;margin-bottom:3px}
+.factor b{color:var(--text);font-weight:700}
+.factor .bar i{background:var(--primary)}
+.pen{grid-column:1/-1;font-size:12px;font-weight:700;color:var(--red)}
+.more{font-size:13px}
+.srv{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.srv li{display:grid;grid-template-columns:1fr auto;gap:0 8px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:6px}
+.srv a{font-weight:700;font-size:14px}
+.srv small{grid-column:1;color:var(--muted);font-size:12px}
+.reg{grid-row:1/3;grid-column:2;font-size:11px;font-weight:700;padding:2px 8px;border-radius:100em;background:var(--line);color:var(--text);white-space:nowrap}
+.reg.ok{background:var(--green-light);color:var(--green)}
+.lst{margin:0;padding-top:4px}
+.act[aria-expanded="true"]{background:var(--primary-light);border-color:var(--primary);color:var(--primary)}
+.more summary{cursor:pointer;color:var(--primary);font-weight:600;list-style:none;display:flex;gap:6px;align-items:center}
+.more summary::-webkit-details-marker{display:none}
+.more>div{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.fact-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px;font-size:14px}
+.fact-list b{display:block}
+.alt h4{margin:0;font-size:16px;font-weight:700;line-height:1.3}
+.flag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;background:var(--red-light);color:var(--red);white-space:nowrap}
+.flag.new{background:var(--warn-bg);color:var(--warn-text)}
+.fit{font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;background:var(--green-light);color:var(--green);display:inline-flex;gap:5px;align-items:center;width:max-content}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;color:#fff;letter-spacing:.02em}
+.tag.sl{background:var(--green)} .tag.np{background:var(--violet)} .tag.eb{background:var(--primary)}
+.tag.pp{background:var(--yellow);color:#071D41} .tag.ex{background:#6B6B6B}
+.tag.la{background:#0E7C86} .tag.co{background:#B4541A}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.metric{font-size:13px;color:var(--muted)}
+.metric .lbl{display:block;margin-bottom:3px}
+.dots{display:flex;gap:3px;align-items:center}
+.dots span{width:16px;height:8px;border-radius:2px;background:var(--line)}
+.dots span.on{background:var(--primary)}
+.dots em{font-style:normal;font-size:12px;color:var(--muted);margin-left:6px;font-weight:700}
+.na{font-size:13px;font-style:italic;color:var(--muted)}
+.adoc{font-size:13px;color:var(--muted)}
+.adoc .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:3px}
+.adoc .cell{display:flex;flex-direction:column;gap:3px}
+.adoc .cell b{font-size:11px;color:var(--text);font-weight:700}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green);border-radius:3px}
+.pc{margin:0;font-size:14px;display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+.pc i{margin-top:3px;flex:none;font-size:13px}
+.pc.pro i{color:var(--green)} .pc.con i{color:var(--red)}
+.tip{font-size:14px;background:var(--warn-bg);border-radius:4px;padding:8px 10px}
+.tip summary{cursor:pointer;font-weight:700;display:flex;gap:6px;align-items:center;list-style:none;color:var(--text)}
+.tip summary::-webkit-details-marker{display:none}
+.tip summary i{color:#C2850C}
+.tip p{margin:6px 0 0}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.act{display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 10px;border:1px solid var(--border);border-radius:100em;background:var(--surface);color:var(--text);
+  font:inherit;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none}
+.act:hover{border-color:var(--primary);color:var(--primary)}
+.act[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.act.share{border-color:var(--primary);color:var(--primary)}
+.act.uso[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+[data-contrast="1"] .act.uso[aria-pressed="true"]{color:#000}
+.empty{text-align:center;padding:40px 16px;color:var(--muted)}
+.empty i{font-size:36px;color:var(--primary);display:block;margin-bottom:8px}
+
+/* Tabela */
+.tbl-wrap{overflow-x:auto;background:var(--surface);box-shadow:var(--shadow);border-radius:4px}
+table.tbl{width:100%;min-width:780px;border-collapse:collapse;font-size:14px}
+.tbl th{background:var(--primary-darker);color:#fff;text-align:left;padding:0;font-weight:700;white-space:nowrap}
+.tbl th button,.tbl th span{all:unset;box-sizing:border-box;display:flex;gap:6px;align-items:center;padding:10px;width:100%}
+.tbl th button{cursor:pointer}
+.tbl th button:hover{background:rgba(255,255,255,.1)}
+.tbl th button:focus-visible{outline:2px solid #FFCD07;outline-offset:-2px}
+.tbl th i{font-size:11px;opacity:.7}
+.tbl td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:hover td{background:var(--primary-light)}
+.tbl tr.dim td{opacity:.55}
+.tbl .num{text-align:center;font-weight:700}
+.tbl small{color:var(--muted)}
+.tbl .tags{gap:4px}
+.heat{background:color-mix(in srgb,var(--green) calc(var(--h) * 13%),transparent)}
+.ticons{display:flex;gap:4px}
+.ticons .act{width:30px;padding:0;justify-content:center}
+
+/* Jornada */
+.jr{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:16px}
+.ring{width:104px;height:104px}
+.ring circle{fill:none;stroke-width:10}
+.ring .bg{stroke:var(--line)} .ring .fg{stroke:var(--green);stroke-linecap:round;transition:stroke-dashoffset .5s}
+.ring text{font:800 22px Raleway,sans-serif;fill:var(--text)}
+.jr h3{margin:0 0 6px;font-size:18px}
+.jr-level{display:inline-block;font-size:13px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 10px;border-radius:100em;margin-bottom:6px}
+.segdots{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.segdots span{width:22px;height:22px;border-radius:4px;display:grid;place-items:center;font-size:11px;background:var(--line);color:var(--muted)}
+.segdots span.on{background:var(--green);color:#fff}
+.jlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.card .jlist li{display:flex;gap:8px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin:0}
+.jlist small{display:block;color:var(--muted);font-size:12px}
+.jlist .mini{display:flex;gap:4px;flex:none}
+.jlist .act{height:28px;padding:0 8px}
+.jfoot{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+.where li{margin-bottom:10px;line-height:1.45}
+.about{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.card .about li{margin:0}
+.about b{display:block}
+/* FAQ */
+.faq-group{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:20px 0 8px;font-weight:700}
+.faq-group:first-child{margin-top:16px}
+.faq{background:var(--surface);box-shadow:var(--shadow);border-radius:4px;margin-bottom:8px}
+.faq summary{cursor:pointer;padding:14px 16px;font-weight:700;display:flex;justify-content:space-between;gap:12px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"\f078";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--primary);transition:transform .2s;flex:none}
+.faq[open] summary::after{transform:rotate(180deg)}
+.faq p{margin:0;padding:0 16px 16px}
+
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:14px}
+.legend div{display:flex;gap:8px;align-items:center}
+.sources{columns:2 260px;font-size:14px;padding-left:20px;margin:0}
+.sources li{margin-bottom:6px;break-inside:avoid}
+
+/* Toast e topo */
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#071D41;color:#fff;padding:10px 16px;border-radius:4px;font-size:14px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.2s;z-index:50;max-width:calc(100% - 32px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.to-top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--primary);color:var(--on-primary);
+  box-shadow:var(--shadow);cursor:pointer;display:none;font-size:16px;z-index:15}
+.to-top.show{display:grid;place-items:center}
+
+/* Rodapé */
+footer{background:var(--primary-darker);color:#fff;margin-top:48px;padding:32px 0 24px;font-size:14px}
+footer .wrap{display:flex;flex-direction:column;gap:16px}
+footer .fb{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px}
+footer p{margin:0;color:#C5D4EB;max-width:760px}
+footer .line{border-top:1px solid rgba(255,255,255,.2);padding-top:16px;font-size:13px;color:#C5D4EB}
+footer a{color:#fff}
+
+@media (max-width:600px){
+  header.main{position:static}
+  .section,.seg{scroll-margin-top:8px}
+  .divider,.brand-sub,.kbd,.tb .lbl{display:none}
+  .search{max-width:none;flex-basis:100%}
+  .seg-head{gap:10px;padding:14px 12px;flex-wrap:wrap}
+  .seg-icon{width:38px;height:38px;font-size:16px}
+  .seg-title{flex-basis:calc(100% - 90px)}
+  .seg-head .status{margin-left:48px}
+  .seg-body{padding:12px}
+  .alts{grid-template-columns:1fr}
+  .filters-row{flex-direction:column}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .jr{grid-template-columns:1fr;justify-items:start}
+  .topbar .wrap>span{font-size:12px}
+  .dlg-body{padding:8px}
+}
+
+@media print{
+  body{zoom:1;background:#fff;color:#000}
+  .topbar,header.main,.filters,.toolbar,#perfil form,.tray,.to-top,.acts,.btn,.linkbtn,#panorama,#jornada,#faq,.toast,.ctas,.quick,.stats,.crumb{display:none!important}
+  .seg-body[hidden]{display:block!important}
+  .seg,.card,.stat,.alt{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+  .alt.dim{opacity:1}
+  footer{background:#fff;color:#000;margin:0} footer p{color:#333}
+  body.print-res main>*:not(#perfil){display:none!important}
+  body.print-res #perfil>:not(#quizRes){display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><b>Guia independente</b> · não é site do governo</span>
+    <div class="a11y" role="group" aria-label="Acessibilidade">
+      <!--pwa--><button class="tb" id="installTop" hidden><i class="fa-solid fa-download"></i><span class="lbl">Instalar</span></button><!--/pwa-->
+      <button class="tb" id="fontDown" aria-label="Diminuir fonte">A−</button>
+      <button class="tb" id="fontUp" aria-label="Aumentar fonte">A+</button>
+      <button class="tb" id="contrastBtn" aria-pressed="false" aria-label="Alto contraste"><i class="fa-solid fa-circle-half-stroke"></i><span class="lbl">Contraste</span></button>
+      <button class="tb" id="themeBtn" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon"></i><span class="lbl">Tema</span></button>
+    </div>
+  </div>
+</div>
+
+<header class="main">
+  <div class="wrap">
+    <div class="hdr">
+      <a class="brand" href="#">
+        <span class="mark"><i class="fa-solid fa-shield-halved"></i></span>
+        <span>
+          <span class="brand-name">Soberania Digital</span><br>
+          <span class="brand-sub">Guia de alternativas às big techs</span>
+        </span>
+      </a>
+      <span class="divider"></span>
+      <label class="search">
+        <span class="sr">Buscar</span>
+        <input id="q" type="search" placeholder="Buscar: Netflix, mapas, Signal…" autocomplete="off">
+        <span class="kbd" aria-hidden="true">/</span>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+    </div>
+    <nav class="mainnav" aria-label="Seções">
+      <a href="#panorama"><i class="fa-solid fa-table-cells-large"></i>Por área</a>
+      <a href="#mapa"><i class="fa-solid fa-list"></i>Todas as opções</a>
+      <a href="#jornada"><i class="fa-solid fa-list-check"></i>Minha lista <span class="nbadge" id="navBadge"></span></a>
+      <a href="#sintese"><i class="fa-solid fa-chart-simple"></i>Onde estamos</a>
+      <a href="#faq"><i class="fa-solid fa-circle-question"></i>Perguntas</a>
+      <a href="#sobre"><i class="fa-solid fa-circle-info"></i>Sobre</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Alternativas às <strong>big techs</strong></h1>
+    <p class="lead">Opções brasileiras, livres e públicas para o que você usa todo dia.</p>
+  </section>
+
+  <div class="card semana" id="semana"></div>
+  <div class="card semana dica" id="dica"></div>
+
+  <section id="perfil" class="optin">
+    <div class="card optin-card" id="optinCard">
+      <i class="fa-solid fa-user-check big"></i>
+      <div><b>Quer ver só o que serve para você?</b><span>3 perguntas rápidas.</span></div>
+      <button class="btn primary sm" type="button" id="openQuiz">Responder</button>
+    </div>
+    <form class="card" id="quizForm" novalidate hidden>
+      <div id="qs"></div>
+      <div class="quiz-actions">
+        <button class="btn primary" type="submit"><i class="fa-solid fa-check"></i> Ver resultado</button>
+        <button class="btn" type="button" id="closeQuiz">Cancelar</button>
+        <span class="quiz-err" id="quizErr" role="alert"></span>
+      </div>
+    </form>
+    <div id="quizRes"></div>
+  </section>
+
+  <section class="section" id="escolhas">
+    <h2>Escolhas do guia</h2>
+    <p class="sub">10 trocas fáceis, gratuitas e de grande impacto.</p>
+    <div class="picks" id="picks"></div>
+  </section>
+
+  <section class="section" id="panorama">
+    <h2>Por área</h2>
+    <p class="sub" id="ovSub">A melhor opção em cada área.</p>
+    <div class="tiles" id="overview"></div>
+  </section>
+
+  <section class="section" id="mapa">
+    <h2>Todas as opções</h2>
+    <p class="sub">Filtre e ordene. Marque o que você já usa.</p>
+
+    <div class="filters" aria-label="Filtros">
+      <div class="filters-row">
+        <div class="fgroup">
+          <span class="flabel">Quem faz</span>
+          <div class="chips" id="typeChips"></div>
+        </div>
+        <div class="fgroup">
+          <span class="flabel">Situação</span>
+          <div class="chips" id="statusChips"></div>
+        </div>
+        <div class="fgroup" id="profGroup" hidden>
+          <span class="flabel">Seu perfil</span>
+          <div class="chips" id="profChips"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <p class="result-count" id="count" aria-live="polite"></p>
+      <div class="tools">
+        <div class="segctl" role="group" aria-label="Visualização">
+          <button data-view="cards"><i class="fa-solid fa-grip"></i>Cartões</button>
+          <button data-view="tabela"><i class="fa-solid fa-table"></i>Tabela</button>
+        </div>
+        <label><span class="sr">Ordenar</span>
+          <select class="select" id="sortSel">
+            <option value="rel">Por área</option>
+            <option value="nota">Nota geral</option>
+            <option value="mat">Maturidade</option>
+            <option value="qual">Qualidade</option>
+            <option value="br">Uso no Brasil</option>
+            <option value="n">Nome (A–Z)</option>
+            <option value="seg" hidden>Segmento</option>
+            <option value="al" hidden>Uso na América Latina</option>
+            <option value="us" hidden>Uso nos EUA</option>
+            <option value="eu" hidden>Uso na Europa</option>
+          </select>
+        </label>
+        <button class="btn sm" id="toggleAll"><i class="fa-solid fa-angles-down"></i> <span>Expandir</span></button>
+        <button class="btn sm" id="csvBtn" title="Baixar a lista filtrada em CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+        <button class="btn sm" id="printBtn" title="Imprimir"><i class="fa-solid fa-print"></i></button>
+      </div>
+    </div>
+
+    <div id="list"></div>
+  </section>
+
+  <section class="section" id="jornada">
+    <h2>Minha lista</h2>
+    <p class="sub">O que você já usa. Fica salvo neste navegador.</p>
+    <div class="card" id="journey"></div>
+  </section>
+
+  <section class="section" id="sintese">
+    <h2>Onde estamos</h2>
+    <p class="sub" id="whereSub"></p>
+    <div class="stats" id="stats" style="margin:0 0 16px"></div>
+    <div class="cols">
+      <div class="card ok"><h3><i class="fa-solid fa-circle-check"></i> Dá para trocar</h3><ul class="where" id="whereOk"></ul></div>
+      <div class="card bad"><h3><i class="fa-solid fa-triangle-exclamation"></i> Em parte ou sem opção</h3><ul class="where" id="whereNo"></ul></div>
+    </div>
+    <div class="msg">
+      <i class="fa-solid fa-landmark"></i>
+      <div>
+        <p><b>O que faria mais diferença</b></p>
+        <ul>
+          <li>Universidades e governo usando Nextcloud e LibreOffice.</li>
+          <li>Um mensageiro público, como na França e na Alemanha.</li>
+          <li>Uma nuvem nacional com código próprio, não só dados guardados aqui.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sobre">
+    <h2>Sobre</h2>
+    <div class="card">
+      <ul class="about">
+        <li><b>Sem conta e sem banco de dados.</b> Este guia é uma página só. Nenhum servidor guarda nada sobre você.</li>
+        <li><b>O que você marca fica neste aparelho.</b> Perfil, "Já uso", tamanho da fonte e contraste ficam salvos só no seu navegador. Ninguém mais vê, nem quem fez o guia.</li>
+        <li><b>Sem rastreamento.</b> Não há anúncios nem contagem de visitas. A página só busca as fontes no Google Fonts e os ícones na Cloudflare.</li>
+        <li><b>Trocou de aparelho?</b> A lista não vai junto. Use "Copiar lista", em Minha lista, para levar.</li>
+      </ul>
+      <div class="jfoot"><button class="btn sm" id="wipeData"><i class="fa-solid fa-trash"></i> Apagar meus dados deste aparelho</button></div>
+    </div>
+    <!--pwa--><div class="card" style="margin-top:16px">
+      <h3><i class="fa-solid fa-mobile-screen"></i> Instalar como app</h3>
+      <ul class="about">
+        <li><b>Android e computador (Chrome ou Edge):</b> toque em "Instalar" ou, no menu do navegador, em "Instalar app".</li>
+        <li><b>iPhone:</b> no Safari, toque em Compartilhar e depois em "Adicionar à Tela de Início".</li>
+        <li>Depois da primeira visita, o guia abre mesmo sem internet.</li>
+      </ul>
+      <div class="jfoot"><button class="btn primary sm" id="installBtn" hidden><i class="fa-solid fa-download"></i> Instalar</button></div>
+    </div><!--/pwa-->
+  </section>
+
+  <section class="section" id="saibamais">
+    <h2>Saiba mais</h2>
+    <p class="sub">Para ler, ouvir e entender melhor. Parte do debate brasileiro vem de movimentos e pesquisadores de esquerda; incluímos também fontes acadêmicas e práticas sem vínculo partidário.</p>
+    <div class="picks">
+      <a class="pick" href="https://naoprecisaserassim.com.br/" target="_blank" rel="noopener"><em>Livro</em><b>A internet não precisa ser assim</b><span>De Fernanda Campagnucci e Marcelo Soares: como as big techs moldaram a internet e por que ela pode ser diferente.</span></a>
+      <a class="pick" href="https://soberania.digital/" target="_blank" rel="noopener"><em>Site</em><b>Rede pela Soberania Digital</b><span>Manifestos, propostas e encontros da sociedade civil sobre o tema. Tem posição política explícita.</span></a>
+      <a class="pick" href="https://direitorio.fgv.br/publicacao/cartilha-sobre-ciberseguranca-e-soberania-digital" target="_blank" rel="noopener"><em>Cartilha</em><b>Cibersegurança e soberania digital (FGV)</b><span>22 páginas, grátis, com o básico explicado de forma direta.</span></a>
+      <a class="pick" href="https://datadetoxkit.org/" target="_blank" rel="noopener"><em>Guia prático</em><b>Data Detox Kit</b><span>Passos simples para cuidar dos seus dados, em português e de graça.</span></a>
+      <a class="pick" href="https://www.bricstechforum.org/dsi-ranking" target="_blank" rel="noopener"><em>Índice</em><b>Índice de Soberania Digital</b><span>Mapa que compara a soberania digital dos países, feito pelo BRICS+ Tech Forum, de Brasília.</span></a>
+      <a class="pick" href="https://tecnopolitica.blog.br/" target="_blank" rel="noopener"><em>Podcast</em><b>Tecnopolítica</b><span>Com Sérgio Amadeu, há anos sobre big techs, software livre e soberania. Tem viés de esquerda.</span></a>
+      <a class="pick" href="https://www.oxigenio.comciencia.br/" target="_blank" rel="noopener"><em>Podcast</em><b>Oxigênio (Unicamp)</b><span>Podcast de divulgação científica; o episódio 215 trata de tecnologias para a soberania digital.</span></a>
+      <a class="pick" href="https://fpabramo.org.br/livro/colonialismo-de-dados/" target="_blank" rel="noopener"><em>Livro grátis</em><b>Colonialismo de dados</b><span>Coletânea brasileira que explica o conceito central do debate. PDF grátis; editora ligada ao PT.</span></a>
+      <a class="pick" href="https://www.dataprivacybr.org/documentos/infraestruturas-publicas-digitais-e-bens-publicos-digitais-para-o-combate-as-mudancas-climaticas-o-estudo-de-caso-do-brasil/" target="_blank" rel="noopener"><em>Relatório</em><b>Bens Públicos Digitais no Brasil</b><span>Da Data Privacy Brasil: o que são e exemplos brasileiros. Mais técnico.</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="quem">
+    <h2>Quem faz</h2>
+    <p class="sub">Organizações brasileiras que trabalham por uma internet mais livre, pública e democrática.</p>
+    <div class="picks">
+      <a class="pick" href="https://internetlab.org.br" target="_blank" rel="noopener"><b>InternetLab</b><span>Pesquisa independente sobre direito e tecnologia.</span></a>
+      <a class="pick" href="https://ok.org.br" target="_blank" rel="noopener"><b>Open Knowledge Brasil</b><span>Dados abertos e transparência. Faz o Querido Diário.</span></a>
+      <a class="pick" href="https://www.rnp.br" target="_blank" rel="noopener"><b>RNP</b><span>Rede pública de universidades e pesquisa. Faz o ConferênciaWeb e o Eduplay.</span></a>
+      <a class="pick" href="https://codingrights.org" target="_blank" rel="noopener"><b>Coding Rights</b><span>Organização feminista de direitos humanos na tecnologia.</span></a>
+      <a class="pick" href="https://intervozes.org.br" target="_blank" rel="noopener"><b>Intervozes</b><span>Comunicação como direito humano; regulação das plataformas.</span></a>
+      <a class="pick" href="https://direitosnarede.org.br" target="_blank" rel="noopener"><b>Coalizão Direitos na Rede</b><span>Reúne mais de 40 organizações por direitos digitais.</span></a>
+      <a class="pick" href="https://idec.org.br" target="_blank" rel="noopener"><b>Idec</b><span>Defesa do consumidor, inclusive em dados e telecom.</span></a>
+      <a class="pick" href="https://www.nic.br" target="_blank" rel="noopener"><b>NIC.br / CGI.br</b><span>Gere o .br e o Registro.br; faz a Cartilha de Segurança.</span></a>
+      <a class="pick" href="https://wmnobrasil.org" target="_blank" rel="noopener"><b>Wikimedia Brasil</b><span>Comunidade da Wikipédia e do Commons no Brasil.</span></a>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3><i class="fa-solid fa-globe"></i> Bens Públicos Digitais</h3>
+      <p>São softwares, dados e conteúdos abertos que qualquer país ou pessoa pode usar, adaptar e compartilhar, e que ajudam no desenvolvimento sustentável. Uma aliança da ONU mantém um registro com os aprovados. O Querido Diário, por exemplo, está lá. <a href="https://www.digitalpublicgoods.net/registry" target="_blank" rel="noopener">Ver o registro</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <h2>Perguntas frequentes</h2>
+    <div id="faqList"></div>
+  </section>
+
+  <section class="section" id="metodologia">
+    <h2>Sobre as notas</h2>
+    <div class="card" style="margin-bottom:16px">
+      <h3><span class="score hi sm">82</span> Nota geral, de 0 a 100</h3>
+      <p class="muted" style="margin:0">Soma de quatro fatores: soberania vale até 40, uso até 30, social até 20 e software livre até 10.</p>
+      <div class="fact-list">
+        <div><b>Uso (até 30)</b>Maturidade, qualidade e quantas pessoas usam no Brasil.</div>
+        <div><b>Soberania (até 40)</b>Setor público 40, empresa, instituição ou cooperativa brasileira 32, América Latina, cooperativa ou software livre estrangeiro 19, big tech brasileira 16, EUA ou Europa 5.</div>
+        <div><b>Software livre (até 10)</b>Software livre 10. Protocolo ou modelo aberto ganha nota parcial.</div>
+        <div><b>Social (até 20)</b>Sem fins lucrativos, cooperativa ou setor público 20, comunidade de software livre 8, empresa 4, big tech 0.</div>
+      </div>
+      <p class="muted" style="margin:14px 0 0">Se você responder ao perfil, o que você marcou como importante pesa mais e a nota passa a ser a sua (círculo com borda dupla). Ajustes pontuais: Globoplay ganha soberania por ser a maior produtora de conteúdo nacional; Pl@ntNet ganha por ser mantido por institutos públicos de pesquisa e não exigir conta; a nuvem do governo perde por rodar em infraestrutura estrangeira.</p>
+    </div>
+    <div class="card">
+      <div class="legend">
+        <div><span class="tag sl">SL</span> Software livre</div>
+        <div><span class="tag np">NP</span> Sem fins lucrativos</div>
+        <div><span class="tag co">CO</span> Cooperativa</div>
+        <div><span class="tag eb">EB</span> Empresa brasileira</div>
+        <div><span class="tag pp">PP</span> Setor público</div>
+        <div><span class="tag la">LA</span> América Latina (fora do Brasil)</div>
+        <div><span class="tag ex">EX</span> EUA ou Europa</div>
+        <div><span class="dots"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span> Nota de 1 a 5</div>
+      </div>
+    </div>
+    <div class="msg warn">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <div>
+        <p>As notas de 1 a 5 são estimativas deste guia. Há pouco dado sobre uso fora do Brasil.</p>
+        <p>Os números de Globoplay e Soberano 1 vêm das próprias empresas. Os de Sua Música e Bluesky no Brasil são antigos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fontes">
+    <h2>Fontes</h2>
+    <div class="card">
+      <ol class="sources">
+        <li><a href="https://en.wikipedia.org/wiki/Tela_Brasil" target="_blank" rel="noopener">Tela Brasil (Wikipedia)</a></li>
+        <li><a href="https://www.cinema7arte.com/tela-brasil-governo-federal-lanca-primeira-plataforma-publica-de-streaming-dedicada-ao-audiovisual-brasileiro/" target="_blank" rel="noopener">Lançamento da Tela Brasil (Cinema7arte)</a></li>
+        <li><a href="https://rnpmais.rnp.br/eduplay" target="_blank" rel="noopener">Eduplay (RNP)</a></li>
+        <li><a href="https://www.ufrgs.br/site/noticias/ufrgs-migra-servico-de-webconferencia-para-o-conferenciaweb-da-rnp/" target="_blank" rel="noopener">UFRGS migra para ConferênciaWeb</a></li>
+        <li><a href="https://www.comaps.app/" target="_blank" rel="noopener">CoMaps</a></li>
+        <li><a href="https://gs.statcounter.com/browser-market-share/desktop/brazil/2016" target="_blank" rel="noopener">Navegadores no Brasil (StatCounter)</a></li>
+        <li><a href="https://sqmagazine.co.uk/signal-statistics/" target="_blank" rel="noopener">Estatísticas do Signal</a></li>
+        <li><a href="https://casadobarreado.com.br/bluesky-usuarios-ativos/" target="_blank" rel="noopener">Usuários ativos do Bluesky</a></li>
+        <li><a href="https://convergenciadigital.com.br/governo/governo-lanca-nuvem-soberana-com-serpro-e-dataprev-sem-abrir-mao-das-big-techs/" target="_blank" rel="noopener">Nuvem soberana (Convergência Digital)</a></li>
+        <li><a href="https://istoedinheiro.com.br/nuvem-brasileira-governo-avanca-dados-soberanos" target="_blank" rel="noopener">Nuvem Brasileira (IstoÉ Dinheiro)</a></li>
+        <li><a href="https://inforchannel.com.br/2026/05/20/soberania-lanca-ecossistema-brasileiro-de-ia-voltado-para-o-setor-publico/" target="_blank" rel="noopener">Soberano 1 (Inforchannel)</a></li>
+        <li><a href="https://soubrasilia.com/pix-recorde-2026-transacoes/" target="_blank" rel="noopener">Recorde do Pix em 2026</a></li>
+        <li><a href="https://www.iplan.rio/produtos/taxi-rio" target="_blank" rel="noopener">Taxi.Rio (IPLANRIO)</a></li>
+        <li><a href="https://canaltech.com.br/apps/mobizapsp-como-esta-o-uber-da-prefeitura-um-ano-depois-283555/" target="_blank" rel="noopener">mobizapSP (Canaltech)</a></li>
+        <li><a href="https://appjusto.com.br/" target="_blank" rel="noopener">AppJusto</a></li>
+        <li><a href="https://www.terra.com.br/byte/conheca-sua-musica-e-palco-mp3-os-rivais-brasileiros-do-spotify,98db544a3fedf76537f2fb1c6dea13139xndy93l.html" target="_blank" rel="noopener">Sua Música e Palco MP3 (Terra)</a></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fb"><span class="mark" style="width:32px;height:32px;font-size:14px"><i class="fa-solid fa-shield-halved"></i></span> Soberania Digital</div>
+    <p>Guia independente. Sem ligação com o governo ou com as empresas citadas.</p>
+    <div class="line">Dados de outubro de 2026 · Pode copiar, é só dar o crédito · Tecle <b>/</b> para buscar</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="to-top" id="toTop" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="vendor/js-yaml.min.js"></script>
+<script>
+function app(D){
+const TIPOS = {
+  SL:{l:'Software livre',c:'sl'}, NP:{l:'Sem fins lucrativos',c:'np'}, CO:{l:'Cooperativa',c:'co'},
+  EB:{l:'Empresa brasileira',c:'eb'}, PP:{l:'Setor público',c:'pp'},
+  LA:{l:'América Latina',c:'la'}, EX:{l:'EUA ou Europa',c:'ex'}
+};
+const STATUS = {
+  v:{l:'Dá para trocar',c:'ok',i:'fa-circle-check'},
+  p:{l:'Em parte',c:'warn',i:'fa-circle-half-stroke'},
+  l:{l:'Sem opção',c:'bad',i:'fa-triangle-exclamation'}
+};
+
+/* Dados: vêm de dados.yaml (veja o cabeçalho daquele arquivo) */
+const ST = {troca:'v', parte:'p', sem:'l'}, AJ = {soberania:'s', software_livre:'l', social:'f', uso:'u'};
+const DATA = [], PROF = {}, META = {}, LISTAS = {}, APPS = {}, WIKI = {}, AJUSTE = {};
+for(const ar of D.areas){
+  const area = {n:ar.area, ref:ar.no_lugar_de, ic:ar.icone, st:ST[ar.situacao] || 'p', tr:ar.resumo, a:[]};
+  if(ar.nota) area.note = ar.nota;
+  for(const o of ar.opcoes || []){
+    const ad = o.adocao || {};
+    const row = [o.nome, o.tipos || [], o.maturidade || 1, o.qualidade || 1, [ad.br||1, ad.al||1, ad.eua||1, ad.eu||1], o.ponto_forte || '', o.ponto_fraco || ''];
+    if(o.aviso) row.push(o.aviso);
+    area.a.push(row);
+    const P = o.perfil || {};
+    PROF[o.nome] = {n:P.nivel || 1, p:P.aparelhos || 'aid', c:P.so_profissional ? 't' : 'p', f:P.gratis ? 1 : 0, pv:P.privacidade || 0};
+    if(P.conta_como_brasileiro) PROF[o.nome].br = 1;
+    if(P.big_tech) PROF[o.nome].bt = 1;
+    if(P.fora_do_perfil) PROF[o.nome].x = 1;
+    const m = {};
+    if(o.site) m.u = o.site;
+    if(o.rotulo_site) m.l = o.rotulo_site;
+    if(o.saiba_antes) m.d = o.saiba_antes;
+    META[o.nome] = m;
+    if(o.app) APPS[o.nome] = {...(o.app.android ? {a:o.app.android} : {}), ...(o.app.ios ? {i:o.app.ios} : {})};
+    if(o.wikipedia) WIKI[o.nome] = o.wikipedia;
+    if(o.lista) LISTAS[o.nome] = o.lista.map(l=>[l.nome, l.url, l.nota || '', l.cadastro || ''].filter((x,k)=>k<3 || x));
+    if(o.ajuste_nota) AJUSTE[o.nome] = Object.fromEntries(Object.entries(o.ajuste_nota).map(([k,v])=>[AJ[k],v]));
+  }
+  DATA.push(area);
+}
+const ESCOLHAS = (D.escolhas || []).map(e=>[e.nome, e.frase]);
+
+
+
+
+
+const QS = [
+  {k:'nivel', t:'Até onde você quer ir?', o:[
+    ['1','Só trocar de app'],
+    ['2','Também mexer em configurações'],
+    ['3','Topo instalar sistema e servidor']]},
+  {k:'disp', t:'Onde você usa?', multi:true, o:[
+    ['a','Android'],['i','iPhone'],['d','Computador']]},
+  {k:'w', t:'O que mais importa?', rate:true, o:[
+    ['u','Ser fácil'],
+    ['s','Ser brasileiro'],
+    ['p','Privacidade'],
+    ['l','Software livre'],
+    ['f','Finalidade social']]}
+];
+
+const FAQ = [
+ [
+  "Começar",
+  [
+   [
+    "Por onde eu começo?",
+    "Pelas Escolhas do guia: são trocas fáceis e gratuitas. Depois, as que só dependem de você, como o navegador. Por último, as que envolvem outras pessoas, como mensagens e redes sociais."
+   ],
+   [
+    "Preciso abandonar o Google, o WhatsApp e companhia?",
+    "Não. Dá para usar os dois ao mesmo tempo e ir trocando aos poucos. O quadro \"Saiba antes\" de cada opção diz o que fica faltando, para você decidir se vale manter a big tech para alguma coisa."
+   ],
+   [
+    "E se meus contatos não quiserem mudar?",
+    "É o mais comum. Comece com um grupo pequeno, como a família ou amigos próximos, no Signal, e mantenha o WhatsApp para o resto. A troca costuma andar quando alguns já estão lá."
+   ],
+   [
+    "\"Dá para trocar\" quer dizer que é igual?",
+    "Quer dizer que cobre o essencial. Cada área tem uma frase dizendo o que dá e o que não dá. Em \"Em parte\", espere perder alguma coisa, como o trânsito em tempo real nos mapas."
+   ]
+  ]
+ ],
+ [
+  "Conceitos",
+  [
+   [
+    "O que é soberania digital?",
+    "É depender menos de poucas empresas estrangeiras, que podem mudar regras, preços ou acesso a qualquer momento, e ter mais controle sobre onde seus dados ficam."
+   ],
+   [
+    "Software livre é o mesmo que grátis?",
+    "Não. Livre quer dizer que o código é aberto: qualquer um pode ver, mudar e instalar no próprio servidor. Quase sempre também é grátis, mas o ponto principal é não depender de um dono só."
+   ],
+   [
+    "O que é o fediverso?",
+    "Vários servidores independentes que conversam entre si, como acontece com o e-mail. Mastodon e PeerTube fazem parte. Você escolhe um servidor, mas fala com gente de todos."
+   ]
+  ]
+ ],
+ [
+  "Escolhas do guia",
+  [
+   [
+    "Por que há serviços estrangeiros na lista?",
+    "Quando não existe opção brasileira boa, software livre mantido por organização sem fins lucrativos, como Firefox e Signal, é o mais perto de soberania: o código é aberto e pode ser hospedado aqui. Por isso eles ganham nota de soberania intermediária."
+   ],
+   [
+    "Por que cooperativas ganham pontos?",
+    "Numa cooperativa, quem usa também decide e divide os resultados. Fica mais difícil o serviço ser vendido ou mudar as regras contra os usuários. Por isso cooperativas têm nota máxima em finalidade social e, se forem brasileiras, a mesma soberania de uma empresa nacional."
+   ],
+   [
+    "Por que não há opções chinesas?",
+    "Trocar a dependência de empresas americanas por empresas chinesas não aumenta a soberania. O guia fica com opções brasileiras, latino-americanas, públicas e livres."
+   ],
+   [
+    "O iFood não é brasileiro?",
+    "É, mas funciona como big tech: o dono é a multinacional Prosus, ele domina o mercado e controla os entregadores por algoritmo. Por isso tem nota baixa em soberania e zero em finalidade social."
+   ]
+  ]
+ ],
+ [
+  "Notas e perfil",
+  [
+   [
+    "Como a nota é calculada?",
+    "É a soma de quatro fatores: soberania (até 40), uso (até 30), finalidade social (até 20) e software livre (até 10). Os detalhes estão em \"Sobre as notas\"."
+   ],
+   [
+    "O que muda quando respondo ao perfil?",
+    "O guia esconde ou deixa apagado o que não roda no seu aparelho ou vai além do que você quer fazer. O que você marca como importante pesa mais, e a nota mostrada passa a ser a sua."
+   ],
+   [
+    "As informações estão atualizadas?",
+    "Os dados são de novembro de 2026. Preços, apps e serviços mudam com frequência: confira no site da plataforma antes de assinar ou migrar algo importante."
+   ]
+  ]
+ ]
+];
+
+/* Utilidades */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const slug = s => norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const load = (k,d) => { try{ const v = JSON.parse(localStorage.getItem(k)); return v ?? d; }catch(e){ return d; } };
+const save = (k,v) => { try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} };
+const segId = si => 'seg-' + slug(DATA[si].n);
+
+const ALL = [], BYNAME = {};
+DATA.forEach((s,si)=>s.a.forEach(a=>{ const r = {a,s,si}; ALL.push(r); BYNAME[a[0]] = r; }));
+
+/* Nota geral: Soberania 40 + Uso 30 + Social 20 + Software livre 10 */
+const FATORES = [['u','Uso',30],['s','Soberania',40],['l','Software livre',10],['f','Social',20]];
+function fatores(a){
+  const [n,t,m,q,ad] = a, P = PROF[n] || {}, has = x => t.includes(x);
+  const r = {
+    u: Math.round(((m||0) + (q||0) + (ad[0]||0)) / 15 * 30),
+    s: has('PP') ? 40 : (has('EB') || P.br) ? 32 : (has('LA') || has('SL') || has('CO')) ? 19 : 5,
+    l: has('SL') ? 10 : 0,
+    f: (has('NP') || has('PP') || has('CO')) ? 20 : has('SL') ? 8 : has('EB') || has('LA') ? 4 : 2
+  };
+  if(P.bt){ r.s = 16; r.f = 0; }
+  Object.assign(r, AJUSTE[n] || {});
+  r.pen = (a[7]==='Em projeto' || a[7]==='Suspenso') ? 25 : 0;
+  r.t = Math.max(0, r.u + r.s + r.l + r.f - r.pen);
+  return r;
+}
+const NOTA = {};
+ALL.forEach(({a})=>{ NOTA[a[0]] = fatores(a); });
+const scoreCls = t => t >= 70 ? 'hi' : t >= 50 ? 'mid' : '';
+const scoreHtml = (n, sm) => {
+  const g = NOTA[n].t, t = notaPessoal(n);
+  return `<span class="score ${scoreCls(t)}${sm?' sm':''}${state.perfil?' mine':''}" title="${state.perfil ? `Sua nota ${t} · nota geral ${g}` : `Nota ${g} de 100`}">${t}</span>`;
+};
+const factorsHtml = n => '<div class="factors">' + FATORES.map(([k,l,mx])=>`<div class="factor"><span>${l}<b>${NOTA[n][k]}/${mx}</b></span><span class="bar"><i style="width:${NOTA[n][k]/mx*100}%"></i></span></div>`).join('') + (NOTA[n].pen ? `<div class="pen">−${NOTA[n].pen} porque ${BYNAME[n].a[7]==='Suspenso' ? 'está parado' : 'ainda não existe'}</div>` : '') + '</div>';
+
+const state = {
+  q:'', tipo:null, st:null, open:new Set(), perfil:null, soPerfil:false,
+  view: load('sd-view','cards'), sort:'rel', dir:-1,
+  uso: new Set(load('sd-uso',[]).filter(n=>BYNAME[n]))
+};
+
+/* Perfil */
+function fits(a, pf = state.perfil){
+  const P = PROF[a[0]];
+  if(!pf || !P || P.x) return false;
+  return P.n <= pf.nivel && pf.disp.some(d=>P.p.includes(d)) && P.c.includes('p');
+}
+/* Nota pessoal: os fatores da nota geral, pesados pelos corações (1 a 5) */
+function notaPessoal(n, pf = state.perfil){
+  const N = NOTA[n];
+  if(!pf) return N.t;
+  let num = 0, den = 0;
+  FATORES.forEach(([k,,mx])=>{ const w = pf.w[k]; num += N[k] * w; den += mx * w; });
+  return Math.max(0, Math.round(num / den * 100) - N.pen);
+}
+function score(a, pf = state.perfil){
+  const P = PROF[a[0]], w = pf.w;
+  let s = notaPessoal(a[0], pf);
+  s += P.pv * (w.p - 1) * 2;                                        /* privacidade */
+  s += ((P.n===1 ? 2 : 0) + (P.f ? 2 : 0)) * (w.u - 1);             /* facilidade */
+  if(pf.nivel===1) s += (a[4][0]||0) * 2;                           /* quem sabe pouco: o que é mais usado */
+  return s;
+}
+const optLabel = (k,v) => [].concat(v).map(x=>QS.find(q=>q.k===k).o.find(o=>o[0]===String(x))[1]).join(' + ');
+const validPerfil = pf => !!pf && QS.every(q=>{
+  const v = pf[q.k], ok = x => q.o.some(o=>o[0]===String(x));
+  if(q.rate) return v && q.o.every(([k])=>Number.isInteger(v[k]) && v[k]>=1 && v[k]<=5);
+  return q.multi ? Array.isArray(v) && v.length > 0 && v.every(ok) : ok(v);
+});
+const coracoes = n => '♥'.repeat(n) + '<span class="off">' + '♥'.repeat(5-n) + '</span>';
+function getPick(s){
+  if(state.perfil){
+    return s.a.filter(a=>fits(a)).sort((x,y)=>score(y)-score(x))[0] || null;
+  }
+  return s.a.filter(a=>!PROF[a[0]].x).sort((x,y)=>NOTA[y[0]].t-NOTA[x[0]].t)[0];
+}
+
+/* Ordenação */
+const VAL = {
+  n:r=>norm(r.a[0]), seg:r=>r.si, nota:r=>notaPessoal(r.a[0]), mat:r=>r.a[2]??-1, qual:r=>r.a[3]??-1,
+  br:r=>r.a[4][0], al:r=>r.a[4][1], us:r=>r.a[4][2], eu:r=>r.a[4][3]
+};
+function sortRows(rows){
+  if(state.sort==='rel'){
+    const ex = r => PROF[r.a[0]].x ? 1 : 0;
+    if(!state.perfil) return [...rows].sort((x,y)=> x.si-y.si || ex(x)-ex(y) || NOTA[y.a[0]].t-NOTA[x.a[0]].t);
+    return [...rows].sort((x,y)=> x.si-y.si || (fits(y.a)-fits(x.a)) || ex(x)-ex(y) || notaPessoal(y.a[0])-notaPessoal(x.a[0]));
+  }
+  const f = VAL[state.sort], d = state.dir;
+  return [...rows].sort((x,y)=>{ const a=f(x), b=f(y); return (a<b?-1:a>b?1:0)*d || x.si-y.si; });
+}
+
+function filteredRows(){
+  const q = norm(state.q.trim());
+  return ALL.filter(({a,s})=>{
+    if(state.st && s.st!==state.st) return false;
+    if(state.tipo && !a[1].includes(state.tipo)) return false;
+    if(state.soPerfil && !fits(a)) return false;
+    return !q || norm(s.n+' '+s.ref+' '+a[0]+' '+a[5]+' '+a[6]).includes(q);
+  });
+}
+
+/* Componentes */
+function dots(v){
+  if(v==null) return '<span class="na">sem dado</span>';
+  let h='<span class="dots">';
+  for(let i=1;i<=5;i++) h+=`<span class="${i<=v?'on':''}"></span>`;
+  return h+`<em>${v}/5</em></span>`;
+}
+function adoc(arr){
+  if(arr.every(x=>!x)) return '<span class="na">sem dado</span>';
+  return '<div class="grid">'+['BR','AL','EUA','EU'].map((r,i)=>
+    `<div class="cell"><b>${r}</b><span class="bar" title="${r}: ${arr[i]}/5"><i style="width:${arr[i]*20}%"></i></span></div>`).join('')+'</div>';
+}
+const tagsHtml = (t, short) => t.map(x=>`<span class="tag ${TIPOS[x].c}" title="${TIPOS[x].l}">${short ? x : TIPOS[x].l}</span>`).join('');
+const listasAbertas = new Set();
+
+/* Lojas de app: só links que abrem o app exato */
+const UA = navigator.userAgent || '';
+const OS = /android/i.test(UA) ? 'a' : (/iphone|ipad|ipod/i.test(UA) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints > 1)) ? 'i' : 'd';
+function appLink(n){
+  const A = APPS[n];
+  if(!A || OS==='d') return null;
+  if(OS==='i') return A.i ? {u:`https://apps.apple.com/br/app/id${A.i}`, l:'App Store', ic:'fa-brands fa-app-store-ios'} : null;
+  return A.a ? {u:`https://play.google.com/store/apps/details?id=${A.a}`, l:'Play Store', ic:'fa-brands fa-google-play'} : null;
+}
+/* Wikipédia em português: só verbetes conferidos sobre a própria plataforma */
+const wikiLink = n => WIKI[n] ? 'https://pt.wikipedia.org/wiki/' + encodeURIComponent(WIKI[n].replace(/ /g,'_')) : null;
+
+/* Compartilhar: janela do aparelho quando existe; senão, copia a mensagem */
+const GUIA_URL = /^https?:$/.test(location.protocol) ? location.href.split('#')[0] : '';
+function shareMsg(n){
+  const r = BYNAME[n], M = META[n] || {};
+  const link = M.u || (LISTAS[n] && LISTAS[n][0][1]) || (appLink(n) || {}).u || '';
+  const guia = GUIA_URL ? `\n\nVi neste guia de alternativas às big techs: ${GUIA_URL}#${segId(r.si)}` : '';
+  return `Eu não conhecia! Olha essa alternativa para quem usa ${r.s.ref}: ${n}\n${r.a[5]}.${link ? '\n' + link : ''}${guia}`;
+}
+function shareItem(n){
+  const text = shareMsg(n);
+  const copy = () => copyText(text, 'Mensagem copiada. Cole onde quiser.');
+  if(navigator.share){
+    navigator.share({text}).catch(e=>{ if(e && e.name !== 'AbortError') copy(); });
+  } else copy();
+}
+
+function actBtns(n, compact){
+  const P = PROF[n], M = META[n] || {};
+  let h = '';
+  if(!P.x) h += `<button class="act uso" data-act="uso" data-n="${esc(n)}" aria-pressed="${state.uso.has(n)}" title="Já uso"><i class="fa-solid fa-check"></i>${compact ? '' : 'Já uso'}</button>`;
+  if(compact) return h;
+  if(!P.x) h += `<button class="act share" data-share="${esc(n)}" title="Compartilhar"><i class="fa-solid fa-share-nodes"></i>Compartilhar</button>`;
+  if(LISTAS[n]) h += `<button class="act" data-list="${esc(n)}" aria-expanded="${listasAbertas.has(n)}"><i class="fa-solid fa-arrow-up-right-from-square"></i>${n==='Mastodon / fediverso' ? 'Servidores' : 'Sites'}</button>`;
+  if(M.u) h += `<a class="act" href="${esc(M.u)}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>${M.l || 'Site'}</a>`;
+  const ap = appLink(n);
+  if(ap) h += `<a class="act" href="${esc(ap.u)}" target="_blank" rel="noopener"><i class="${ap.ic}"></i>${ap.l}</a>`;
+  const wk = wikiLink(n);
+  if(wk) h += `<a class="act" href="${esc(wk)}" target="_blank" rel="noopener"><i class="fa-brands fa-wikipedia-w"></i>Wikipédia</a>`;
+  return h;
+}
+function altCard(a){
+  const [n,t,m,q,ad,pos,neg,flag] = a;
+  const fc = flag==='Suspenso' ? '' : ' new';
+  const ok = fits(a), M = META[n] || {};
+  return `<article class="alt${state.perfil && !ok ? ' dim' : ''}">
+    <div class="alt-head"><h4>${esc(n)}</h4><span class="alt-side">${flag?`<span class="flag${fc}">${esc(flag)}</span>`:''}${scoreHtml(n)}</span></div>
+    ${ok?'<span class="fit"><i class="fa-solid fa-user-check"></i>Serve para você</span>':''}
+    <div class="tags">${tagsHtml(t)}</div>
+    ${factorsHtml(n)}
+    <p class="pc pro"><i class="fa-solid fa-plus"></i>${esc(pos)}</p>
+    <p class="pc con"><i class="fa-solid fa-minus"></i>${esc(neg)}</p>
+    <details class="more"><summary><i class="fa-solid fa-chart-simple"></i>Maturidade, qualidade e uso por região</summary><div>
+      <div class="metrics">
+        <div class="metric"><span class="lbl">Maturidade</span>${dots(m)}</div>
+        <div class="metric"><span class="lbl">Qualidade</span>${dots(q)}</div>
+      </div>
+      <div class="adoc"><span>Uso</span>${adoc(ad)}</div>
+    </div></details>
+    ${M.d?`<details class="tip" open><summary><i class="fa-solid fa-circle-info"></i>Saiba antes</summary><p>${esc(M.d)}</p></details>`:''}
+    <div class="acts">${actBtns(n)}</div>
+    ${LISTAS[n] ? `<ul class="srv lst" ${listasAbertas.has(n) ? '' : 'hidden'}>${LISTAS[n].map(([t,u,d,c])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a><small>${esc(d)}</small>${c ? `<span class="reg ${c==='Aberto'?'ok':''}">${c}</span>` : ''}</li>`).join('')}</ul>` : ''}
+  </article>`;
+}
+
+/* Lista */
+function render(){
+  const rows = filteredRows();
+  const segs = [...new Set(rows.map(r=>r.si))];
+  $('#count').textContent = `${rows.length} opç${rows.length!==1?'ões':'ão'} em ${segs.length} área${segs.length!==1?'s':''}`;
+  $$('[data-view]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.view===state.view));
+  $('#toggleAll').hidden = state.view==='tabela';
+  $('#sortSel').value = state.sort;
+  if(!rows.length){
+    $('#list').innerHTML = '<div class="empty card"><i class="fa-solid fa-magnifying-glass"></i>Nada encontrado. <button class="linkbtn" id="clearAll">Limpar filtros</button></div>';
+    return;
+  }
+  state.view==='tabela' ? renderTable(rows) : renderCards(rows, segs);
+}
+
+function renderCards(rows, segs){
+  const forceOpen = !!(state.q.trim() || state.tipo || state.soPerfil);
+  $('#list').innerHTML = segs.map(si=>{
+    const s = DATA[si], st = STATUS[s.st], id = segId(si);
+    const alts = sortRows(rows.filter(r=>r.si===si));
+    const open = forceOpen || state.open.has(si);
+    const covered = s.a.some(a=>state.uso.has(a[0]));
+    return `<section class="seg" id="${id}">
+      <button class="seg-head" aria-expanded="${open}" data-i="${si}">
+        <span class="seg-icon"><i class="fa-solid ${s.ic}"></i></span>
+        <span class="seg-title"><h3>${esc(s.n)}</h3><span class="ref">Alternativas a <b>${esc(s.ref)}</b></span></span>
+        ${covered?'<span class="cov" title="Você já trocou este serviço"><i class="fa-solid fa-circle-check"></i></span>':''}
+        <span class="status ${st.c}"><i class="fa-solid ${st.i}"></i>${st.l}</span>
+        <i class="fa-solid fa-chevron-down chev"></i>
+      </button>
+      <div class="seg-body" ${open?'':'hidden'}>
+        <p class="verdict ${st.c}"><b>${st.l}.</b> ${esc(s.tr)}</p>
+        ${s.note?`<div class="note"><i class="fa-solid fa-circle-info"></i><span>${esc(s.note)}</span></div>`:''}
+        <div class="alts">${alts.map(r=>altCard(r.a)).join('')}</div>
+        <div class="seg-foot"><button class="linkbtn" data-copyseg="${id}"><i class="fa-solid fa-link"></i>Copiar link</button></div>
+      </div>
+    </section>`;
+  }).join('');
+  const allOpen = state.open.size === DATA.length;
+  $('#toggleAll span').textContent = allOpen ? 'Recolher' : 'Expandir';
+  $('#toggleAll i').className = 'fa-solid ' + (allOpen ? 'fa-angles-up' : 'fa-angles-down');
+}
+
+function renderTable(rows){
+  const cols = [['n','Alternativa'],['seg','Segmento'],[null,'Tipo'],['nota','Nota'],['mat','Mat.'],['qual','Qual.'],['br','BR'],['al','AL'],['us','EUA'],['eu','EU'],[null,'Ações']];
+  const icon = k => state.sort===k ? (state.dir>0 ? 'fa-sort-up' : 'fa-sort-down') : 'fa-sort';
+  const num = v => v==null ? '—' : v;
+  const heat = v => v ? `class="num heat" style="--h:${v}"` : 'class="num"';
+  $('#list').innerHTML = `<div class="tbl-wrap"><table class="tbl">
+    <thead><tr>${cols.map(([k,l])=> k
+      ? `<th aria-sort="${state.sort===k?(state.dir>0?'ascending':'descending'):'none'}"><button data-sort="${k}">${l}<i class="fa-solid ${icon(k)}"></i></button></th>`
+      : `<th><span>${l}</span></th>`).join('')}</tr></thead>
+    <tbody>${sortRows(rows).map(({a,s})=>{
+      const ok = fits(a);
+      return `<tr class="${state.perfil && !ok ? 'dim' : ''}">
+        <td><b>${esc(a[0])}</b>${a[7]?` <span class="flag${a[7]==='Suspenso'?'':' new'}">${esc(a[7])}</span>`:''}
+          ${ok?'<br><span class="fit"><i class="fa-solid fa-user-check"></i>Serve para você</span>':''}
+          <br><small>+ ${esc(a[5])}</small></td>
+        <td>${esc(s.n)}<br><small>no lugar de ${esc(s.ref)}</small></td>
+        <td><div class="tags">${tagsHtml(a[1], true)}</div></td>
+        <td class="num" title="${FATORES.map(([k,l])=>l+' '+NOTA[a[0]][k]).join(' · ')}">${scoreHtml(a[0], true)}</td>
+        <td class="num">${num(a[2])}</td><td class="num">${num(a[3])}</td>
+        ${a[4].map(v=>`<td ${heat(v)}>${v||'—'}</td>`).join('')}
+        <td><div class="ticons">${actBtns(a[0], true)}</div></td>
+      </tr>`;}).join('')}</tbody></table></div>`;
+}
+
+/* Panorama */
+function renderOverview(){
+  $('#ovSub').textContent = state.perfil
+    ? 'A melhor opção em cada área, para o seu perfil.'
+    : 'A melhor opção em cada área.';
+  $('#overview').innerHTML = DATA.map((s,si)=>{
+    const p = getPick(s), cov = s.a.some(a=>state.uso.has(a[0])), st = STATUS[s.st];
+    return `<button class="tile ${st.c}" data-goto="${si}" title="${esc(s.tr)}">
+      <span class="tile-top"><i class="fa-solid ${s.ic}"></i>${cov?'<i class="fa-solid fa-circle-check tile-cov" title="Você já usa" style="margin-left:8px"></i>':''}${p?scoreHtml(p[0], true):''}</span>
+      <span class="tile-ref">no lugar de ${esc(s.ref)}</span>
+      <span class="tile-alt">${p ? esc(p[0]) : '<span class="na">nada para o seu perfil</span>'}</span>
+      <span class="tile-st">${st.l}</span>
+    </button>`;
+  }).join('');
+}
+
+function renderStats(){
+  const c = {v:0,p:0,l:0};
+  DATA.forEach(s=>c[s.st]++);
+  $('#whereSub').textContent = `Em ${c.v} das ${DATA.length} áreas já dá para trocar de verdade.`;
+  const li = s => `<li><b>${esc(s.n)}</b> <span class="muted">(${esc(s.ref)})</span><br>${esc(s.tr)}</li>`;
+  $('#whereOk').innerHTML = DATA.filter(s=>s.st==='v').map(li).join('');
+  $('#whereNo').innerHTML = [...DATA.filter(s=>s.st==='l'), ...DATA.filter(s=>s.st==='p')].map(li).join('');
+  $('#stats').innerHTML = `
+    <div class="stat"><div class="n">${DATA.length}</div><div class="l">áreas, ${ALL.length} opções</div></div>
+    <button class="stat ok" data-stat="v"><div class="n">${c.v}</div><div class="l">dá para trocar</div></button>
+    <button class="stat warn" data-stat="p"><div class="n">${c.p}</div><div class="l">em parte</div></button>
+    <button class="stat bad" data-stat="l"><div class="n">${c.l}</div><div class="l">ainda sem opção</div></button>`;
+}
+
+function renderChips(){
+  $('#typeChips').innerHTML = ['SL','NP','CO','EB','PP','LA'].map(k=>
+    `<button class="chip" data-t="${k}" aria-pressed="${state.tipo===k}">${TIPOS[k].l}</button>`).join('');
+  $('#statusChips').innerHTML = Object.entries(STATUS).map(([k,v])=>
+    `<button class="chip" data-s="${k}" aria-pressed="${state.st===k}"><i class="fa-solid ${v.i}"></i>${v.l}</button>`).join('');
+  $('#profGroup').hidden = !state.perfil;
+  $('#profChips').innerHTML = state.perfil
+    ? `<button class="chip" data-p aria-pressed="${state.soPerfil}"><i class="fa-solid fa-user-check"></i>Só o que combina comigo</button>` : '';
+}
+
+/* Quiz */
+function renderQuiz(){
+  $('#qs').innerHTML = QS.map((q,i)=> q.rate ? `<fieldset class="quiz-q">
+    <legend><span class="qn">${i+1}</span>${q.t}<small class="hint">Opcional. Marque até dois</small></legend>
+    <div class="opts">${q.o.map(([k,l])=>`<label class="opt">
+      <input type="checkbox" name="w" value="${k}" ${state.perfil && state.perfil.w && state.perfil.w[k]>=4 ? 'checked' : ''}> ${l}</label>`).join('')}</div>
+  </fieldset>` : `<fieldset class="quiz-q">
+    <legend><span class="qn">${i+1}</span>${q.t}${q.multi?'<small class="hint">Pode marcar mais de um</small>':''}</legend>
+    <div class="opts">${q.o.map(([v,l,d])=>`<label class="opt">
+      <input type="${q.multi?'checkbox':'radio'}" name="${q.k}" value="${v}" ${state.perfil && [].concat(state.perfil[q.k]).map(String).includes(v) ? 'checked' : ''}>
+      ${l}${d?`<small>${d}</small>`:''}</label>`).join('')}</div>
+  </fieldset>`).join('');
+}
+
+function profilePicks(){
+  return DATA.map((s,si)=>{ const a = getPick(s); return a ? {s,si,a} : null; }).filter(Boolean);
+}
+
+function showQuiz(open){
+  $('#quizForm').hidden = !open;
+  $('#optinCard').hidden = open || !!state.perfil;
+  if(open){ $('#quizErr').textContent = ''; $('#perfil').scrollIntoView({behavior:'smooth', block:'start'}); }
+}
+
+function renderRes(){
+  const pf = state.perfil;
+  $('#optinCard').hidden = !!pf || !$('#quizForm').hidden;
+  if(!pf){ $('#quizRes').innerHTML = ''; return; }
+  const picks = profilePicks();
+  const fora = ALL.filter(r=>!fits(r.a)).length;
+  $('#quizRes').innerHTML = `<div class="card res" id="resCard">
+    <div class="res-head">
+      <div><span class="kicker">Seu perfil</span>
+        <h3>${QS.filter(q=>!q.rate).map(q=>optLabel(q.k,pf[q.k])).join(' · ')}</h3>
+        ${QS.find(q=>q.rate).o.some(([k])=>pf.w[k]>=4) ? `<div class="pesos"><span>Importa: ${QS.find(q=>q.rate).o.filter(([k])=>pf.w[k]>=4).map(([,l])=>l).join(', ')}</span></div>` : ''}</div>
+      <button class="btn sm" type="button" id="redo"><i class="fa-solid fa-rotate-left"></i> Refazer</button>
+    </div>
+    ${picks.length ? `<ol class="picks">${picks.map(({s,si,a})=>`<li>
+      <button class="pick" data-goto="${si}">
+        <span class="seg-icon"><i class="fa-solid ${s.ic}"></i></span>
+        <span><span class="pk-seg">${esc(s.n)} · no lugar de ${esc(s.ref)}</span>
+        <span class="pk-name">${esc(a[0])}${state.uso.has(a[0])?' <i class="fa-solid fa-circle-check" style="color:var(--green)" title="Você já usa"></i>':''}</span>
+        <span class="pk-why">${esc(a[5])}</span></span>
+      </button></li>`).join('')}</ol>` : '<p>Nada serve para esse perfil.</p>'}
+    <p class="res-note">${fora} opções não servem para esse perfil e ficaram de fora.</p>
+    <div class="res-foot">
+      <button class="btn primary sm" type="button" id="applyProf"><i class="fa-solid fa-filter"></i> Ver na lista</button>
+      <button class="btn sm" type="button" id="shareProf"><i class="fa-solid fa-share-nodes"></i> Compartilhar</button>
+      <button class="btn sm" type="button" id="printProf"><i class="fa-solid fa-print"></i> Imprimir</button>
+    </div>
+  </div>`;
+}
+
+/* Jornada */
+function renderJourney(){
+  const cov = DATA.map(s=>s.a.some(a=>state.uso.has(a[0])));
+  const nCov = cov.filter(Boolean).length;
+  const pct = Math.round(nCov / DATA.length * 100);
+  const C = 2 * Math.PI * 42;
+  $('#navBadge').textContent = nCov ? `${nCov}/${DATA.length}` : '';
+  const nextSi = DATA.findIndex((s,si)=>!cov[si] && s.st==='v' && getPick(s));
+  const next = nextSi >= 0 ? getPick(DATA[nextSi]) : null;
+  const item = n => {
+    const r = BYNAME[n];
+    return `<li><span><b>${esc(n)}</b><small>${esc(r.s.n)} · no lugar de ${esc(r.s.ref)}</small></span>
+      <span class="mini"><button class="act" data-act="uso" data-n="${esc(n)}" aria-label="Remover" title="Remover"><i class="fa-solid fa-xmark"></i></button></span></li>`;
+  };
+  $('#journey').innerHTML = `
+    <div class="jr">
+      <svg class="ring" viewBox="0 0 104 104" role="img" aria-label="${pct}% das áreas">
+        <circle class="bg" cx="52" cy="52" r="42"/>
+        <circle class="fg" cx="52" cy="52" r="42" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct/100)}" transform="rotate(-90 52 52)"/>
+        <text x="52" y="59" text-anchor="middle">${pct}%</text>
+      </svg>
+      <div>
+        <h3>Você trocou ${nCov} de ${DATA.length} serviços</h3>
+        <div class="segdots">${DATA.map((s,si)=>`<span class="${cov[si]?'on':''}" title="${esc(s.n)}"><i class="fa-solid ${s.ic}"></i></span>`).join('')}</div>
+      </div>
+    </div>
+    ${next ? `<div class="msg" style="margin:0 0 16px"><i class="fa-solid fa-forward"></i><div><p><b>Próxima troca:</b> ${esc(DATA[nextSi].ref)} por <b>${esc(next[0])}</b>.</p>
+      <p class="muted">${esc((META[next[0]]||{}).d || next[5])}</p></div></div>` : ''}
+    <h3><i class="fa-solid fa-check" style="color:var(--green)"></i> Já uso (${state.uso.size})</h3>
+    ${state.uso.size ? `<ul class="jlist">${[...state.uso].map(item).join('')}</ul>` : '<p class="muted">Nada marcado ainda. Use o botão "Já uso" nos cartões.</p>'}
+    ${state.uso.size ? `<div class="jfoot">
+      <button class="btn sm" id="copyList"><i class="fa-solid fa-copy"></i> Copiar lista</button>
+      <button class="btn sm" id="jrClear"><i class="fa-solid fa-trash"></i> Limpar</button>
+    </div>` : ''}`;
+}
+
+/* Ações */
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+function copyText(text, msg){
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(()=>toast(msg)).catch(()=>prompt('Copie:', text));
+  } else prompt('Copie:', text);
+}
+const baseUrl = () => location.href.split('#')[0];
+const perfilHash = pf => ['perfil', pf.nivel, pf.disp.join(''), 'uslfp'.split('').map(k=>pf.w[k]).join('')].join('-');
+function shareProfile(){
+  const pf = state.perfil;
+  const url = baseUrl() + '#' + perfilHash(pf);
+  if(navigator.share){
+    navigator.share({title:'Alternativas às big techs', text:'O que serve para este perfil:', url}).catch(()=>{});
+  } else copyText(url, 'Link copiado');
+}
+function exportCSV(){
+  const rows = sortRows(filteredRows());
+  const head = ['Área','Substitui','Opção','Tipo','Nota','Sua nota','Uso','Soberania','Software livre','Social','Maturidade','Qualidade','Uso BR','Uso AL','Uso EUA','Uso EU','Ponto positivo','Ponto negativo','Saiba antes','Link','Já uso'];
+  const q = v => '"' + String(v ?? '').replace(/"/g,'""') + '"';
+  const lines = [head, ...rows.map(({a,s})=>{
+    const M = META[a[0]] || {};
+    const N = NOTA[a[0]];
+    return [s.n, s.ref, a[0], a[1].map(t=>TIPOS[t].l).join(' + '), N.t, state.perfil ? notaPessoal(a[0]) : '', N.u, N.s, N.l, N.f, a[2] ?? '', a[3] ?? '', ...a[4].map(v=>v||''),
+      a[5], a[6], M.d||'', M.u||'', state.uso.has(a[0])?'sim':''];
+  })].map(r=>r.map(q).join(';'));
+  const blob = new Blob(['﻿' + lines.join('\r\n')], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob), link = document.createElement('a');
+  link.href = url; link.download = 'soberania-digital.csv';
+  document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+  toast(`${rows.length} opções exportadas`);
+}
+function toggleSet(set, key, n){
+  const had = set.has(n);
+  had ? set.delete(n) : set.add(n);
+  save(key, [...set]);
+  return !had;
+}
+const areaDe = n => DATA.findIndex(s=>s.a.some(a=>a[0]===n));
+function renderPicks(){
+  const MES = ESCOLHAS;
+  $('#picks').innerHTML = MES.map(([n,t],i)=>`<button class="pick" type="button" data-goto="${areaDe(n)}"><em>${i+1}. ${esc(DATA[areaDe(n)].n)}</em><b>${esc(n)}</b><span>${esc(t)}</span></button>`).join('');
+  const sem = Math.floor((Date.now()/864e5 + 3) / 7) % MES.length, [n,t] = MES[sem];
+  const el = $('#semana'); el.dataset.goto = areaDe(n);
+  el.innerHTML = `<i class="fa-solid fa-star big"></i><div><small>Indicação da semana</small><b>${esc(n)}</b> — ${esc(t)}</div>`;
+}
+function renderDica(){
+  const op = ALL.filter(r=>!(PROF[r.a[0]]||{}).x), r = op[Math.floor(Math.random()*op.length)];
+  const el = $('#dica'); el.dataset.goto = r.si;
+  el.innerHTML = `<i class="fa-solid fa-lightbulb big"></i><div><small>Dica aleatória</small><b>${esc(r.a[0])}</b> no lugar de ${esc(DATA[r.si].ref)} — ${esc(r.a[5])}</div><button class="btn sm" type="button" id="outraDica" title="Outra dica"><i class="fa-solid fa-shuffle"></i></button>`;
+}
+function refresh(){ render(); renderOverview(); renderJourney(); renderRes(); }
+function goto(si){
+  state.q = ''; $('#q').value = ''; state.tipo = null; state.st = null;
+  if(state.soPerfil && !DATA[si].a.some(a=>fits(a))) state.soPerfil = false;
+  state.view = 'cards'; save('sd-view','cards');
+  state.open.add(si); renderChips(); render();
+  requestAnimationFrame(()=>document.getElementById(segId(si))?.scrollIntoView({behavior:'smooth', block:'start'}));
+}
+function goMapa(){ $('#mapa').scrollIntoView({behavior:'smooth', block:'start'}); }
+
+document.addEventListener('click', e=>{
+  const T = sel => e.target.closest(sel);
+  let el;
+  if((el = T('[data-share]'))){ shareItem(el.dataset.share); return; }
+  if((el = T('[data-list]'))){
+    const n = el.dataset.list, pnl = el.closest('.alt').querySelector('.lst');
+    const open = pnl.hidden;
+    pnl.hidden = !open; el.setAttribute('aria-expanded', open);
+    open ? listasAbertas.add(n) : listasAbertas.delete(n);
+    return;
+  }
+  if((el = T('[data-act]'))){
+    const n = el.dataset.n, kind = el.dataset.act;
+    if(kind==='uso'){
+      const on = toggleSet(state.uso, 'sd-uso', n);
+      toast(on ? 'Marcado como em uso' : 'Desmarcado');
+    }
+    refresh(); return;
+  }
+  if((el = T('.seg-head'))){
+    const i = +el.dataset.i, open = el.getAttribute('aria-expanded')==='true';
+    el.setAttribute('aria-expanded', !open);
+    el.nextElementSibling.hidden = open;
+    open ? state.open.delete(i) : state.open.add(i);
+    return;
+  }
+  if(T('#outraDica')){ renderDica(); return; }
+  if((el = T('[data-goto]'))){ goto(+el.dataset.goto); return; }
+  if((el = T('[data-t]'))){ state.tipo = state.tipo===el.dataset.t ? null : el.dataset.t; renderChips(); render(); return; }
+  if((el = T('[data-s]'))){ state.st = state.st===el.dataset.s ? null : el.dataset.s; renderChips(); render(); return; }
+  if((el = T('[data-stat]'))){ state.st = el.dataset.stat; renderChips(); render(); goMapa(); return; }
+  if(T('[data-p]')){ state.soPerfil = !state.soPerfil; renderChips(); render(); return; }
+  if((el = T('[data-q]'))){ state.q = el.dataset.q; $('#q').value = state.q; render(); goMapa(); return; }
+  if((el = T('[data-view]'))){ state.view = el.dataset.view; save('sd-view', state.view); render(); return; }
+  if((el = T('[data-sort]'))){
+    const k = el.dataset.sort;
+    if(state.sort===k) state.dir *= -1; else { state.sort = k; state.dir = (k==='n'||k==='seg') ? 1 : -1; }
+    render(); return;
+  }
+  if((el = T('[data-copyseg]'))){ copyText(baseUrl() + '#' + el.dataset.copyseg, 'Link copiado'); return; }
+
+  const id = (T('button[id], a[id]') || {}).id;
+  switch(id){
+    case 'applyProf': state.soPerfil = true; renderChips(); render(); goMapa(); break;
+    case 'redo':
+      state.perfil = null; state.soPerfil = false;
+      try{ localStorage.removeItem('sd-perfil'); }catch(err){}
+      if(location.hash.startsWith('#perfil-')) try{ history.replaceState(null,'',baseUrl()); }catch(err){}
+      $('#quizForm').reset(); renderQuiz(); renderChips(); refresh();
+      showQuiz(true); break;
+    case 'openQuiz': showQuiz(true); break;
+    case 'closeQuiz': showQuiz(false); break;
+    case 'shareProf': shareProfile(); break;
+    case 'printProf':
+      document.body.classList.add('print-res'); window.print();
+      setTimeout(()=>document.body.classList.remove('print-res'), 500); break;
+    case 'printBtn': window.print(); break;
+    case 'csvBtn': exportCSV(); break;
+    case 'toggleAll': {
+      const allOpen = state.open.size === DATA.length;
+      state.open = allOpen ? new Set() : new Set(DATA.map((_,i)=>i));
+      render(); break;
+    }
+    case 'clearAll':
+      state.q=''; $('#q').value=''; state.tipo=null; state.st=null; state.soPerfil=false; renderChips(); render(); break;
+    case 'copyList': {
+      const fmt = set => [...set].map(n=>`• ${n} (no lugar de ${BYNAME[n].s.ref})`).join('\n') || '—';
+      copyText(`Alternativas às big techs que eu já uso:\n${fmt(state.uso)}`, 'Lista copiada'); break;
+    }
+    case 'wipeData': {
+      const b = $('#wipeData');
+      if(b.dataset.armed !== '1'){
+        b.dataset.armed = '1'; b.innerHTML = '<i class="fa-solid fa-trash"></i> Toque de novo para apagar';
+        setTimeout(()=>{ b.dataset.armed=''; b.innerHTML='<i class="fa-solid fa-trash"></i> Apagar meus dados deste aparelho'; }, 4000);
+        break;
+      }
+      try{ ['sd-perfil','sd-uso','sd-testar','sd-view','sd-zoom','sd-contrast','sd-theme'].forEach(k=>localStorage.removeItem(k)); }catch(err){}
+      state.perfil = null; state.soPerfil = false; state.uso.clear();
+      zoom = 1; applyZoom(); applyContrast(false);
+      $('#quizForm').reset(); renderQuiz(); renderChips(); showQuiz(false); refresh();
+      b.dataset.armed=''; b.innerHTML='<i class="fa-solid fa-trash"></i> Apagar meus dados deste aparelho';
+      toast('Dados apagados deste aparelho');
+      break;
+    }
+    case 'installBtn': case 'installTop': installApp(); break;
+    case 'jrClear':
+      if(confirm('Apagar a lista?')){
+        state.uso.clear(); save('sd-uso',[]); refresh(); toast('Lista apagada');
+      } break;
+  }
+});
+
+
+$('#sortSel').addEventListener('change', e=>{
+  state.sort = e.target.value; state.dir = state.sort==='n' ? 1 : -1; render();
+});
+
+$('#quizForm').addEventListener('change', e=>{
+  if(e.target.name !== 'w') return;
+  const on = [...document.querySelectorAll('input[name=w]:checked')];
+  if(on.length > 2) e.target.checked = false;
+});
+$('#quizForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const fd = new FormData(e.target), pf = {};
+  for(const q of QS){
+    if(q.rate){ const m = fd.getAll('w').slice(0,2); pf[q.k] = Object.fromEntries(q.o.map(([k])=>[k, !m.length ? 3 : m.includes(k) ? 5 : 2])); continue; }
+    const v = q.multi ? fd.getAll(q.k) : fd.get(q.k);
+    if(!v || !v.length){ $('#quizErr').textContent = 'Faltou responder alguma.'; return; }
+    pf[q.k] = q.k==='nivel' ? +v : v;
+  }
+  $('#quizErr').textContent = '';
+  state.perfil = pf; state.soPerfil = false;
+  save('sd-perfil', pf); $('#quizForm').hidden = true; renderChips(); refresh();
+  $('#resCard').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+/* Busca */
+let qTimer;
+$('#q').addEventListener('input', e=>{
+  clearTimeout(qTimer);
+  qTimer = setTimeout(()=>{ state.q = e.target.value; render(); }, 120);
+});
+$('#q').addEventListener('keydown', e=>{
+  if(e.key==='Enter'){ goMapa(); }
+  if(e.key==='Escape'){ e.target.value=''; state.q=''; render(); }
+});
+document.addEventListener('keydown', e=>{
+  const tag = (document.activeElement || {}).tagName;
+  if(e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(tag)){ e.preventDefault(); $('#q').focus(); }
+});
+
+/* Acessibilidade e tema */
+const root = document.documentElement;
+let zoom = load('sd-zoom', 1);
+function applyZoom(){ root.style.setProperty('--zoom', zoom); save('sd-zoom', zoom); }
+$('#fontUp').addEventListener('click', ()=>{ zoom = Math.min(1.3, +(zoom+.1).toFixed(1)); applyZoom(); });
+$('#fontDown').addEventListener('click', ()=>{ zoom = Math.max(.9, +(zoom-.1).toFixed(1)); applyZoom(); });
+function applyContrast(on){
+  on ? root.setAttribute('data-contrast','1') : root.removeAttribute('data-contrast');
+  $('#contrastBtn').setAttribute('aria-pressed', on);
+  save('sd-contrast', on);
+}
+$('#contrastBtn').addEventListener('click', ()=> applyContrast(!root.hasAttribute('data-contrast')));
+function applyTheme(t){ if(t) root.setAttribute('data-theme', t); }
+$('#themeBtn').addEventListener('click', ()=>{
+  const cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const next = cur==='dark' ? 'light' : 'dark';
+  applyTheme(next); save('sd-theme', next);
+});
+
+/* Voltar ao topo */
+const toTop = $('#toTop');
+addEventListener('scroll', ()=> toTop.classList.toggle('show', scrollY > 600), {passive:true});
+toTop.addEventListener('click', ()=> scrollTo({top:0, behavior:'smooth'}));
+
+/* Links com âncora: perfil compartilhado e seções */
+function applyHash(initial){
+  const h = decodeURIComponent(location.hash.slice(1));
+  const m = h.match(/^perfil-([123])-([aid]+)-([1-5]{5})$/);
+  if(m){
+    const pf = {nivel:+m[1], disp:[...new Set(m[2].split(''))], w:Object.fromEntries('uslfp'.split('').map((k,i)=>[k, +m[3][i]]))};
+    if(validPerfil(pf)){
+      state.perfil = pf; save('sd-perfil', pf);
+      renderQuiz(); renderChips(); refresh();
+      toast('Perfil carregado');
+      setTimeout(()=>$('#resCard')?.scrollIntoView({behavior:'smooth', block:'start'}), initial ? 400 : 0);
+    }
+  } else if(h.startsWith('seg-')){
+    const si = DATA.findIndex((s,i)=>segId(i)===h);
+    if(si >= 0) setTimeout(()=>goto(si), initial ? 300 : 0);
+  }
+}
+addEventListener('hashchange', ()=>applyHash(false));
+
+/*pwa*/
+/* App instalável: só funciona quando o guia está hospedado num site */
+let installEvt = null;
+addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); installEvt = e; $('#installBtn').hidden = false; $('#installTop').hidden = false; });
+addEventListener('appinstalled', ()=>{ installEvt = null; $('#installBtn').hidden = true; $('#installTop').hidden = true; toast('App instalado'); });
+function installApp(){
+  if(!installEvt){ $('#sobre').scrollIntoView({behavior:'smooth'}); return; }
+  installEvt.prompt();
+  installEvt.userChoice.finally(()=>{ installEvt = null; $('#installBtn').hidden = true; $('#installTop').hidden = true; });
+}
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+/*/pwa*/
+
+/* Início */
+applyTheme(load('sd-theme', null));
+applyContrast(load('sd-contrast', false));
+applyZoom();
+const saved = load('sd-perfil', null);
+if(validPerfil(saved)) state.perfil = saved;
+$('#faqList').innerHTML = FAQ.map(([g,items])=>`<h3 class="faq-group">${esc(g)}</h3>` + items.map(([q,a])=>`<details class="faq"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')).join('');
+renderStats(); renderQuiz(); renderChips(); refresh(); renderPicks(); renderDica();
+applyHash(true);
+
+}
+
+function erroDados(e){
+  document.querySelector('main').insertAdjacentHTML('afterbegin', '<div class="card" style="margin:16px 0;border-left:4px solid #E52207"><b>Não foi possível carregar a lista (dados.yaml).</b><br>' + String(e && e.message || e).replace(/</g,'&lt;') + '</div>');
+}
+(function(){
+  const inl = document.getElementById('dados');
+  const go = t => { let D; try{ D = jsyaml.load(t); }catch(e){ erroDados(e); return; } app(D); };
+  if(inl) go(inl.textContent);
+  else fetch('dados.yaml', {cache:'no-cache'}).then(r=>{ if(!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }).then(go).catch(erroDados);
+})();
+</script>
+</body>
+</html>
