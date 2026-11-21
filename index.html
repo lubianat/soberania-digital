@@ -327,19 +327,14 @@ button.stat:hover{background:var(--primary-light)}
 .pc{margin:0;font-size:14px;display:flex;gap:8px;align-items:flex-start;line-height:1.4}
 .pc i{margin-top:3px;flex:none;font-size:13px}
 .pc.pro i{color:var(--green)} .pc.con i{color:var(--red)}
-.tip{font-size:14px;background:var(--warn-bg);border-radius:4px;padding:8px 10px}
-.tip summary{cursor:pointer;font-weight:700;display:flex;gap:6px;align-items:center;list-style:none;color:var(--text)}
-.tip summary::-webkit-details-marker{display:none}
-.tip summary i{color:#C2850C}
-.tip p{margin:6px 0 0}
+.tip{font-size:14px;margin:0;display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+.tip i{color:var(--primary);margin-top:3px;flex:none}
 .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
 .act{display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 10px;border:1px solid var(--border);border-radius:100em;background:var(--surface);color:var(--text);
   font:inherit;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none}
 .act:hover{border-color:var(--primary);color:var(--primary)}
 .act[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
 .act.share{border-color:var(--primary);color:var(--primary)}
-.act.uso[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
-[data-contrast="1"] .act.uso[aria-pressed="true"]{color:#000}
 .empty{text-align:center;padding:40px 16px;color:var(--muted)}
 .empty i{font-size:36px;color:var(--primary);display:block;margin-bottom:8px}
 
@@ -400,12 +395,26 @@ table.tbl{width:100%;min-width:780px;border-collapse:collapse;font-size:14px}
 .sources li{margin-bottom:6px;break-inside:avoid}
 
 /* Toast e topo */
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#071D41;color:#fff;padding:10px 16px;border-radius:4px;font-size:14px;font-weight:600;
+.toast{position:fixed;left:50%;bottom:72px;transform:translate(-50%,20px);background:#071D41;color:#fff;padding:10px 16px;border-radius:4px;font-size:14px;font-weight:600;
   opacity:0;pointer-events:none;transition:.2s;z-index:50;max-width:calc(100% - 32px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-.to-top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--primary);color:var(--on-primary);
-  box-shadow:var(--shadow);cursor:pointer;display:none;font-size:16px;z-index:15}
-.to-top.show{display:grid;place-items:center}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;background:var(--surface);box-shadow:0 -1px 6px rgba(0,0,0,.16)}
+.dock>*{flex:1;display:flex;gap:8px;justify-content:center;align-items:center;height:52px;border:0;background:none;font:inherit;font-weight:700;font-size:15px;color:var(--primary);text-decoration:none;cursor:pointer}
+.dock>*:hover{background:var(--primary-light)}
+body{padding-bottom:52px}
+.fav{background:none;border:0;cursor:pointer;font-size:22px;color:var(--line);padding:4px;line-height:1}
+.fav[aria-pressed="true"]{color:#E52207}
+.go{font-size:13px;font-weight:700;color:var(--primary);margin-top:auto;display:inline-flex;gap:6px;align-items:center}
+.res.min .picks,.res.min .res-note,.res.min .res-foot{display:none}
+.res.min .res-head{margin:0}
+#quizRes .picks{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px}
+#quizRes .pick{padding:8px;border-left-width:3px}
+#quizRes .pk-why{display:none}
+dialog.dlg{border:0;border-radius:4px;padding:0;width:min(720px,100%);max-height:90vh;background:var(--bg);color:var(--text);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+dialog.dlg::backdrop{background:rgba(0,0,0,.5)}
+.dlg-head{position:sticky;top:0;z-index:1;display:flex;gap:12px;align-items:center;padding:12px 16px;background:var(--surface);box-shadow:var(--shadow)}
+.dlg-head h3{margin:0;flex:1;font-size:18px}
+.dlg-body{padding:16px}
 
 /* Rodapé */
 footer{background:var(--primary-darker);color:#fff;margin-top:48px;padding:32px 0 24px;font-size:14px}
@@ -418,7 +427,8 @@ footer a{color:#fff}
 @media (max-width:600px){
   header.main{position:static}
   .section,.seg{scroll-margin-top:8px}
-  .divider,.brand-sub,.kbd,.tb .lbl{display:none}
+  .divider,.brand-sub,.kbd,.tb .lbl,.mainnav{display:none}
+  dialog.dlg{max-height:100vh;height:100%;max-width:100%}
   .search{max-width:none;flex-basis:100%}
   .seg-head{gap:10px;padding:14px 12px;flex-wrap:wrap}
   .seg-icon{width:38px;height:38px;font-size:16px}
@@ -435,7 +445,7 @@ footer a{color:#fff}
 
 @media print{
   body{zoom:1;background:#fff;color:#000}
-  .topbar,header.main,.filters,.toolbar,#perfil form,.tray,.to-top,.acts,.btn,.linkbtn,#panorama,#jornada,#faq,.toast,.ctas,.quick,.stats,.crumb{display:none!important}
+  .topbar,header.main,.filters,.toolbar,#perfil form,.tray,.acts,.dock,.btn,.linkbtn,#panorama,#jornada,#faq,.toast,.ctas,.quick,.stats,.crumb{display:none!important}
   .seg-body[hidden]{display:block!important}
   .seg,.card,.stat,.alt{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
   .alt.dim{opacity:1}
@@ -487,7 +497,7 @@ footer a{color:#fff}
     <nav class="mainnav" aria-label="Seções">
       <a href="#panorama"><i class="fa-solid fa-table-cells-large"></i>Por área</a>
       <a href="#mapa"><i class="fa-solid fa-list"></i>Todas as opções</a>
-      <a href="#jornada"><i class="fa-solid fa-list-check"></i>Minha lista <span class="nbadge" id="navBadge"></span></a>
+      <a href="#jornada"><i class="fa-solid fa-heart"></i>Favoritos <span class="nbadge" id="navBadge"></span></a>
       <a href="#sintese"><i class="fa-solid fa-chart-simple"></i>Onde estamos</a>
       <a href="#faq"><i class="fa-solid fa-circle-question"></i>Perguntas</a>
       <a href="#sobre"><i class="fa-solid fa-circle-info"></i>Sobre</a>
@@ -498,7 +508,7 @@ footer a{color:#fff}
 <main class="wrap">
   <section class="hero">
     <h1>Alternativas às <strong>big techs</strong></h1>
-    <p class="lead">Opções brasileiras, livres e públicas para o que você usa todo dia.</p>
+    <p class="lead">Opções brasileiras, livres e públicas.</p>
   </section>
 
   <div class="card semana" id="semana"></div>
@@ -535,7 +545,7 @@ footer a{color:#fff}
 
   <section class="section" id="mapa">
     <h2>Todas as opções</h2>
-    <p class="sub">Filtre e ordene. Marque o que você já usa.</p>
+    <p class="sub">Filtre e ordene. Toque no <i class="fa-solid fa-heart"></i> para guardar nos favoritos.</p>
     <!-- gerado por build.js a partir de dados.yaml; some quando o JS carrega -->
     <div id="estatico"><!--estatico-->
 <h3>Vídeo sob demanda: alternativas a Netflix</h3>
@@ -708,8 +718,8 @@ footer a{color:#fff}
   </section>
 
   <section class="section" id="jornada">
-    <h2>Minha lista</h2>
-    <p class="sub">O que você já usa. Fica salvo neste navegador.</p>
+    <h2>Favoritos</h2>
+    <p class="sub">Fica salvo neste navegador.</p>
     <div class="card" id="journey"></div>
   </section>
 
@@ -739,9 +749,9 @@ footer a{color:#fff}
     <div class="card">
       <ul class="about">
         <li><b>Sem conta e sem banco de dados.</b> Este guia é uma página só. Nenhum servidor guarda nada sobre você.</li>
-        <li><b>O que você marca fica neste aparelho.</b> Perfil, "Já uso", tamanho da fonte e contraste ficam salvos só no seu navegador. Ninguém mais vê, nem quem fez o guia.</li>
+        <li><b>O que você marca fica neste aparelho.</b> Perfil, favoritos, tamanho da fonte e contraste ficam salvos só no seu navegador. Ninguém mais vê, nem quem fez o guia.</li>
         <li><b>Sem rastreamento.</b> Não há anúncios nem contagem de visitas. A página só busca as fontes no Google Fonts e os ícones na Cloudflare.</li>
-        <li><b>Trocou de aparelho?</b> A lista não vai junto. Use "Copiar lista", em Minha lista, para levar.</li>
+        <li><b>Trocou de aparelho?</b> Os favoritos não vão junto. Use "Copiar lista", em Favoritos, para levar.</li>
       </ul>
       <div class="jfoot"><button class="btn sm" id="wipeData"><i class="fa-solid fa-trash"></i> Apagar meus dados deste aparelho</button></div>
     </div>
@@ -861,12 +871,19 @@ footer a{color:#fff}
   <div class="wrap">
     <div class="fb"><span class="mark" style="width:32px;height:32px;font-size:14px"><i class="fa-solid fa-shield-halved"></i></span> Soberania Digital</div>
     <p>Guia independente. Sem ligação com o governo ou com as empresas citadas.</p>
-    <div class="line">Dados de outubro de 2026 · Pode copiar, é só dar o crédito · Tecle <b>/</b> para buscar</div>
+    <div class="line">Dados de outubro de 2026 · Pode copiar, é só dar o crédito · Tecle <b>/</b> para buscar · Versão 0.0.2</div>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<button class="to-top" id="toTop" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+<nav class="dock" aria-label="Atalhos">
+  <button type="button" id="toTop"><i class="fa-solid fa-arrow-up"></i>Topo</button>
+  <a href="#jornada"><i class="fa-solid fa-heart"></i>Favoritos <span class="nbadge" id="dockBadge"></span></a>
+</nav>
+<dialog class="dlg" id="dlg" aria-labelledby="dlgT">
+  <div class="dlg-head"><span class="seg-icon" id="dlgI"></span><h3 id="dlgT"></h3><button class="btn sm" type="button" id="dlgX" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="dlg-body" id="dlgB"></div>
+</dialog>
 
 <script src="vendor/js-yaml.min.js"></script>
 <script>
@@ -1051,7 +1068,7 @@ const factorsHtml = n => '<div class="factors">' + FATORES.map(([k,l,mx])=>`<div
 const state = {
   q:'', tipo:null, st:null, open:new Set(), perfil:null, soPerfil:false,
   view: load('sd-view','cards'), sort:'rel', dir:-1,
-  uso: new Set(load('sd-uso',[]).filter(n=>BYNAME[n]))
+  fav: new Set(load('sd-fav',[]).filter(n=>BYNAME[n])), resMin: false
 };
 
 /* Perfil */
@@ -1116,17 +1133,6 @@ function filteredRows(){
 }
 
 /* Componentes */
-function dots(v){
-  if(v==null) return '<span class="na">sem dado</span>';
-  let h='<span class="dots">';
-  for(let i=1;i<=5;i++) h+=`<span class="${i<=v?'on':''}"></span>`;
-  return h+`<em>${v}/5</em></span>`;
-}
-function adoc(arr){
-  if(arr.every(x=>!x)) return '<span class="na">sem dado</span>';
-  return '<div class="grid">'+['BR','AL','EUA','EU'].map((r,i)=>
-    `<div class="cell"><b>${r}</b><span class="bar" title="${r}: ${arr[i]}/5"><i style="width:${arr[i]*20}%"></i></span></div>`).join('')+'</div>';
-}
 const tagsHtml = (t, short) => t.map(x=>`<span class="tag ${TIPOS[x].c}" title="${TIPOS[x].l}">${short ? x : TIPOS[x].l}</span>`).join('');
 const listasAbertas = new Set();
 
@@ -1161,8 +1167,7 @@ function shareItem(n){
 function actBtns(n, compact){
   const P = PROF[n], M = META[n] || {};
   let h = '';
-  if(!P.x) h += `<button class="act uso" data-act="uso" data-n="${esc(n)}" aria-pressed="${state.uso.has(n)}" title="Já uso"><i class="fa-solid fa-check"></i>${compact ? '' : 'Já uso'}</button>`;
-  if(compact) return h;
+  if(compact) return favBtn(n);
   if(!P.x) h += `<button class="act share" data-share="${esc(n)}" title="Compartilhar"><i class="fa-solid fa-share-nodes"></i>Compartilhar</button>`;
   if(LISTAS[n]) h += `<button class="act" data-list="${esc(n)}" aria-expanded="${listasAbertas.has(n)}"><i class="fa-solid fa-arrow-up-right-from-square"></i>${n==='Mastodon / fediverso' ? 'Servidores' : 'Sites'}</button>`;
   if(M.u) h += `<a class="act" href="${esc(M.u)}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>${M.l || 'Site'}</a>`;
@@ -1172,25 +1177,19 @@ function actBtns(n, compact){
   if(wk) h += `<a class="act" href="${esc(wk)}" target="_blank" rel="noopener"><i class="fa-brands fa-wikipedia-w"></i>Wikipédia</a>`;
   return h;
 }
+const favBtn = n => `<button class="fav" data-act="fav" data-n="${esc(n)}" aria-pressed="${state.fav.has(n)}" aria-label="Favorito: ${esc(n)}" title="${state.fav.has(n) ? 'Tirar dos favoritos' : 'Guardar nos favoritos'}"><i class="fa-solid fa-heart"></i></button>`;
 function altCard(a){
   const [n,t,m,q,ad,pos,neg,flag] = a;
   const fc = flag==='Suspenso' ? '' : ' new';
   const ok = fits(a), M = META[n] || {};
   return `<article class="alt${state.perfil && !ok ? ' dim' : ''}">
-    <div class="alt-head"><h4>${esc(n)}</h4><span class="alt-side">${flag?`<span class="flag${fc}">${esc(flag)}</span>`:''}${scoreHtml(n)}</span></div>
+    <div class="alt-head"><h4>${esc(n)}</h4><span class="alt-side">${flag?`<span class="flag${fc}">${esc(flag)}</span>`:''}${scoreHtml(n)}${PROF[n].x ? '' : favBtn(n)}</span></div>
     ${ok?'<span class="fit"><i class="fa-solid fa-user-check"></i>Serve para você</span>':''}
     <div class="tags">${tagsHtml(t)}</div>
     ${factorsHtml(n)}
     <p class="pc pro"><i class="fa-solid fa-plus"></i>${esc(pos)}</p>
     <p class="pc con"><i class="fa-solid fa-minus"></i>${esc(neg)}</p>
-    <details class="more"><summary><i class="fa-solid fa-chart-simple"></i>Maturidade, qualidade e uso por região</summary><div>
-      <div class="metrics">
-        <div class="metric"><span class="lbl">Maturidade</span>${dots(m)}</div>
-        <div class="metric"><span class="lbl">Qualidade</span>${dots(q)}</div>
-      </div>
-      <div class="adoc"><span>Uso</span>${adoc(ad)}</div>
-    </div></details>
-    ${M.d?`<details class="tip" open><summary><i class="fa-solid fa-circle-info"></i>Saiba antes</summary><p>${esc(M.d)}</p></details>`:''}
+    ${M.d?`<p class="tip"><i class="fa-solid fa-lightbulb"></i><span><b>Dica:</b> ${esc(M.d)}</span></p>`:''}
     <div class="acts">${actBtns(n)}</div>
     ${LISTAS[n] ? `<ul class="srv lst" ${listasAbertas.has(n) ? '' : 'hidden'}>${LISTAS[n].map(([t,u,d,c])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a><small>${esc(d)}</small>${c ? `<span class="reg ${c==='Aberto'?'ok':''}">${c}</span>` : ''}</li>`).join('')}</ul>` : ''}
   </article>`;
@@ -1217,12 +1216,10 @@ function renderCards(rows, segs){
     const s = DATA[si], st = STATUS[s.st], id = segId(si);
     const alts = sortRows(rows.filter(r=>r.si===si));
     const open = forceOpen || state.open.has(si);
-    const covered = s.a.some(a=>state.uso.has(a[0]));
     return `<section class="seg" id="${id}">
       <button class="seg-head" aria-expanded="${open}" data-i="${si}">
         <span class="seg-icon"><i class="fa-solid ${s.ic}"></i></span>
         <span class="seg-title"><h3>${esc(s.n)}</h3><span class="ref">Alternativas a <b>${esc(s.ref)}</b></span></span>
-        ${covered?'<span class="cov" title="Você já trocou este serviço"><i class="fa-solid fa-circle-check"></i></span>':''}
         <span class="status ${st.c}"><i class="fa-solid ${st.i}"></i>${st.l}</span>
         <i class="fa-solid fa-chevron-down chev"></i>
       </button>
@@ -1269,12 +1266,13 @@ function renderOverview(){
     ? 'A melhor opção em cada área, para o seu perfil.'
     : 'A melhor opção em cada área.';
   $('#overview').innerHTML = DATA.map((s,si)=>{
-    const p = getPick(s), cov = s.a.some(a=>state.uso.has(a[0])), st = STATUS[s.st];
+    const p = getPick(s), st = STATUS[s.st];
     return `<button class="tile ${st.c}" data-goto="${si}" title="${esc(s.tr)}">
-      <span class="tile-top"><i class="fa-solid ${s.ic}"></i>${cov?'<i class="fa-solid fa-circle-check tile-cov" title="Você já usa" style="margin-left:8px"></i>':''}${p?scoreHtml(p[0], true):''}</span>
+      <span class="tile-top"><i class="fa-solid ${s.ic}"></i>${p?scoreHtml(p[0], true):''}</span>
       <span class="tile-ref">no lugar de ${esc(s.ref)}</span>
       <span class="tile-alt">${p ? esc(p[0]) : '<span class="na">nada para o seu perfil</span>'}</span>
       <span class="tile-st">${st.l}</span>
+      <span class="go">Ver opções <i class="fa-solid fa-arrow-right"></i></span>
     </button>`;
   }).join('');
 }
@@ -1333,18 +1331,19 @@ function renderRes(){
   if(!pf){ $('#quizRes').innerHTML = ''; return; }
   const picks = profilePicks();
   const fora = ALL.filter(r=>!fits(r.a)).length;
-  $('#quizRes').innerHTML = `<div class="card res" id="resCard">
+  $('#quizRes').innerHTML = `<div class="card res${state.resMin ? ' min' : ''}" id="resCard">
     <div class="res-head">
       <div><span class="kicker">Seu perfil</span>
         <h3>${QS.filter(q=>!q.rate).map(q=>optLabel(q.k,pf[q.k])).join(' · ')}</h3>
         ${QS.find(q=>q.rate).o.some(([k])=>pf.w[k]>=4) ? `<div class="pesos"><span>Importa: ${QS.find(q=>q.rate).o.filter(([k])=>pf.w[k]>=4).map(([,l])=>l).join(', ')}</span></div>` : ''}</div>
-      <button class="btn sm" type="button" id="redo"><i class="fa-solid fa-rotate-left"></i> Refazer</button>
+      <span class="res-foot" style="display:flex"><button class="btn sm" type="button" id="redo"><i class="fa-solid fa-rotate-left"></i> Refazer</button>
+      <button class="btn sm" type="button" id="resMin" aria-expanded="${!state.resMin}"><i class="fa-solid fa-chevron-${state.resMin ? 'down' : 'up'}"></i> ${state.resMin ? 'Mostrar' : 'Recolher'}</button></span>
     </div>
     ${picks.length ? `<ol class="picks">${picks.map(({s,si,a})=>`<li>
       <button class="pick" data-goto="${si}">
         <span class="seg-icon"><i class="fa-solid ${s.ic}"></i></span>
         <span><span class="pk-seg">${esc(s.n)} · no lugar de ${esc(s.ref)}</span>
-        <span class="pk-name">${esc(a[0])}${state.uso.has(a[0])?' <i class="fa-solid fa-circle-check" style="color:var(--green)" title="Você já usa"></i>':''}</span>
+        <span class="pk-name">${esc(a[0])}</span>
         <span class="pk-why">${esc(a[5])}</span></span>
       </button></li>`).join('')}</ol>` : '<p>Nada serve para esse perfil.</p>'}
     <p class="res-note">${fora} opções não servem para esse perfil e ficaram de fora.</p>
@@ -1356,40 +1355,18 @@ function renderRes(){
   </div>`;
 }
 
-/* Jornada */
+/* Favoritos */
 function renderJourney(){
-  const cov = DATA.map(s=>s.a.some(a=>state.uso.has(a[0])));
-  const nCov = cov.filter(Boolean).length;
-  const pct = Math.round(nCov / DATA.length * 100);
-  const C = 2 * Math.PI * 42;
-  $('#navBadge').textContent = nCov ? `${nCov}/${DATA.length}` : '';
-  const nextSi = DATA.findIndex((s,si)=>!cov[si] && s.st==='v' && getPick(s));
-  const next = nextSi >= 0 ? getPick(DATA[nextSi]) : null;
-  const item = n => {
-    const r = BYNAME[n];
-    return `<li><span><b>${esc(n)}</b><small>${esc(r.s.n)} · no lugar de ${esc(r.s.ref)}</small></span>
-      <span class="mini"><button class="act" data-act="uso" data-n="${esc(n)}" aria-label="Remover" title="Remover"><i class="fa-solid fa-xmark"></i></button></span></li>`;
-  };
-  $('#journey').innerHTML = `
-    <div class="jr">
-      <svg class="ring" viewBox="0 0 104 104" role="img" aria-label="${pct}% das áreas">
-        <circle class="bg" cx="52" cy="52" r="42"/>
-        <circle class="fg" cx="52" cy="52" r="42" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct/100)}" transform="rotate(-90 52 52)"/>
-        <text x="52" y="59" text-anchor="middle">${pct}%</text>
-      </svg>
-      <div>
-        <h3>Você trocou ${nCov} de ${DATA.length} serviços</h3>
-        <div class="segdots">${DATA.map((s,si)=>`<span class="${cov[si]?'on':''}" title="${esc(s.n)}"><i class="fa-solid ${s.ic}"></i></span>`).join('')}</div>
-      </div>
-    </div>
-    ${next ? `<div class="msg" style="margin:0 0 16px"><i class="fa-solid fa-forward"></i><div><p><b>Próxima troca:</b> ${esc(DATA[nextSi].ref)} por <b>${esc(next[0])}</b>.</p>
-      <p class="muted">${esc((META[next[0]]||{}).d || next[5])}</p></div></div>` : ''}
-    <h3><i class="fa-solid fa-check" style="color:var(--green)"></i> Já uso (${state.uso.size})</h3>
-    ${state.uso.size ? `<ul class="jlist">${[...state.uso].map(item).join('')}</ul>` : '<p class="muted">Nada marcado ainda. Use o botão "Já uso" nos cartões.</p>'}
-    ${state.uso.size ? `<div class="jfoot">
+  $('#navBadge').textContent = $('#dockBadge').textContent = state.fav.size || '';
+  $('#journey').innerHTML = state.fav.size ? `<ul class="jlist">${[...state.fav].map(n=>{
+      const r = BYNAME[n];
+      return `<li><span><b>${esc(n)}</b><small>${esc(r.s.n)} · no lugar de ${esc(r.s.ref)}</small></span>
+      <span class="mini"><button class="act" data-goto="${r.si}" title="Ver"><i class="fa-solid fa-arrow-right"></i></button><button class="act" data-act="fav" data-n="${esc(n)}" aria-label="Remover" title="Remover"><i class="fa-solid fa-xmark"></i></button></span></li>`;
+    }).join('')}</ul>
+    <div class="jfoot">
       <button class="btn sm" id="copyList"><i class="fa-solid fa-copy"></i> Copiar lista</button>
       <button class="btn sm" id="jrClear"><i class="fa-solid fa-trash"></i> Limpar</button>
-    </div>` : ''}`;
+    </div>` : '<p class="muted" style="margin:0">Nada ainda. Toque no <i class="fa-solid fa-heart"></i> de uma opção para guardar aqui.</p>';
 }
 
 /* Ações */
@@ -1413,13 +1390,13 @@ function shareProfile(){
 }
 function exportCSV(){
   const rows = sortRows(filteredRows());
-  const head = ['Área','Substitui','Opção','Tipo','Nota','Sua nota','Uso','Soberania','Software livre','Social','Maturidade','Qualidade','Uso BR','Uso AL','Uso EUA','Uso EU','Ponto positivo','Ponto negativo','Saiba antes','Link','Já uso'];
+  const head = ['Área','Substitui','Opção','Tipo','Nota','Sua nota','Uso','Soberania','Software livre','Social','Maturidade','Qualidade','Uso BR','Uso AL','Uso EUA','Uso EU','Ponto positivo','Ponto negativo','Dica','Link','Favorito'];
   const q = v => '"' + String(v ?? '').replace(/"/g,'""') + '"';
   const lines = [head, ...rows.map(({a,s})=>{
     const M = META[a[0]] || {};
     const N = NOTA[a[0]];
     return [s.n, s.ref, a[0], a[1].map(t=>TIPOS[t].l).join(' + '), N.t, state.perfil ? notaPessoal(a[0]) : '', N.u, N.s, N.l, N.f, a[2] ?? '', a[3] ?? '', ...a[4].map(v=>v||''),
-      a[5], a[6], M.d||'', M.u||'', state.uso.has(a[0])?'sim':''];
+      a[5], a[6], M.d||'', M.u||'', state.fav.has(a[0])?'sim':''];
   })].map(r=>r.map(q).join(';'));
   const blob = new Blob(['﻿' + lines.join('\r\n')], {type:'text/csv;charset=utf-8'});
   const url = URL.createObjectURL(blob), link = document.createElement('a');
@@ -1437,17 +1414,31 @@ function toggleSet(set, key, n){
 const areaDe = n => DATA.findIndex(s=>s.a.some(a=>a[0]===n));
 function renderPicks(){
   const MES = ESCOLHAS;
-  $('#picks').innerHTML = MES.map(([n,t],i)=>`<button class="pick" type="button" data-goto="${areaDe(n)}"><em>${i+1}. ${esc(DATA[areaDe(n)].n)}</em><b>${esc(n)}</b><span>${esc(t)}</span></button>`).join('');
+  $('#picks').innerHTML = MES.map(([n,t],i)=>`<button class="pick" type="button" data-goto="${areaDe(n)}"><em>${i+1}. ${esc(DATA[areaDe(n)].n)}</em><b>${esc(n)}</b><span>${esc(t)}</span><span class="go">Ver opções <i class="fa-solid fa-arrow-right"></i></span></button>`).join('');
   const sem = Math.floor((Date.now()/864e5 + 3) / 7) % MES.length, [n,t] = MES[sem];
   const el = $('#semana'); el.dataset.goto = areaDe(n);
-  el.innerHTML = `<i class="fa-solid fa-star big"></i><div><small>Indicação da semana</small><b>${esc(n)}</b> — ${esc(t)}</div>`;
+  el.innerHTML = `<i class="fa-solid fa-star big"></i><div><small>Indicação da semana</small><b>${esc(n)}</b> — ${esc(t)}</div><i class="fa-solid fa-chevron-right go" style="margin-left:auto"></i>`;
 }
 function renderDica(){
   const op = ALL.filter(r=>!(PROF[r.a[0]]||{}).x), r = op[Math.floor(Math.random()*op.length)];
   const el = $('#dica'); el.dataset.goto = r.si;
-  el.innerHTML = `<i class="fa-solid fa-lightbulb big"></i><div><small>Dica aleatória</small><b>${esc(r.a[0])}</b> no lugar de ${esc(DATA[r.si].ref)} — ${esc(r.a[5])}</div><button class="btn sm" type="button" id="outraDica" title="Outra dica"><i class="fa-solid fa-shuffle"></i></button>`;
+  el.innerHTML = `<i class="fa-solid fa-lightbulb big"></i><div><small>Dica aleatória</small><b>${esc(r.a[0])}</b> no lugar de ${esc(DATA[r.si].ref)} — ${esc(r.a[5])}</div><button class="btn sm" type="button" id="outraDica"><i class="fa-solid fa-shuffle"></i> Outra dica</button>`;
 }
-function refresh(){ render(); renderOverview(); renderJourney(); renderRes(); }
+function refresh(){ render(); renderOverview(); renderJourney(); renderRes(); if(dlgSi!=null) openArea(dlgSi); }
+/* Área num modal, em vez de rolar até a lista */
+let dlgSi = null;
+function openArea(si){
+  const s = DATA[si], st = STATUS[s.st], dlg = $('#dlg');
+  dlgSi = si;
+  $('#dlgI').innerHTML = `<i class="fa-solid ${s.ic}"></i>`;
+  $('#dlgT').textContent = `${s.n}: no lugar de ${s.ref}`;
+  $('#dlgB').innerHTML = `<p class="verdict ${st.c}"><b>${st.l}.</b> ${esc(s.tr)}</p>
+    ${s.note?`<div class="note"><i class="fa-solid fa-circle-info"></i><span>${esc(s.note)}</span></div>`:''}
+    <div class="alts">${sortRows(ALL.filter(r=>r.si===si)).map(r=>altCard(r.a)).join('')}</div>`;
+  if(!dlg.open) dlg.showModal();
+}
+$('#dlg').addEventListener('close', ()=>{ dlgSi = null; });
+$('#dlg').addEventListener('click', e=>{ if(e.target.id==='dlg') e.target.close(); });
 function goto(si){
   state.q = ''; $('#q').value = ''; state.tipo = null; state.st = null;
   if(state.soPerfil && !DATA[si].a.some(a=>fits(a))) state.soPerfil = false;
@@ -1470,9 +1461,9 @@ document.addEventListener('click', e=>{
   }
   if((el = T('[data-act]'))){
     const n = el.dataset.n, kind = el.dataset.act;
-    if(kind==='uso'){
-      const on = toggleSet(state.uso, 'sd-uso', n);
-      toast(on ? 'Marcado como em uso' : 'Desmarcado');
+    if(kind==='fav'){
+      const on = toggleSet(state.fav, 'sd-fav', n);
+      toast(on ? 'Guardado nos favoritos' : 'Tirado dos favoritos');
     }
     refresh(); return;
   }
@@ -1484,7 +1475,7 @@ document.addEventListener('click', e=>{
     return;
   }
   if(T('#outraDica')){ renderDica(); return; }
-  if((el = T('[data-goto]'))){ goto(+el.dataset.goto); return; }
+  if((el = T('[data-goto]'))){ openArea(+el.dataset.goto); return; }
   if((el = T('[data-t]'))){ state.tipo = state.tipo===el.dataset.t ? null : el.dataset.t; renderChips(); render(); return; }
   if((el = T('[data-s]'))){ state.st = state.st===el.dataset.s ? null : el.dataset.s; renderChips(); render(); return; }
   if((el = T('[data-stat]'))){ state.st = el.dataset.stat; renderChips(); render(); goMapa(); return; }
@@ -1508,6 +1499,8 @@ document.addEventListener('click', e=>{
       $('#quizForm').reset(); renderQuiz(); renderChips(); refresh();
       showQuiz(true); break;
     case 'openQuiz': showQuiz(true); break;
+    case 'resMin': state.resMin = !state.resMin; renderRes(); break;
+    case 'dlgX': $('#dlg').close(); break;
     case 'closeQuiz': showQuiz(false); break;
     case 'shareProf': shareProfile(); break;
     case 'printProf':
@@ -1524,7 +1517,7 @@ document.addEventListener('click', e=>{
       state.q=''; $('#q').value=''; state.tipo=null; state.st=null; state.soPerfil=false; renderChips(); render(); break;
     case 'copyList': {
       const fmt = set => [...set].map(n=>`• ${n} (no lugar de ${BYNAME[n].s.ref})`).join('\n') || '—';
-      copyText(`Alternativas às big techs que eu já uso:\n${fmt(state.uso)}`, 'Lista copiada'); break;
+      copyText(`Minhas alternativas às big techs favoritas:\n${fmt(state.fav)}`, 'Lista copiada'); break;
     }
     case 'wipeData': {
       const b = $('#wipeData');
@@ -1533,8 +1526,8 @@ document.addEventListener('click', e=>{
         setTimeout(()=>{ b.dataset.armed=''; b.innerHTML='<i class="fa-solid fa-trash"></i> Apagar meus dados deste aparelho'; }, 4000);
         break;
       }
-      try{ ['sd-perfil','sd-uso','sd-testar','sd-view','sd-zoom','sd-contrast','sd-theme'].forEach(k=>localStorage.removeItem(k)); }catch(err){}
-      state.perfil = null; state.soPerfil = false; state.uso.clear();
+      try{ ['sd-perfil','sd-fav','sd-uso','sd-testar','sd-view','sd-zoom','sd-contrast','sd-theme'].forEach(k=>localStorage.removeItem(k)); }catch(err){}
+      state.perfil = null; state.soPerfil = false; state.fav.clear();
       zoom = 1; applyZoom(); applyContrast(false);
       $('#quizForm').reset(); renderQuiz(); renderChips(); showQuiz(false); refresh();
       b.dataset.armed=''; b.innerHTML='<i class="fa-solid fa-trash"></i> Apagar meus dados deste aparelho';
@@ -1544,7 +1537,7 @@ document.addEventListener('click', e=>{
     case 'installBtn': case 'installTop': installApp(); break;
     case 'jrClear':
       if(confirm('Apagar a lista?')){
-        state.uso.clear(); save('sd-uso',[]); refresh(); toast('Lista apagada');
+        state.fav.clear(); save('sd-fav',[]); refresh(); toast('Lista apagada');
       } break;
   }
 });
@@ -1610,7 +1603,6 @@ $('#themeBtn').addEventListener('click', ()=>{
 
 /* Voltar ao topo */
 const toTop = $('#toTop');
-addEventListener('scroll', ()=> toTop.classList.toggle('show', scrollY > 600), {passive:true});
 toTop.addEventListener('click', ()=> scrollTo({top:0, behavior:'smooth'}));
 
 /* Links com âncora: perfil compartilhado e seções */
